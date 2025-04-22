@@ -126,16 +126,41 @@ impl From<&str> for Equation {
     }
 }
 
+impl Value {
+    fn to_number(&self, candidates: &HashMap<char, u8>) -> Option<u128> {
+        // Leading 0s are not valid
+        if self.0.starts_with(|c| candidates.get(&c) == Some(&0)) {
+            return None;
+        }
+
+        let num_str: String = self
+            .0
+            .chars()
+            .map(|c| {
+                candidates
+                    .get(&c)
+                    .expect("letter should be in candidate mapping")
+                    .to_string()
+            })
+            .collect();
+
+        num_str.parse().ok()
+    }
+}
+
+impl Expression {
+    fn sum(&self, candidates: &HashMap<char, u8>) -> Option<u128> {
+        self.0
+            .iter()
+            .map(|value| value.to_number(candidates))
+            .try_fold(0_u128, |acc, num| num.map(|n| acc.checked_add(n))?)
+    }
+}
+
 impl Equation {
     fn is_valid(&self, candidates: &HashMap<char, u8>) -> bool {
-        let lhs_sum = self
-            .lhs
-            .0
-            .iter()
-            .map(|value| self.word_to_number(&value.0, candidates))
-            .try_fold(0_u128, |acc, num| num.map(|n| acc.checked_add(n))?);
-
-        let rhs_value = self.word_to_number(&self.rhs.0, candidates);
+        let lhs_sum = self.lhs.sum(candidates);
+        let rhs_value = self.rhs.to_number(candidates);
 
         match (lhs_sum, rhs_value) {
             (Some(lhs), Some(rhs)) => lhs == rhs,
@@ -148,13 +173,7 @@ impl Equation {
             return true;
         }
 
-        let words: Vec<&str> = self
-            .lhs
-            .0
-            .iter()
-            .map(|v| v.0.as_str())
-            .chain(iter::once(self.rhs.0.as_str()))
-            .collect();
+        let words: Vec<&str> = self.words();
         let max_len = words.iter().map(|w| w.len()).max().unwrap_or(0);
 
         // Tracking carry between columns
@@ -224,25 +243,6 @@ impl Equation {
         true
     }
 
-    fn word_to_number(&self, word: &str, candidates: &HashMap<char, u8>) -> Option<u128> {
-        // Leading 0s are not valid
-        if word.starts_with(|c| candidates.get(&c) == Some(&0)) {
-            return None;
-        }
-
-        let num_str: String = word
-            .chars()
-            .map(|c| {
-                candidates
-                    .get(&c)
-                    .expect("letter should be in candidate mapping")
-                    .to_string()
-            })
-            .collect();
-
-        num_str.parse().ok()
-    }
-
     fn ordered_letters(&self) -> Vec<char> {
         let freqs = self.letter_frequencies();
         let first_letters = self.first_letters();
@@ -273,24 +273,30 @@ impl Equation {
             .collect()
     }
 
+    fn words(&self) -> Vec<&str> {
+        self.lhs
+            .0
+            .iter()
+            .map(|v| v.0.as_str())
+            .chain(iter::once(self.rhs.0.as_str()))
+            .collect()
+    }
+
     fn first_letters(&self) -> HashSet<char> {
         let lhs = self.lhs.0.iter().flat_map(|v| v.0.chars().take(1));
         self.rhs.0.chars().take(1).chain(lhs).collect()
     }
 
     fn letter_frequencies(&self) -> HashMap<char, usize> {
-        let mut frequencies = HashMap::new();
-
-        for c in self.rhs.0.chars() {
-            *frequencies.entry(c).or_insert(0) += 1
-        }
-        for value in &self.lhs.0 {
-            for c in value.0.chars() {
-                *frequencies.entry(c).or_insert(0) += 1
-            }
-        }
-
-        frequencies
+        self.lhs
+            .0
+            .iter()
+            .flat_map(|v| v.0.chars())
+            .chain(self.rhs.0.chars())
+            .fold(HashMap::new(), |mut frequencies, c| {
+                *frequencies.entry(c).or_insert(0) += 1;
+                frequencies
+            })
     }
 }
 
