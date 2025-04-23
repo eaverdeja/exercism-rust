@@ -45,17 +45,13 @@ impl Frame {
 
     fn score_for_strike(&self, throw: u16, game: &BowlingGame) -> u16 {
         if let Some(next_frame) = self.next_frame(game) {
-            return if next_frame.throws.first() == Some(&10) {
+            return if next_frame.is_strike(0) {
                 // Consecutive strikes
                 if let Some(second_next_frame) = next_frame.next_frame(game) {
                     // If we still have frames, the game hasn't ended yet.
                     // We get bonus points for our second strike, plus
                     // the first throw from the 2nd next frame.
-                    let extra_throw = second_next_frame
-                        .throws
-                        .first()
-                        .expect("frame should have at least one throw");
-                    throw + PIN_COUNT + extra_throw
+                    throw + PIN_COUNT + second_next_frame.next_throw()
                 } else {
                     // Otherwise, we're at the 2nd last frame.
                     // In this case, we get bonus points from
@@ -75,12 +71,7 @@ impl Frame {
     fn score_for_spare(&self, throw: u16, game: &BowlingGame) -> u16 {
         if let Some(next_frame) = self.next_frame(game) {
             // Spares get bonus points from the next throw
-            let next_throw = next_frame
-                .throws
-                .first()
-                .expect("frame should have at least one throw");
-
-            return throw + next_throw;
+            return throw + next_frame.next_throw();
         }
         // Last frame spares do not get bonus points
         // from the next throw
@@ -88,11 +79,7 @@ impl Frame {
     }
 
     fn next_frame<'a>(&'a self, game: &'a BowlingGame) -> Option<&'a Frame> {
-        if self.index + 1 < FRAMES_COUNT {
-            game.frames.get(self.index + 1)
-        } else {
-            None
-        }
+        game.frames.get(self.index + 1)
     }
 
     fn remaining_pins(&self) -> u16 {
@@ -117,12 +104,11 @@ impl Frame {
     }
 
     fn is_spare(&self) -> bool {
-        let mut throws = self.throws.iter();
-        if let (Some(first_throw), Some(second_throw)) = (throws.next(), throws.next()) {
-            first_throw + second_throw == PIN_COUNT
-        } else {
-            false
-        }
+        self.next_throw() + self.last_throw() == PIN_COUNT
+    }
+
+    fn next_throw(&self) -> &u16 {
+        self.throws.first().unwrap_or(&0)
     }
 
     fn last_throw(&self) -> &u16 {
