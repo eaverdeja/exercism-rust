@@ -1,4 +1,4 @@
-/// Check a Luhn checksum.
+// Check a Luhn checksum.
 pub fn is_valid(code: &str) -> bool {
     let filtered: Vec<char> = code.chars().filter(|c| !c.is_whitespace()).collect();
 
