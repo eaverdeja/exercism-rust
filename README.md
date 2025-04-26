@@ -2,6 +2,12 @@
 
 Here's a brief analysis of each solution. This can be used to search for common language features. Solutions are ordered alphabetically.
 
+> #### Disclaimer:
+> We inherently imitate to learn. None of these solutions are my own - some were
+> inspired by community solutions from Exercism, others were ideas proposed by AI.
+> There are even a few that were of my own devise, but even then I probably
+> tapped into the collective unconscious to come up with them.
+  
 ## [Acronym](https://github.com/eaverdeja/exercism-rust/tree/main/acronym)
 
 - Method chaining with `split`, `filter`, `map`, `collect`
@@ -330,6 +336,13 @@ Here's a brief analysis of each solution. This can be used to search for common 
 This list was initially generated with Claude code with the following prompt:
 
 > This directory is composed of several small Rust projects. Can you go into each directory and check out the solution for the problem described in the README, contained in the src folder, and provide some commentary regarding the solution? Keep it brief and to the point (no flattering please), but please note any notable language features employed in the solution, or just smart choices in general. Please provide this in a markdown format, with each problem statement as a header, and commentary in a list format. Oh, and order the problems alphabetically.
+
+The resulting list was then formatted with the following prompt:
+
+> Can you help me make the following markdown list a bit prettier?
+> 1. Each header should be prefixed with ## (for h2)
+> 2. Each header should be formatted as a link to the github repo where these solutions are hosted. You can assume there's a valid link at https://github.com/eaverdeja/exercism-rust/tree/main/{kebab-case-solution-name}
+> 3. Enclose any word that describes some code item in backticks. For ex. HashSet, step_by(), Enum, trait, AsRef<[T]>, function names, enum variants etc.
 
 For subsequent generations, one could add to the prompt:
 
