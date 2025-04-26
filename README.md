@@ -369,7 +369,7 @@ Below is a brief analysis of each solution. This can be used to search for commo
 - `parse()` with error handling for safe number conversion
 - `repeat()` method for character replication during decoding
 
-## [Saddle Points](https://github.com/eaverdeja/exercism-rust/tree/main/saddle-points)
+## [Saddle Points](https://github.com/eaverdeja/exercism-rust/tree/main/saddle-points/src/lib.rs)
 
 - `iter().enumerate()` with tuple unpacking to track indices
 - Precomputes column minimums for efficiency
