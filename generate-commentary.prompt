@@ -1,0 +1,18 @@
+> This directory is composed of several small Rust projects.
+Can you go into each directory and check out the problem 
+described in the README and the solution contained in the src folder, and provide some 
+commentary regarding the solution? Keep it brief and to the point (no flattering please),
+ but please note any notable language features employed in the solution, 
+ or just smart choices in general. Please provide this in a markdown format, 
+ with each problem statement as a header, and commentary in a list format. 
+ Oh, and order the problems alphabetically.
+
+Please do the following to make the markdown prettier:
+> 1. Each header should be prefixed with ## (for h2)
+> 2. Each header should be formatted as a title with a link to the github repo where these solutions are hosted.
+    You can assume there's a valid link at https://github.com/eaverdeja/exercism-rust/tree/main/{kebab-case-solution-name}
+> 3. Enclose any word that describes some code item in backticks.
+    For ex. HashSet, step_by(), Enum, trait, AsRef<[T]>, function names, enum variants etc.
+
+Also, please look at the top-level README.md file and note solutions that are already accounted for. Do not recurse into the subdirectories for these solutions. Only annotate solutions that are not present in the top-level README.md.
+Skip analyzing directories for solutions that are already accounted for. Do not generate the whole README, just the new sections.
