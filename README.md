@@ -286,7 +286,7 @@ Here's a brief analysis of each solution. This can be used to search for common 
 - Custom structs for chess positions
 - Range pattern matching for validation
 - Algebraic properties for attack detection
-- Absolute differences for diagonal checking with `abs_dif()`
+- Absolute differences for diagonal checking with `abs_diff()`
 
 ## [Raindrops](https://github.com/eaverdeja/exercism-rust/tree/main/raindrops/src/lib.rs)
 
