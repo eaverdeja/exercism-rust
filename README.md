@@ -50,6 +50,8 @@ Below is a brief analysis of each solution. This can be used to search for commo
 - [Space Age](#space-age)
 - [Sublist](#sublist)
 - [Sum of Multiples](#sum-of-multiples)
+- [Testing](#testing)
+- [Metrics](#metrics)
 
 ## Disclaimer
 > We inherently imitate to learn. None of these solutions are my own - some were
@@ -398,6 +400,19 @@ For subsequent generations, one could add to the prompt:
 > Please look at the top-level README.md file and note solutions that are already accounted for. Do not recurse into the subdirectories for these solutions. Only annotate solutions that are not present in the top-level README.md
 
 ---
+
+## Testing
+
+This repo is structured as a Cargo workspace, in where each solution is a "member". This allows us to run tests for all solutions in one go with:
+```console
+$ cargo test --workspace --test '*'
+```
+
+This is taking ~2.7s on my M1 max 32GB.
+The main offenders here are [Alphametics](#alphametics) and [Palindrome Products](#palindrome-products). Alphametics is especially brutal with its [final boss test case](https://github.com/eaverdeja/exercism-rust/blob/main/alphametics/tests/alphametics.rs#L105).
+
+
+## Metrics
 
 Here are all solutions ordered by lines of code. Use this a proxy for how complex or elegant a solution is 😄
 
