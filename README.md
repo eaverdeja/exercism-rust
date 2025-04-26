@@ -1,8 +1,57 @@
+<!-- omit in toc -->
 # Solutions to the problems in the [Rust Exercism track](https://exercism.org/tracks/rust)
 
-Here's a brief analysis of each solution. This can be used to search for common language features. Solutions are ordered alphabetically.
+Below is a brief analysis of each solution. This can be used to search for common language features. Solutions are ordered alphabetically.
 
-> #### Disclaimer:
+- [Disclaimer](#disclaimer)
+- [Acronym](#acronym)
+- [All-Your-Base](#all-your-base)
+- [Allergies](#allergies)
+- [Alphametics](#alphametics)
+- [Anagram](#anagram)
+- [Armstrong Numbers](#armstrong-numbers)
+- [Binary Search](#binary-search)
+- [Bob](#bob)
+- [Bottle Song](#bottle-song)
+- [Bowling](#bowling)
+- [Clock](#clock)
+- [Collatz Conjecture](#collatz-conjecture)
+- [Difference of Squares](#difference-of-squares)
+- [Dot DSL](#dot-dsl)
+- [Eliud's Eggs](#eliuds-eggs)
+- [ETL](#etl)
+- [Gigasecond](#gigasecond)
+- [Grade School](#grade-school)
+- [Grains](#grains)
+- [Hamming](#hamming)
+- [Hello World](#hello-world)
+- [High Scores](#high-scores)
+- [ISBN Verifier](#isbn-verifier)
+- [Isogram](#isogram)
+- [Kindergarten Garden](#kindergarten-garden)
+- [Leap](#leap)
+- [Luhn](#luhn)
+- [Matching Brackets](#matching-brackets)
+- [Minesweeper](#minesweeper)
+- [Nth Prime](#nth-prime)
+- [Nucleotide Count](#nucleotide-count)
+- [PaaS I/O](#paas-io)
+- [Palindrome Products](#palindrome-products)
+- [Pangram](#pangram)
+- [Pascal's Triangle](#pascals-triangle)
+- [Perfect Numbers](#perfect-numbers)
+- [Pig Latin](#pig-latin)
+- [Prime Factors](#prime-factors)
+- [Proverb](#proverb)
+- [Queen Attack](#queen-attack)
+- [Raindrops](#raindrops)
+- [Reverse String](#reverse-string)
+- [Series](#series)
+- [Space Age](#space-age)
+- [Sublist](#sublist)
+- [Sum of Multiples](#sum-of-multiples)
+
+## Disclaimer
 > We inherently imitate to learn. None of these solutions are my own - some were
 > inspired by community solutions from Exercism, others were ideas proposed by AI.
 > There are even a few that were of my own devise, but even then I probably
