@@ -1,4 +1,4 @@
 #!/bin/bash
 
-# runs tokei excluding tests, markdown and TOML files
-tokei . -e tests/ -e \*.md -e \*.toml -e \*.sh -f -s code
+# runs tokei excluding tests, markdown, TOML files and other assets
+tokei . -e tests/ -e \*.md -e \*.toml -e \*.sh -e \*.svg -f -s code
