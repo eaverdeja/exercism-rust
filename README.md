@@ -47,6 +47,7 @@ Below is a brief analysis of each solution. This can be used to search for commo
 - [Raindrops](#raindrops)
 - [Reverse String](#reverse-string)
 - [RNA Transcription](#rna-transcription)
+- [Run-length Encoding](#run-length-encoding)
 - [Series](#series)
 - [Space Age](#space-age)
 - [Sublist](#sublist)
@@ -359,6 +360,13 @@ Below is a brief analysis of each solution. This can be used to search for commo
 - Tuple structs with private data (`Dna(String)`, `Rna(String)`)
 - Pattern matching with match for nucleotide conversion
 - `try_fold` for validation with early return on error
+
+## [Run-length Encoding](https://github.com/eaverdeja/exercism-rust/tree/main/run-length-encoding)
+
+- `peekable()` iterator for lookahead while encoding
+- Iterative approach with state tracking variables for decoding
+- `parse()` with error handling for safe number conversion
+- `repeat()` method for character replication during decoding
 
 ## [Series](https://github.com/eaverdeja/exercism-rust/tree/main/series/src/lib.rs)
 
