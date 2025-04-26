@@ -8,7 +8,7 @@ Here's a brief analysis of each solution. This can be used to search for common 
 > There are even a few that were of my own devise, but even then I probably
 > tapped into the collective unconscious to come up with them.
   
-## [Acronym](https://github.com/eaverdeja/exercism-rust/tree/main/acronym)
+## [Acronym](https://github.com/eaverdeja/exercism-rust/tree/main/acronym/src/lib.rs)
 
 - Method chaining with `split`, `filter`, `map`, `collect`
 - Closures for filtering and mapping operations
@@ -16,7 +16,7 @@ Here's a brief analysis of each solution. This can be used to search for common 
 - Separate function handling special cases
 - Pattern matching with `char` predicates
 
-## [All-Your-Base](https://github.com/eaverdeja/exercism-rust/tree/main/all-your-base)
+## [All-Your-Base](https://github.com/eaverdeja/exercism-rust/tree/main/all-your-base/src/lib.rs)
 
 - Custom `Error` enum with variants
 - `Result` type for error handling
@@ -24,7 +24,7 @@ Here's a brief analysis of each solution. This can be used to search for common 
 - Split conversion into two phases: to/from decimal
 - `try_fold` for elegant error propagation
 
-## [Allergies](https://github.com/eaverdeja/exercism-rust/tree/main/allergies)
+## [Allergies](https://github.com/eaverdeja/exercism-rust/tree/main/allergies/src/lib.rs)
 
 - `Enum` with explicit discriminator values as bit flags
 - Bit manipulation with bitwise `AND` operations
@@ -32,7 +32,7 @@ Here's a brief analysis of each solution. This can be used to search for common 
 - Efficient bit checking with bitwise operations
 - Using enum discriminants as bit values
 
-## [Alphametics](https://github.com/eaverdeja/exercism-rust/tree/main/alphametics)
+## [Alphametics](https://github.com/eaverdeja/exercism-rust/tree/main/alphametics/src/lib.rs)
 
 - Backtracking algorithm implementation
 - `HashMap` and `HashSet` for efficient lookups
@@ -40,7 +40,7 @@ Here's a brief analysis of each solution. This can be used to search for common 
 - Prunes invalid candidates early with partial validation
 - Letter ordering optimization to improve search efficiency
 
-## [Anagram](https://github.com/eaverdeja/exercism-rust/tree/main/anagram)
+## [Anagram](https://github.com/eaverdeja/exercism-rust/tree/main/anagram/src/lib.rs)
 
 - Lifetimes for borrowed data (`'a`)
 - Unicode handling with external crate
@@ -48,14 +48,14 @@ Here's a brief analysis of each solution. This can be used to search for common 
 - Using `graphemes` instead of `chars` for proper Unicode support
 - Direct `HashMap` comparison for anagram detection
 
-## [Armstrong Numbers](https://github.com/eaverdeja/exercism-rust/tree/main/armstrong-numbers)
+## [Armstrong Numbers](https://github.com/eaverdeja/exercism-rust/tree/main/armstrong-numbers/src/lib.rs)
 
 - Conversion of integer to string for digit extraction
 - Iterators with `map()` and `sum()` for calculation
 - Type conversion with `to_digit(10)`
 - Leveraging numeric `pow()` function for exponentiation
 
-## [Binary Search](https://github.com/eaverdeja/exercism-rust/tree/main/binary-search)
+## [Binary Search](https://github.com/eaverdeja/exercism-rust/tree/main/binary-search/src/lib.rs)
 
 - Generic implementation with `trait` bounds (`AsRef<[T]>`, `Ord`)
 - Recursive approach using slicing
@@ -63,7 +63,7 @@ Here's a brief analysis of each solution. This can be used to search for common 
 - Pattern matching on comparison result
 - `map()` to adjust indices when searching right half
 
-## [Bob](https://github.com/eaverdeja/exercism-rust/tree/main/bob)
+## [Bob](https://github.com/eaverdeja/exercism-rust/tree/main/bob/src/lib.rs)
 
 - Pattern matching with guard clauses
 - Function composition for separation of concerns
@@ -71,14 +71,14 @@ Here's a brief analysis of each solution. This can be used to search for common 
 - Character classification methods
 - Efficient iterators with `filter()`, `all()`, `any()`
 
-## [Bottle Song](https://github.com/eaverdeja/exercism-rust/tree/main/bottle-song)
+## [Bottle Song](https://github.com/eaverdeja/exercism-rust/tree/main/bottle-song/src/lib.rs)
 
 - Range-based iteration for multiple verses
 - String formatting with `format!()` macro
 - String concatenation with `join()` method
 - Conditional logic for singular/plural cases
 
-## [Bowling](https://github.com/eaverdeja/exercism-rust/tree/main/bowling)
+## [Bowling](https://github.com/eaverdeja/exercism-rust/tree/main/bowling/src/lib.rs)
 
 - Object-oriented design with multiple structures
 - Custom `Error` enum for error handling
@@ -86,7 +86,7 @@ Here's a brief analysis of each solution. This can be used to search for common 
 - Fixed-size array initialization
 - Method organization for clear separation of concerns
 
-## [Clock](https://github.com/eaverdeja/exercism-rust/tree/main/clock)
+## [Clock](https://github.com/eaverdeja/exercism-rust/tree/main/clock/src/lib.rs)
 
 - Implementation of `Display` trait for formatting
 - `rem_euclid` for proper modular arithmetic
@@ -94,20 +94,20 @@ Here's a brief analysis of each solution. This can be used to search for common 
 - Custom implementation of `PartialEq`
 - Zero-padding in formatting with `{:02}`
 
-## [Collatz Conjecture](https://github.com/eaverdeja/exercism-rust/tree/main/collatz-conjecture)
+## [Collatz Conjecture](https://github.com/eaverdeja/exercism-rust/tree/main/collatz-conjecture/src/lib.rs)
 
 - Pattern matching with conditions
 - Recursive function with `Option` for errors
 - Guard against arithmetic overflow with `checked_*`
 - Function composition with `map`
 
-## [Difference of Squares](https://github.com/eaverdeja/exercism-rust/tree/main/difference-of-squares)
+## [Difference of Squares](https://github.com/eaverdeja/exercism-rust/tree/main/difference-of-squares/src/lib.rs)
 
 - Range iteration with inclusive ranges
 - Method chaining with `sum` and `map`
 - Algorithmic optimization (O(n) to O(1))
 
-## [Dot DSL](https://github.com/eaverdeja/exercism-rust/tree/main/dot-dsl)
+## [Dot DSL](https://github.com/eaverdeja/exercism-rust/tree/main/dot-dsl/src/lib.rs)
 
 - Builder pattern implementation
 - Module organization with submodules
@@ -115,200 +115,200 @@ Here's a brief analysis of each solution. This can be used to search for common 
 - Custom `trait` implementations (`Deref`, `From`, `PartialEq`)
 - Method chaining (fluent interface)
 
-## [Eliud's Eggs](https://github.com/eaverdeja/exercism-rust/tree/main/eliuds-eggs)
+## [Eliud's Eggs](https://github.com/eaverdeja/exercism-rust/tree/main/eliuds-eggs/src/lib.rs)
 
 - Bit manipulation with shift and mask operations
 - Functional approach with `filter` and `count`
 - Helper function for bit counting logic
 
-## [ETL](https://github.com/eaverdeja/exercism-rust/tree/main/etl)
+## [ETL](https://github.com/eaverdeja/exercism-rust/tree/main/etl/src/lib.rs)
 
 - `BTreeMap` for ordered map functionality
 - Flat mapping for data transformation
 - Functional pipeline with iterators
 
-## [Gigasecond](https://github.com/eaverdeja/exercism-rust/tree/main/gigasecond)
+## [Gigasecond](https://github.com/eaverdeja/exercism-rust/tree/main/gigasecond/src/lib.rs)
 
 - External crate usage (`time`)
 - Operator overloading
 - Numeric literal with underscore for readability
 
-## [Grade School](https://github.com/eaverdeja/exercism-rust/tree/main/grade-school)
+## [Grade School](https://github.com/eaverdeja/exercism-rust/tree/main/grade-school/src/lib.rs)
 
 - `BTreeMap` for sorted key storage
 - `BTreeSet` for sorted unique values
 - `Default` trait implementation
 - Smart use of entry API for insertions
 
-## [Grains](https://github.com/eaverdeja/exercism-rust/tree/main/grains)
+## [Grains](https://github.com/eaverdeja/exercism-rust/tree/main/grains/src/lib.rs)
 
 - Pattern matching with ranges
 - Power function with type annotation
 - Functional approach with `map` and `sum`
 
-## [Hamming](https://github.com/eaverdeja/exercism-rust/tree/main/hamming)
+## [Hamming](https://github.com/eaverdeja/exercism-rust/tree/main/hamming/src/lib.rs)
 
 - Early return pattern for error handling
 - Iterator chaining with `zip`, `filter`, `count`
 - `Option` type for error handling
 - Tuple pattern matching in `filter`
 
-## [Hello World](https://github.com/eaverdeja/exercism-rust/tree/main/hello-world)
+## [Hello World](https://github.com/eaverdeja/exercism-rust/tree/main/hello-world/src/lib.rs)
 
 - String literal with static lifetime (`&'static str`)
 - Basic function declaration with return type
 
-## [High Scores](https://github.com/eaverdeja/exercism-rust/tree/main/high-scores)
+## [High Scores](https://github.com/eaverdeja/exercism-rust/tree/main/high-scores/src/lib.rs)
 
 - `Struct` with lifetime parameter (`'a`)
 - Iterator methods (`last()`, `cloned()`, `max()`)
 - Vector manipulation with `sort()`, `rev()`, `take()`
 - Borrowing with lifetimes
 
-## [ISBN Verifier](https://github.com/eaverdeja/exercism-rust/tree/main/isbn-verifier)
+## [ISBN Verifier](https://github.com/eaverdeja/exercism-rust/tree/main/isbn-verifier/src/lib.rs)
 
 - String manipulation with `replace()`
 - `try_fold()` for calculation with early exit
 - Special case handling with conditional logic
 - `enumerate()` to track position
 
-## [Isogram](https://github.com/eaverdeja/exercism-rust/tree/main/isogram)
+## [Isogram](https://github.com/eaverdeja/exercism-rust/tree/main/isogram/src/lib.rs)
 
 - `HashSet` for efficient duplicate checking
 - Chained iterator methods
 - Using `insert()` return value for duplicate checking
 - Case-insensitive comparison with `to_ascii_lowercase()`
 
-## [Kindergarten Garden](https://github.com/eaverdeja/exercism-rust/tree/main/kindergarten-garden)
+## [Kindergarten Garden](https://github.com/eaverdeja/exercism-rust/tree/main/kindergarten-garden/src/lib.rs)
 
 - Constant array for student names
 - `position()` to find array index by name
 - Pattern matching for seed type conversion
 - Complex iterator chaining
 
-## [Leap](https://github.com/eaverdeja/exercism-rust/tree/main/leap)
+## [Leap](https://github.com/eaverdeja/exercism-rust/tree/main/leap/src/lib.rs)
 
 - Pattern matching for different cases
 - Readable approach to complex boolean logic
 - Performance-optimized conditionals
 
-## [Luhn](https://github.com/eaverdeja/exercism-rust/tree/main/luhn)
+## [Luhn](https://github.com/eaverdeja/exercism-rust/tree/main/luhn/src/lib.rs)
 
 - Input validation with multiple conditions
 - Advanced iterator operations
 - Numeric conversion with `to_digit(10)`
 - Modulo checking for algorithm validation
 
-## [Matching Brackets](https://github.com/eaverdeja/exercism-rust/tree/main/matching-brackets)
+## [Matching Brackets](https://github.com/eaverdeja/exercism-rust/tree/main/matching-brackets/src/lib.rs)
 
 - `HashMap` for bracket pairs
 - Stack-based algorithm with `Vec` push/pop
 - Pattern matching for character types
 - Conditional logic with `if let`
 
-## [Minesweeper](https://github.com/eaverdeja/exercism-rust/tree/main/minesweeper)
+## [Minesweeper](https://github.com/eaverdeja/exercism-rust/tree/main/minesweeper/src/lib.rs)
 
 - 2D grid processing with string/byte conversion
 - Nested mapping for coordinates
 - Boundary checking logic for grid neighbors
 - `as_bytes()` for performance optimization
 
-## [Nth Prime](https://github.com/eaverdeja/exercism-rust/tree/main/nth-prime)
+## [Nth Prime](https://github.com/eaverdeja/exercism-rust/tree/main/nth-prime/src/lib.rs)
 
 - Functional approach with iterator chaining
 - Square root optimization for primality checking
 - `step_by(2)` to skip even numbers
 - Iterator methods for sequence processing
 
-## [Nucleotide Count](https://github.com/eaverdeja/exercism-rust/tree/main/nucleotide-count)
+## [Nucleotide Count](https://github.com/eaverdeja/exercism-rust/tree/main/nucleotide-count/src/lib.rs)
 
 - `HashMap` for count storage
 - `try_fold` for iteration with error handling
 - `Result` type for errors
 - Functional collection initialization
 
-## [PaaS I/O](https://github.com/eaverdeja/exercism-rust/tree/main/paasio)
+## [PaaS I/O](https://github.com/eaverdeja/exercism-rust/tree/main/paasio/src/lib.rs)
 
 - Wrapper types for I/O statistics tracking
 - Generic types with `trait` bounds
 - Implementation of `Read` and `Write` traits
 - `Result.inspect()` for side effects
 
-## [Palindrome Products](https://github.com/eaverdeja/exercism-rust/tree/main/palindrome-products)
+## [Palindrome Products](https://github.com/eaverdeja/exercism-rust/tree/main/palindrome-products/src/lib.rs)
 
 - Custom structs for factor representation
 - `HashSet` for unique factor pairs
 - Square root optimization
 - Skipping multiples of 10
 
-## [Pangram](https://github.com/eaverdeja/exercism-rust/tree/main/pangram)
+## [Pangram](https://github.com/eaverdeja/exercism-rust/tree/main/pangram/src/lib.rs)
 
 - Case insensitivity with `to_lowercase()`
 - Functional solution with character range and `all()`
 - `contains()` method for letter checking
 
-## [Pascal's Triangle](https://github.com/eaverdeja/exercism-rust/tree/main/pascals-triangle)
+## [Pascal's Triangle](https://github.com/eaverdeja/exercism-rust/tree/main/pascals-triangle/src/lib.rs)
 
 - `fold()` to build rows incrementally
 - Functional approach with `map()`
 - Pattern matching for edge cases
 - Compact code with closures
 
-## [Perfect Numbers](https://github.com/eaverdeja/exercism-rust/tree/main/perfect-numbers)
+## [Perfect Numbers](https://github.com/eaverdeja/exercism-rust/tree/main/perfect-numbers/src/lib.rs)
 
 - `Enum` for classification types
 - `match` on `Ordering` for classification
 - Square root optimization for factors
 - `?` operator for error propagation
 
-## [Pig Latin](https://github.com/eaverdeja/exercism-rust/tree/main/pig-latin)
+## [Pig Latin](https://github.com/eaverdeja/exercism-rust/tree/main/pig-latin/src/lib.rs)
 
 - Complex string parsing with pattern matching
 - `split_at()` for string manipulation
 - Helper functions for concern separation
 - `peekable()` iterator for lookahead
 
-## [Prime Factors](https://github.com/eaverdeja/exercism-rust/tree/main/prime-factors)
+## [Prime Factors](https://github.com/eaverdeja/exercism-rust/tree/main/prime-factors/src/lib.rs)
 
 - Loop with pattern matching
 - Trial division algorithm
 - Efficient value/divisor updates
 
-## [Proverb](https://github.com/eaverdeja/exercism-rust/tree/main/proverb)
+## [Proverb](https://github.com/eaverdeja/exercism-rust/tree/main/proverb/src/lib.rs)
 
 - `match` for empty list handling
 - `windows(2)` for adjacent pairs
 - Chained iterators for output construction
 - `join()` for string concatenation
 
-## [Queen Attack](https://github.com/eaverdeja/exercism-rust/tree/main/queen-attack)
+## [Queen Attack](https://github.com/eaverdeja/exercism-rust/tree/main/queen-attack/src/lib.rs)
 
 - Custom structs for chess positions
 - Range pattern matching for validation
 - Algebraic properties for attack detection
 - Absolute differences for diagonal checking with `abs_dif()`
 
-## [Raindrops](https://github.com/eaverdeja/exercism-rust/tree/main/raindrops)
+## [Raindrops](https://github.com/eaverdeja/exercism-rust/tree/main/raindrops/src/lib.rs)
 
 - Functional approach with iterators
 - Array of tuples for data-driven approach
 - `filter`/`map` pattern for transformation
 - String concatenation with `collect()`
 
-## [Reverse String](https://github.com/eaverdeja/exercism-rust/tree/main/reverse-string)
+## [Reverse String](https://github.com/eaverdeja/exercism-rust/tree/main/reverse-string/src/lib.rs)
 
 - `unicode_segmentation` crate for Unicode handling
 - Multiple implementation approaches
 - `chars().rev().collect()` pattern
 - Alternative `fold`-based approach
 
-## [Series](https://github.com/eaverdeja/exercism-rust/tree/main/series)
+## [Series](https://github.com/eaverdeja/exercism-rust/tree/main/series/src/lib.rs)
 
 - `windows()` for sliding window operations
 - Efficient collection transformation
 - Concise solution with chained methods
 
-## [Space Age](https://github.com/eaverdeja/exercism-rust/tree/main/space-age)
+## [Space Age](https://github.com/eaverdeja/exercism-rust/tree/main/space-age/src/lib.rs)
 
 - `const` values for orbital periods
 - `trait` with default implementation
@@ -316,7 +316,7 @@ Here's a brief analysis of each solution. This can be used to search for common 
 - `From` trait for type conversion
 - Single calculation applying to all planets
 
-## [Sublist](https://github.com/eaverdeja/exercism-rust/tree/main/sublist)
+## [Sublist](https://github.com/eaverdeja/exercism-rust/tree/main/sublist/src/lib.rs)
 
 - `Enum` for comparison results
 - Early returns for special cases
@@ -324,7 +324,7 @@ Here's a brief analysis of each solution. This can be used to search for common 
 - `windows()` for subsequence matching
 - Pattern matching on list length
 
-## [Sum of Multiples](https://github.com/eaverdeja/exercism-rust/tree/main/sum-of-multiples)
+## [Sum of Multiples](https://github.com/eaverdeja/exercism-rust/tree/main/sum-of-multiples/src/lib.rs)
 
 - `HashSet` for duplicate elimination
 - Functional pipeline with `filter`/`flat_map`/`collect`
@@ -417,3 +417,5 @@ Here are all solutions ordered by lines of code. Use this a proxy for how comple
  Total                                       52         2035         1566          199          270
 ====================================================================================================
 ```
+
+> This table was generated with `tokei`. See [this script](https://github.com/eaverdeja/exercism-rust/blob/main/loc-all.sh) for exact params.
