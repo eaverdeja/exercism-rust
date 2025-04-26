@@ -45,6 +45,7 @@ members = [
     "reverse-string",
     "rna-transcription",
     "run-length-encoding",
+    "saddle-points",
     "series",
     "space-age",
     "sublist",
