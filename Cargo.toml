@@ -43,6 +43,7 @@ members = [
     "queen-attack",
     "raindrops",
     "reverse-string",
+    "rna-transcription",
     "series",
     "space-age",
     "sublist",

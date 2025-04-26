@@ -46,6 +46,7 @@ Below is a brief analysis of each solution. This can be used to search for commo
 - [Queen Attack](#queen-attack)
 - [Raindrops](#raindrops)
 - [Reverse String](#reverse-string)
+- [RNA Transcription](#rna-transcription)
 - [Series](#series)
 - [Space Age](#space-age)
 - [Sublist](#sublist)
@@ -352,6 +353,12 @@ Below is a brief analysis of each solution. This can be used to search for commo
 - Multiple implementation approaches
 - `chars().rev().collect()` pattern
 - Alternative `fold`-based approach
+
+## [RNA Transcription](https://github.com/eaverdeja/exercism-rust/tree/main/rna-transcription)
+
+- Tuple structs with private data (`Dna(String)`, `Rna(String)`)
+- Pattern matching with match for nucleotide conversion
+- `try_fold` for validation with early return on error
 
 ## [Series](https://github.com/eaverdeja/exercism-rust/tree/main/series/src/lib.rs)
 
