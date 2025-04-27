@@ -9,10 +9,15 @@ commentary regarding the solution? Keep it brief and to the point (no flattering
 
 Please do the following to make the markdown prettier:
 > 1. Each header should be prefixed with ## (for h2)
-> 2. Each header should be formatted as a title with a link to the github repo where these solutions are hosted.
-    You can assume there's a valid link at https://github.com/eaverdeja/exercism-rust/tree/main/{kebab-case-solution-name}
+> 2. Each header should be formatted as a title for the project with an attached link to the github repo where these solutions are hosted.
+    You can assume there's a valid link at https://github.com/eaverdeja/exercism-rust/tree/main/{kebab-case-solution-name}/src/lib.rs
 > 3. Enclose any word that describes some code item in backticks.
     For ex. HashSet, step_by(), Enum, trait, AsRef<[T]>, function names, enum variants etc.
 
-Also, please look at the top-level README.md file and note solutions that are already accounted for. Do not recurse into the subdirectories for these solutions. Only annotate solutions that are not present in the top-level README.md.
-Skip analyzing directories for solutions that are already accounted for. Do not generate the whole README, just the new sections.
+Also, please look at the top-level README.md file and note solutions that are already accounted for.
+You only need to look into the table of contents of the README file to find that out.
+Do not read the entire file.
+Do not recurse into the subdirectories for the solutions that are already accounted for.
+Only annotate solutions that are not present in the top-level README.md.
+Remember, skip analyzing directories for solutions that are already accounted for.
+Do not generate the whole README, just the new sections.
