@@ -50,6 +50,7 @@ Below is a brief analysis of each solution. This can be used to search for commo
 - [Run-length Encoding](#run-length-encoding)
 - [Saddle Points](#saddle-points)
 - [Say](#say)
+- [Scrabble Score](#scrabble-score)
 - [Series](#series)
 - [Space Age](#space-age)
 - [Sublist](#sublist)
@@ -384,6 +385,14 @@ Below is a brief analysis of each solution. This can be used to search for commo
 - Breaking numbers into three-digit chunks with modulo and division operations
 - String formatting with the `format!` macro for constructing output
 - Pattern matching on number ranges (small numbers vs. large numbers)
+
+## [Scrabble Score](https://github.com/eaverdeja/exercism-rust/tree/main/scrabble-score/src/lib.rs)
+
+- Leverages functional programming with `map()` and `sum()` for concise implementation
+- Extensive pattern matching with the match expression for letter scoring
+- Pattern grouping with the `|` operator
+- Uses `to_ascii_uppercase()` to handle case-insensitive scoring
+- Uses a fallback with `_ => 0` to handle non-scoring characters gracefully
 
 ## [Series](https://github.com/eaverdeja/exercism-rust/tree/main/series/src/lib.rs)
 

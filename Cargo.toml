@@ -47,6 +47,7 @@ members = [
     "run-length-encoding",
     "saddle-points",
     "say",
+    "scrabble-score",
     "series",
     "space-age",
     "sublist",
