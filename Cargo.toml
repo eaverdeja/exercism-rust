@@ -46,6 +46,7 @@ members = [
     "rna-transcription",
     "run-length-encoding",
     "saddle-points",
+    "say",
     "series",
     "space-age",
     "sublist",

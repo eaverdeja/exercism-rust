@@ -49,6 +49,7 @@ Below is a brief analysis of each solution. This can be used to search for commo
 - [RNA Transcription](#rna-transcription)
 - [Run-length Encoding](#run-length-encoding)
 - [Saddle Points](#saddle-points)
+- [Say](#say)
 - [Series](#series)
 - [Space Age](#space-age)
 - [Sublist](#sublist)
@@ -374,6 +375,15 @@ Below is a brief analysis of each solution. This can be used to search for commo
 - `iter().enumerate()` with tuple unpacking to track indices
 - Precomputes column minimums for efficiency
 - Combines row maxima and column minima checks by using `map()`, `min()`, `max()` methods
+
+## [Say](https://github.com/eaverdeja/exercism-rust/tree/main/say/src/lib.rs)
+
+- Module organization with separate constants module
+- Arrays of string literals (`&'static str`) for number names and scale words
+- Divide-and-conquer approach with recursive number processing
+- Breaking numbers into three-digit chunks with modulo and division operations
+- String formatting with the `format!` macro for constructing output
+- Pattern matching on number ranges (small numbers vs. large numbers)
 
 ## [Series](https://github.com/eaverdeja/exercism-rust/tree/main/series/src/lib.rs)
 
