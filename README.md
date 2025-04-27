@@ -52,6 +52,7 @@ Below is a brief analysis of each solution. This can be used to search for commo
 - [Say](#say)
 - [Scrabble Score](#scrabble-score)
 - [Series](#series)
+- [Sieve of Eratosthenes](#sieve-of-eratosthenes)
 - [Space Age](#space-age)
 - [Sublist](#sublist)
 - [Sum of Multiples](#sum-of-multiples)
@@ -399,6 +400,14 @@ Below is a brief analysis of each solution. This can be used to search for commo
 - `windows()` for sliding window operations
 - Efficient collection transformation
 - Concise solution with chained methods
+
+## [Sieve of Eratosthenes](https://github.com/eaverdeja/exercism-rust/tree/main/sieve/src/lib.rs)
+
+- Classic Sieve of Eratosthenes implementation with vector of optional numbers
+- Control flow with the `?` operator, `take()` and `filter_map()`
+- Performance optimization with `i.pow(2)` to start marking from square of prime
+- `step_by()` to efficiently iterate through multiples
+- Type conversion with as `usize` for indexing
 
 ## [Space Age](https://github.com/eaverdeja/exercism-rust/tree/main/space-age/src/lib.rs)
 

@@ -49,6 +49,7 @@ members = [
     "say",
     "scrabble-score",
     "series",
+    "sieve",
     "space-age",
     "sublist",
     "sum-of-multiples",
