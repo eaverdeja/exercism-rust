@@ -464,7 +464,7 @@ Here are all solutions ordered by lines of code. Use this a proxy for how comple
 ====================================================================================================
  Language                                 Files        Lines         Code     Comments       Blanks
 ====================================================================================================
- Rust                                        52         2035         1566          199          270
+ Rust                                        58         2223         1720          204          299
 ----------------------------------------------------------------------------------------------------
  ./alphametics/src/lib.rs                                463          289          111           63
  ./bowling/src/lib.rs                                    211          161           17           33
@@ -472,27 +472,30 @@ Here are all solutions ordered by lines of code. Use this a proxy for how comple
  ./paasio/src/lib.rs                                      79           66            0           13
  ./bottle-song/src/lib.rs                                 62           58            0            4
  ./minesweeper/src/lib.rs                                 71           56            6            9
+ ./say/src/lib.rs                                         72           51            5           16
  ./space-age/src/lib.rs                                   51           46            0            5
  ./allergies/src/lib.rs                                   56           45            5            6
  ./all-your-base/src/lib.rs                               50           44            0            6
  ./pig-latin/src/lib.rs                                   48           42            0            6
+ ./rna-transcription/src/lib.rs                           47           41            0            6
+ ./run-length-encoding/src/lib.rs                         42           36            0            6
  ./grade-school/src/lib.rs                                42           32            4            6
  ./perfect-numbers/src/lib.rs                             38           32            2            4
- ./dot-dsl/src/graph/graph_items/attrs.rs                 35           29            0            6
  ./sublist/src/lib.rs                                     32           29            0            3
- ./queen-attack/src/lib.rs                                35           28            1            6
+ ./dot-dsl/src/graph/graph_items/attrs.rs                 35           29            0            6
  ./dot-dsl/src/graph.rs                                   35           28            0            7
+ ./queen-attack/src/lib.rs                                35           28            1            6
  ./anagram/src/lib.rs                                     32           27            0            5
  ./clock/src/lib.rs                                       32           25            0            7
- ./dot-dsl/src/graph/graph_items/edge.rs                  27           23            0            4
  ./kindergarten-garden/src/lib.rs                         26           23            0            3
+ ./dot-dsl/src/graph/graph_items/edge.rs                  27           23            0            4
  ./matching-brackets/src/lib.rs                           30           23            4            3
  ./high-scores/src/lib.rs                                 28           23            0            5
  ./nth-prime/src/lib.rs                                   28           22            2            4
+ ./acronym/src/lib.rs                                     28           21            4            3
  ./pascals-triangle/src/lib.rs                            24           21            0            3
  ./dot-dsl/src/graph/graph_items/node.rs                  25           21            0            4
- ./acronym/src/lib.rs                                     28           21            4            3
- ./rna-transcription/src/lib.rs                           25           21            0            4
+ ./saddle-points/src/lib.rs                               23           20            0            3
  ./luhn/src/lib.rs                                        24           20            1            3
  ./bob/src/lib.rs                                         21           19            0            2
  ./prime-factors/src/lib.rs                               20           18            0            2
@@ -501,25 +504,28 @@ Here are all solutions ordered by lines of code. Use this a proxy for how comple
  ./isbn-verifier/src/lib.rs                               17           16            0            1
  ./collatz-conjecture/src/lib.rs                          16           15            1            0
  ./binary-search/src/lib.rs                               37           14           20            3
+ ./scrabble-score/src/lib.rs                              14           14            0            0
  ./raindrops/src/lib.rs                                   14           13            0            1
  ./reverse-string/src/lib.rs                              20           13            4            3
  ./sum-of-multiples/src/lib.rs                            11           10            0            1
+ ./say/src/constants.rs                                   12           10            0            2
  ./armstrong-numbers/src/lib.rs                           11           10            0            1
  ./grains/src/lib.rs                                      10            9            0            1
  ./difference-of-squares/src/lib.rs                       17            9            5            3
- ./isogram/src/lib.rs                                     10            8            0            2
  ./hamming/src/lib.rs                                     12            8            2            2
+ ./isogram/src/lib.rs                                     10            8            0            2
  ./series/src/lib.rs                                       8            8            0            0
  ./etl/src/lib.rs                                          9            7            0            2
- ./eliuds-eggs/src/lib.rs                                  7            6            0            1
  ./leap/src/lib.rs                                        13            6            7            0
+ ./eliuds-eggs/src/lib.rs                                  7            6            0            1
  ./gigasecond/src/lib.rs                                   8            5            1            2
  ./pangram/src/lib.rs                                      4            4            0            0
+ ./sieve/src/lib.rs                                        3            3            0            0
  ./dot-dsl/src/graph/graph_items.rs                        3            3            0            0
  ./hello-world/src/lib.rs                                  4            3            1            0
  ./dot-dsl/src/lib.rs                                      1            1            0            0
 ====================================================================================================
- Total                                       52         2035         1566          199          270
+ Total                                       58         2223         1720          204          299
 ====================================================================================================
 ```
 
