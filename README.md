@@ -53,6 +53,7 @@ Below is a brief analysis of each solution. This can be used to search for commo
 - [Scrabble Score](#scrabble-score)
 - [Series](#series)
 - [Sieve of Eratosthenes](#sieve-of-eratosthenes)
+- [Simple Linked List](#simple-linked-list)
 - [Space Age](#space-age)
 - [Sublist](#sublist)
 - [Sum of Multiples](#sum-of-multiples)
@@ -408,6 +409,16 @@ Below is a brief analysis of each solution. This can be used to search for commo
 - Performance optimization with `i.pow(2)` to start marking from square of prime
 - `step_by()` to efficiently iterate through multiples
 - Type conversion with as `usize` for indexing
+
+## [Simple Linked List](https://github.com/eaverdeja/exercism-rust/tree/main/simple-linked-list/src/lib.rs)
+
+- Implements standard singly linked list operations (`new`, `push`, `pop`, `peek`, `rev`)
+- `Option<Box<Node<T>>>` for safe memory management
+- Generic implementation with type parameter `T`
+- Handling of ownership with methods like `take()` and `as_ref()`
+- `rev()` reuses nodes rather than creating new ones
+- Implements `FromIterator` for collection conversion and provides `into` for `Vec` conversion
+- Time complexity maintained appropriately: `O(1)` for `push/pop`, `O(n)` for traversals
 
 ## [Space Age](https://github.com/eaverdeja/exercism-rust/tree/main/space-age/src/lib.rs)
 

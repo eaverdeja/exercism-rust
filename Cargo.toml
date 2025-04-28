@@ -50,6 +50,7 @@ members = [
     "scrabble-score",
     "series",
     "sieve",
+    "simple-linked-list",
     "space-age",
     "sublist",
     "sum-of-multiples",
