@@ -55,6 +55,7 @@ Below is a brief analysis of each solution. This can be used to search for commo
 - [Sieve of Eratosthenes](#sieve-of-eratosthenes)
 - [Simple Linked List](#simple-linked-list)
 - [Space Age](#space-age)
+- [Spiral Matrix](#spiral-matrix)
 - [Sublist](#sublist)
 - [Sum of Multiples](#sum-of-multiples)
 - [Testing](#testing)
@@ -427,6 +428,14 @@ Below is a brief analysis of each solution. This can be used to search for commo
 - Empty structs implementing shared trait
 - `From` trait for type conversion
 - Single calculation applying to all planets
+
+## [Spiral Matrix](https://github.com/eaverdeja/exercism-rust/tree/main/spiral-matrix/src/lib.rs)
+
+- Models the problem using `Direction` and `Cursors` abstractions for clear semantics
+- `O(n²)` time complexity with a single pass through the data
+- Uses functional style with iterators and closures
+- Leverages pattern matching and block expressions for control flow
+- Separates motion logic from value placement logic
 
 ## [Sublist](https://github.com/eaverdeja/exercism-rust/tree/main/sublist/src/lib.rs)
 

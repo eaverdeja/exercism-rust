@@ -52,6 +52,7 @@ members = [
     "sieve",
     "simple-linked-list",
     "space-age",
+    "spiral-matrix",
     "sublist",
     "sum-of-multiples",
 ]
