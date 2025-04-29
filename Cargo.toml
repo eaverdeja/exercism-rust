@@ -55,4 +55,5 @@ members = [
     "spiral-matrix",
     "sublist",
     "sum-of-multiples",
+    "tournament",
 ]

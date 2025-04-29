@@ -58,6 +58,7 @@ Below is a brief analysis of each solution. This can be used to search for commo
 - [Spiral Matrix](#spiral-matrix)
 - [Sublist](#sublist)
 - [Sum of Multiples](#sum-of-multiples)
+- [Tournament](#tournament)
 - [Testing](#testing)
 - [Metrics](#metrics)
 
@@ -451,6 +452,15 @@ Below is a brief analysis of each solution. This can be used to search for commo
 - Functional pipeline with `filter`/`flat_map`/`collect`
 - `step_by()` for multiple generation
 - Zero value filtering to avoid infinite sequences
+
+## [Tournament](https://github.com/eaverdeja/exercism-rust/tree/main/tournament/src/lib.rs)
+
+- Type-safe domain models using structs
+- Memory efficiency and zero-copy parsing by borrowing strings with lifetimes
+- Newtype pattern and `HashMap` delegation with `Deref/DerefMut`
+- Builder pattern and method chaining with `entry` API
+- Optimized sorting with `sort_by_cached_key`
+- String formatting logic with format specifiers
 
 ---
 
