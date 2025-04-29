@@ -503,10 +503,13 @@ Here are all solutions ordered by lines of code. Use this a proxy for how comple
 ====================================================================================================
  Language                                 Files        Lines         Code     Comments       Blanks
 ====================================================================================================
- Rust                                        58         2223         1720          204          299
+ Rust                                        61         2588         2013          216          359
 ----------------------------------------------------------------------------------------------------
  ./alphametics/src/lib.rs                                463          289          111           63
  ./bowling/src/lib.rs                                    211          161           17           33
+ ./tournament/src/lib.rs                                 150          126            0           24
+ ./spiral-matrix/src/lib.rs                               93           81            0           12
+ ./simple-linked-list/src/lib.rs                         108           77           10           21
  ./palindrome-products/src/lib.rs                         86           73            1           12
  ./paasio/src/lib.rs                                      79           66            0           13
  ./bottle-song/src/lib.rs                                 62           58            0            4
@@ -546,25 +549,25 @@ Here are all solutions ordered by lines of code. Use this a proxy for how comple
  ./scrabble-score/src/lib.rs                              14           14            0            0
  ./raindrops/src/lib.rs                                   14           13            0            1
  ./reverse-string/src/lib.rs                              20           13            4            3
+ ./sieve/src/lib.rs                                       17           12            2            3
  ./sum-of-multiples/src/lib.rs                            11           10            0            1
  ./say/src/constants.rs                                   12           10            0            2
  ./armstrong-numbers/src/lib.rs                           11           10            0            1
  ./grains/src/lib.rs                                      10            9            0            1
  ./difference-of-squares/src/lib.rs                       17            9            5            3
- ./hamming/src/lib.rs                                     12            8            2            2
  ./isogram/src/lib.rs                                     10            8            0            2
+ ./hamming/src/lib.rs                                     12            8            2            2
  ./series/src/lib.rs                                       8            8            0            0
  ./etl/src/lib.rs                                          9            7            0            2
  ./leap/src/lib.rs                                        13            6            7            0
  ./eliuds-eggs/src/lib.rs                                  7            6            0            1
  ./gigasecond/src/lib.rs                                   8            5            1            2
  ./pangram/src/lib.rs                                      4            4            0            0
- ./sieve/src/lib.rs                                        3            3            0            0
  ./dot-dsl/src/graph/graph_items.rs                        3            3            0            0
  ./hello-world/src/lib.rs                                  4            3            1            0
  ./dot-dsl/src/lib.rs                                      1            1            0            0
 ====================================================================================================
- Total                                       58         2223         1720          204          299
+ Total                                       61         2588         2013          216          359
 ====================================================================================================
 ```
 
