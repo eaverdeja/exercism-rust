@@ -107,8 +107,8 @@ Solutions to exercises in the [Exercism Rust track](https://exercism.org/tracks/
   - [Triangle](#triangle)
   - [Two Bucket](#two-bucket)
   - [Variable Length Quantity](#variable-length-quantity)
-  - [Testing](#testing)
-  - [Metrics](#metrics)
+- [Testing](#testing)
+- [Metrics](#metrics)
 
 
 # Rust Features by Category
@@ -704,7 +704,7 @@ For subsequent generations, one could add to the prompt:
 
 ---
 
-## Testing
+# Testing
 
 This repo is structured as a Cargo workspace, in where each solution is a "member". This allows us to run tests for all solutions in one go with:
 ```console
@@ -715,7 +715,7 @@ This is taking ~2.7s on my M1 max 32GB.
 The main offenders here are [Alphametics](#alphametics) and [Palindrome Products](#palindrome-products). Alphametics is especially brutal with its [final boss test case](https://github.com/eaverdeja/exercism-rust/blob/main/alphametics/tests/alphametics.rs#L105).
 
 
-## Metrics
+# Metrics
 
 Here are all solutions ordered by lines of code. Use this a proxy for how complex or elegant a solution is 😄
 
