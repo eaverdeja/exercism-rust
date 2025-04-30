@@ -3,6 +3,8 @@
 
 Solutions to exercises in the [Exercism Rust track](https://exercism.org/tracks/rust)
 
+This repo and README can be used to search for common language features. I hope you enjoy!
+
 ## Disclaimer
 > We inherently imitate to learn. None of these solutions are entirely my own - some were
 > inspired by community solutions from Exercism, others were ideas proposed by AI.
@@ -261,7 +263,7 @@ Solutions to exercises in the [Exercism Rust track](https://exercism.org/tracks/
 
 # Solutions to the problems
 
-Below is a brief analysis of each solution. This can be used to search for common language features. Solutions are ordered alphabetically.
+Below is a brief analysis of each solution. Solutions are ordered alphabetically.
   
 ## [Acronym](https://github.com/eaverdeja/exercism-rust/tree/main/acronym/src/lib.rs)
 
