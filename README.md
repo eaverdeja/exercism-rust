@@ -1,74 +1,263 @@
 <!-- omit in toc -->
-# Solutions to the problems in the [Rust Exercism track](https://exercism.org/tracks/rust)
+# Exercism Rust track
 
-Below is a brief analysis of each solution. This can be used to search for common language features. Solutions are ordered alphabetically.
-
-- [Disclaimer](#disclaimer)
-- [Acronym](#acronym)
-- [All-Your-Base](#all-your-base)
-- [Allergies](#allergies)
-- [Alphametics](#alphametics)
-- [Anagram](#anagram)
-- [Armstrong Numbers](#armstrong-numbers)
-- [Binary Search](#binary-search)
-- [Bob](#bob)
-- [Bottle Song](#bottle-song)
-- [Bowling](#bowling)
-- [Clock](#clock)
-- [Collatz Conjecture](#collatz-conjecture)
-- [Difference of Squares](#difference-of-squares)
-- [Dot DSL](#dot-dsl)
-- [Eliud's Eggs](#eliuds-eggs)
-- [ETL](#etl)
-- [Gigasecond](#gigasecond)
-- [Grade School](#grade-school)
-- [Grains](#grains)
-- [Hamming](#hamming)
-- [Hello World](#hello-world)
-- [High Scores](#high-scores)
-- [ISBN Verifier](#isbn-verifier)
-- [Isogram](#isogram)
-- [Kindergarten Garden](#kindergarten-garden)
-- [Leap](#leap)
-- [Luhn](#luhn)
-- [Matching Brackets](#matching-brackets)
-- [Minesweeper](#minesweeper)
-- [Nth Prime](#nth-prime)
-- [Nucleotide Count](#nucleotide-count)
-- [PaaS I/O](#paas-io)
-- [Palindrome Products](#palindrome-products)
-- [Pangram](#pangram)
-- [Pascal's Triangle](#pascals-triangle)
-- [Perfect Numbers](#perfect-numbers)
-- [Pig Latin](#pig-latin)
-- [Prime Factors](#prime-factors)
-- [Proverb](#proverb)
-- [Queen Attack](#queen-attack)
-- [Raindrops](#raindrops)
-- [Reverse String](#reverse-string)
-- [RNA Transcription](#rna-transcription)
-- [Run-length Encoding](#run-length-encoding)
-- [Saddle Points](#saddle-points)
-- [Say](#say)
-- [Scrabble Score](#scrabble-score)
-- [Series](#series)
-- [Sieve of Eratosthenes](#sieve-of-eratosthenes)
-- [Simple Linked List](#simple-linked-list)
-- [Space Age](#space-age)
-- [Spiral Matrix](#spiral-matrix)
-- [Sublist](#sublist)
-- [Sum of Multiples](#sum-of-multiples)
-- [Tournament](#tournament)
-- [Triangle](#triangle)
-- [Two Bucket](#two-bucket)
-- [Testing](#testing)
-- [Metrics](#metrics)
+Solutions to exercises in the [Exercism Rust track](https://exercism.org/tracks/rust)
 
 ## Disclaimer
-> We inherently imitate to learn. None of these solutions are my own - some were
+> We inherently imitate to learn. None of these solutions are entirely my own - some were
 > inspired by community solutions from Exercism, others were ideas proposed by AI.
 > There are even a few that were of my own devise, but even then I probably
 > tapped into the collective unconscious to come up with them.
+
+- [Rust Features by Category](#rust-features-by-category)
+  - [Data Structures](#data-structures)
+    - [Maps and Sets](#maps-and-sets)
+    - [Custom Data Structures](#custom-data-structures)
+  - [Less common standard library features](#less-common-standard-library-features)
+  - [Iteration Techniques](#iteration-techniques)
+    - [Basic Iterator Methods](#basic-iterator-methods)
+    - [Advanced Iterator Methods](#advanced-iterator-methods)
+  - [Error Handling](#error-handling)
+    - [Result and Option Patterns](#result-and-option-patterns)
+  - [Pattern Matching](#pattern-matching)
+    - [Match Expressions](#match-expressions)
+    - [Enum Patterns](#enum-patterns)
+  - [Functional Programming](#functional-programming)
+    - [Functional Style](#functional-style)
+    - [Immutable Design](#immutable-design)
+  - [Bit Manipulation](#bit-manipulation)
+    - [Bitwise Operations](#bitwise-operations)
+  - [Algorithms](#algorithms)
+    - [Search Algorithms](#search-algorithms)
+    - [Mathematical Algorithms](#mathematical-algorithms)
+  - [String Processing](#string-processing)
+    - [String Manipulation](#string-manipulation)
+    - [Formatting](#formatting)
+  - [Traits and Generics](#traits-and-generics)
+    - [Custom Trait Implementations](#custom-trait-implementations)
+    - [Generic Programming](#generic-programming)
+  - [Memory Management](#memory-management)
+    - [Ownership Patterns](#ownership-patterns)
+  - [Design Patterns](#design-patterns)
+    - [Builder Pattern](#builder-pattern)
+    - [Domain Modeling](#domain-modeling)
+  - [Type Conversions and Parsing](#type-conversions-and-parsing)
+    - [Number Conversions](#number-conversions)
+    - [Safe Conversions](#safe-conversions)
+    - [Custom Type Conversions](#custom-type-conversions)
+  - [Tuple and Array Patterns](#tuple-and-array-patterns)
+    - [Tuple Operations](#tuple-operations)
+    - [Array Techniques](#array-techniques)
+- [Solutions to the problems](#solutions-to-the-problems)
+  - [Acronym](#acronym)
+  - [All-Your-Base](#all-your-base)
+  - [Allergies](#allergies)
+  - [Alphametics](#alphametics)
+  - [Anagram](#anagram)
+  - [Armstrong Numbers](#armstrong-numbers)
+  - [Binary Search](#binary-search)
+  - [Bob](#bob)
+  - [Bottle Song](#bottle-song)
+  - [Bowling](#bowling)
+  - [Clock](#clock)
+  - [Collatz Conjecture](#collatz-conjecture)
+  - [Difference of Squares](#difference-of-squares)
+  - [Dot DSL](#dot-dsl)
+  - [Eliud's Eggs](#eliuds-eggs)
+  - [ETL](#etl)
+  - [Gigasecond](#gigasecond)
+  - [Grade School](#grade-school)
+  - [Grains](#grains)
+  - [Hamming](#hamming)
+  - [Hello World](#hello-world)
+  - [High Scores](#high-scores)
+  - [ISBN Verifier](#isbn-verifier)
+  - [Isogram](#isogram)
+  - [Kindergarten Garden](#kindergarten-garden)
+  - [Leap](#leap)
+  - [Luhn](#luhn)
+  - [Matching Brackets](#matching-brackets)
+  - [Minesweeper](#minesweeper)
+  - [Nth Prime](#nth-prime)
+  - [Nucleotide Count](#nucleotide-count)
+  - [PaaS I/O](#paas-io)
+  - [Palindrome Products](#palindrome-products)
+  - [Pangram](#pangram)
+  - [Pascal's Triangle](#pascals-triangle)
+  - [Perfect Numbers](#perfect-numbers)
+  - [Pig Latin](#pig-latin)
+  - [Prime Factors](#prime-factors)
+  - [Proverb](#proverb)
+  - [Queen Attack](#queen-attack)
+  - [Raindrops](#raindrops)
+  - [Reverse String](#reverse-string)
+  - [RNA Transcription](#rna-transcription)
+  - [Run-length Encoding](#run-length-encoding)
+  - [Saddle Points](#saddle-points)
+  - [Say](#say)
+  - [Scrabble Score](#scrabble-score)
+  - [Series](#series)
+  - [Sieve of Eratosthenes](#sieve-of-eratosthenes)
+  - [Simple Linked List](#simple-linked-list)
+  - [Space Age](#space-age)
+  - [Spiral Matrix](#spiral-matrix)
+  - [Sublist](#sublist)
+  - [Sum of Multiples](#sum-of-multiples)
+  - [Tournament](#tournament)
+  - [Triangle](#triangle)
+  - [Two Bucket](#two-bucket)
+  - [Testing](#testing)
+  - [Metrics](#metrics)
+
+
+# Rust Features by Category
+
+## Data Structures
+
+### Maps and Sets
+- `HashMap`/`HashSet` for Efficient Collections - Used in [Allergies](#allergies), [Anagram](#anagram), [ETL](#etl), [Isogram](#isogram), [Nucleotide Count](#nucleotide-count), [Sum of Multiples](#sum-of-multiples)
+- `BTreeMap`/`BTreeSet` for Ordered Collections - Used in [Grade School](#grade-school), [Dot DSL](#dot-dsl)
+
+### Custom Data Structures
+- Custom Linked List Implementation - `Option<Box<Node<T>>>` on [Simple Linked List](#simple-linked-list) for safe memory management
+- Custom Wrapper Types - Used in [PaaS I/O](#paas-io) for I/O statistics tracking
+- Object-oriented Design - Used in [Bowling](#bowling) with multiple structures
+
+## Less common standard library features
+
+- `VecDeque` for queue processing - Used in [Two Bucket](#two-bucket)
+- `abs_diff()` for convenient diffing - Used on [Queen Attack](#queen-attack)
+
+## Iteration Techniques
+
+### Basic Iterator Methods
+- `map()`/`filter()`/`collect()` - Used in [Acronym](#acronym), [Armstrong Numbers](#armstrong-numbers), [Scrabble Score](#scrabble-score), [Difference of Squares](#difference-of-squares) and the list goes on! These ones are hard *not* to find in a solution! 
+- `windows()` - Used in [Proverb](#proverb), [Series](#series), [Sublist](#sublist) for processing adjacent elements
+- `enumerate()` - Used in [Saddle Points](#saddle-points), [All-Your-Base](#all-your-base), [ISBN Verifier](#isbn-verifier)
+- `zip()` - Used in [Hamming](#hamming)
+
+### Advanced Iterator Methods
+- `try_fold()` - Used in [All-Your-Base](#all-your-base), [ISBN Verifier](#isbn-verifier), [RNA Transcription](#rna-transcription)
+- `peekable()` - Used in [Pig Latin](#pig-latin), [Run-length Encoding](#run-length-encoding)
+- `step_by()` - Used in [Sieve of Eratosthenes](#sieve-of-eratosthenes), [Sum of Multiples](#sum-of-multiples)
+
+## Error Handling
+
+### Result and Option Patterns
+- Custom `Error` Enums - Used in [All-Your-Base](#all-your-base), [Bowling](#bowling)
+- `Option` for Missing Values - Used in [Binary Search](#binary-search), [High Scores](#high-scores), [Two Bucket](#two-bucket)
+- `?` Operator - Used in [Perfect Numbers](#perfect-numbers), [Sieve of Eratosthenes](#sieve-of-eratosthenes)
+
+## Pattern Matching
+
+### Match Expressions
+- Pattern Matching with Guards - Used in [Bob](#bob), [Leap](#leap)
+- Complex String Parsing - Used in [Pig Latin](#pig-latin)
+- Multi-pattern Matching - Used in [Scrabble Score](#scrabble-score) with `|` operator
+
+### Enum Patterns
+- `Enum` with Explicit Discriminators - Used in [Allergies](#allergies)
+- `Enum` for Result Classification - Used in [Sublist](#sublist), [Perfect Numbers](#perfect-numbers)
+
+## Functional Programming
+
+### Functional Style
+- Method Chaining - Used in [Raindrops](#raindrops), [Acronym](#acronym)
+- Closures for Operations - Used in [Acronym](#acronym), [Spiral Matrix](#spiral-matrix)
+
+### Immutable Design
+- Pure Functions - Used in [Clock](#clock) returning new objects
+- Immutable State Transformations - Used in [Two Bucket](#two-bucket) via `with()` method
+
+## Bit Manipulation
+
+### Bitwise Operations
+- Flags and Bit Testing - Used in [Allergies](#allergies) with bitwise `AND`
+- Bit Counting - Used in [Eliud's Eggs](#eliuds-eggs) with shift and mask
+
+## Algorithms
+
+### Search Algorithms
+- Binary Search - Used in [Binary Search](#binary-search)
+- Breadth-first Search - Used in [Two Bucket](#two-bucket) with `VecDeque`
+- Backtracking - Used in [Alphametics](#alphametics)
+
+### Mathematical Algorithms
+- Sieve of Eratosthenes - Used in [Sieve of Eratosthenes](#sieve-of-eratosthenes)
+- Prime Checking - Used in [Nth Prime](#nth-prime) with square root optimization
+- Factor Finding - Used in [Perfect Numbers](#perfect-numbers) with square root optimization, [Palindrome Products](#palindrome-products) to find palindrome products
+
+## String Processing
+
+### String Manipulation
+- Unicode-aware Processing - Used in [Anagram](#anagram), [Reverse String](#reverse-string)
+- Number-to-Words Conversion - Used in [Say](#say) with recursive approach
+- Run-length Encoding - Used in [Run-length Encoding](#run-length-encoding)
+
+### Formatting
+- String Formatting - Used in [Clock](#clock), [Tournament](#tournament) with format specifiers
+- String Building - Used in [Bottle Song](#bottle-song) with `format!()` macro
+
+## Traits and Generics
+
+### Custom Trait Implementations
+- `Display` and `PartialEq` - Used in [Clock](#clock)
+- `From` and Type Conversion - Used in [Space Age](#space-age)
+
+### Generic Programming
+- Generic Functions - Used in [Binary Search](#binary-search) with type parameters, [Simple Linked List](#simple-linked-list) with `Node<T>`
+- Trait Bounds - Used in [Triangle](#triangle) for numeric constraints
+
+## Memory Management
+
+### Ownership Patterns
+- Borrowing with Lifetimes - Used in [High Scores](#high-scores), [Anagram](#anagram)
+- Zero-copy Parsing - Used in [Tournament](#tournament) with string borrows
+- `Box<T>` for Heap Allocation - Used in [Simple Linked List](#simple-linked-list)
+
+## Design Patterns
+
+### Builder Pattern
+- Fluent Interfaces - Used in [Dot DSL](#dot-dsl)
+- Method Chaining - Used in [Tournament](#tournament) with `entry` API
+
+### Domain Modeling
+- Type-safe Domain Models - Used in [Tournament](#tournament)
+- State Encapsulation - Used in [Bowling](#bowling)
+- Abstraction with Enums - Used in [Spiral Matrix](#spiral-matrix) with `Direction` enum
+
+## Type Conversions and Parsing
+
+### Number Conversions
+- `to_digit(1`)` - Used in [Luhn](#luhn), [Armstrong Numbers](#armstrong-numbers) for char-to-digit conversion
+- `parse()` - Used in [Run-length Encoding](#run-length-encoding), [Say](#say) for string-to-number parsing
+- `as_bytes()` - Used in [Minesweeper](#minesweeper) for performance optimization in grid operations
+
+### Safe Conversions
+- `checked_*` Operations - Used in [Collatz Conjecture](#collatz-conjecture) to prevent arithmetic overflow
+- String/Integer Conversion - Used in [Armstrong Numbers](#armstrong-numbers), [ISBN Verifier](#isbn-verifier)
+- `TryFrom`/`TryInto` - Used in [All-Your-Base](#all-your-base) for fallible conversions
+
+### Custom Type Conversions
+- Custom `From` Implementations - Used in [Space Age](#space-age) to convert between domain types
+- Manual Parsing Logic - Used in [Nucleotide Count](#nucleotide-count), [Acronym](#acronym) for domain-specific parsing
+- Type-driven Design - Used in [Tournament](#tournament) with newtypes to prevent mixing of related values
+
+## Tuple and Array Patterns
+
+### Tuple Operations
+- Tuple Destructuring - Used in [Sublist](#sublist), [Queen Attack](#queen-attack) to unpack related values 
+- Tuple-based Returns - Used in [Palindrome Products](#palindrome-products) for factor pairs
+- Tuple Pattern Matching - Used in [Hamming](#hamming) with `zip().filter(|(a, b)| a != b)` pattern
+
+### Array Techniques
+- Fixed-size Arrays - Used in [Raindrops](#raindrops) with array of tuples
+- Array Destructuring - Used in [Triangle](#triangle) for brevity and pattern matching
+- Array of Constants - Used in [Say](#say), [Space Age](#space-age) for lookup tables
+
+# Solutions to the problems
+
+Below is a brief analysis of each solution. This can be used to search for common language features. Solutions are ordered alphabetically.
   
 ## [Acronym](https://github.com/eaverdeja/exercism-rust/tree/main/acronym/src/lib.rs)
 
