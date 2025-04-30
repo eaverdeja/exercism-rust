@@ -106,6 +106,7 @@ Solutions to exercises in the [Exercism Rust track](https://exercism.org/tracks/
   - [Tournament](#tournament)
   - [Triangle](#triangle)
   - [Two Bucket](#two-bucket)
+  - [Variable Length Quantity](#variable-length-quantity)
   - [Testing](#testing)
   - [Metrics](#metrics)
 
@@ -133,8 +134,9 @@ Solutions to exercises in the [Exercism Rust track](https://exercism.org/tracks/
 ### Basic Iterator Methods
 - `map()`/`filter()`/`collect()` - Used in [Acronym](#acronym), [Armstrong Numbers](#armstrong-numbers), [Scrabble Score](#scrabble-score), [Difference of Squares](#difference-of-squares) and the list goes on! These ones are hard *not* to find in a solution! 
 - `windows()` - Used in [Proverb](#proverb), [Series](#series), [Sublist](#sublist) for processing adjacent elements
-- `enumerate()` - Used in [Saddle Points](#saddle-points), [All-Your-Base](#all-your-base), [ISBN Verifier](#isbn-verifier)
+- `enumerate()` - Used in [Saddle Points](#saddle-points), [All-Your-Base](#all-your-base), [ISBN Verifier](#isbn-verifier), and many others. This one is also pretty popular!
 - `zip()` - Used in [Hamming](#hamming)
+- `flat_map()` - Used in [Alphametics](#alphametics), [ETL](#etl), [Kindergarten Garden](#kindergarten-garden), [Sum of Multiples](#sum-of-multiples), [Variable Length Quantity](#variable-length-quantity)
 
 ### Advanced Iterator Methods
 - `try_fold()` - Used in [All-Your-Base](#all-your-base), [ISBN Verifier](#isbn-verifier), [RNA Transcription](#rna-transcription)
@@ -146,7 +148,7 @@ Solutions to exercises in the [Exercism Rust track](https://exercism.org/tracks/
 ### Result and Option Patterns
 - Custom `Error` Enums - Used in [All-Your-Base](#all-your-base), [Bowling](#bowling)
 - `Option` for Missing Values - Used in [Binary Search](#binary-search), [High Scores](#high-scores), [Two Bucket](#two-bucket)
-- `?` Operator - Used in [Perfect Numbers](#perfect-numbers), [Sieve of Eratosthenes](#sieve-of-eratosthenes)
+- `?` Operator - Used in [Perfect Numbers](#perfect-numbers), [Sieve of Eratosthenes](#sieve-of-eratosthenes), [Variable Length Quantity](#variable-length-quantity)
 
 ## Pattern Matching
 
@@ -172,8 +174,9 @@ Solutions to exercises in the [Exercism Rust track](https://exercism.org/tracks/
 ## Bit Manipulation
 
 ### Bitwise Operations
-- Flags and Bit Testing - Used in [Allergies](#allergies) with bitwise `AND`
+- Flags and Bit Testing - Used in [Allergies](#allergies) with bitwise `&`
 - Bit Counting - Used in [Eliud's Eggs](#eliuds-eggs) with shift and mask
+- Byte-by-byte decoding - Used in [Variable Length Quantity](#variable-length-quantity)
 
 ## Algorithms
 
@@ -214,6 +217,7 @@ Solutions to exercises in the [Exercism Rust track](https://exercism.org/tracks/
 - Borrowing with Lifetimes - Used in [High Scores](#high-scores), [Anagram](#anagram)
 - Zero-copy Parsing - Used in [Tournament](#tournament) with string borrows
 - `Box<T>` for Heap Allocation - Used in [Simple Linked List](#simple-linked-list)
+- Slices and slice indexing - Used in [Variable Length Quantity](#variable-length-quantity)
 
 ## Design Patterns
 
@@ -669,6 +673,18 @@ Below is a brief analysis of each solution. This can be used to search for commo
 - Separates state manipulation logic from search algorithm
 - Helper functions isolate mathematical logic
 
+## [Variable Length Quantity](https://github.com/eaverdeja/exercism-rust/tree/main/variable-length-quantity/src/lib.rs)
+
+- Iterator combinators like `flat_map()`, `collect()`, and `map()`
+- Leverages Rust's pattern of returning `Result<T, E>` for error handling
+- Uses the `?` operator for concise error propagation
+- Employs slices (`&[u8]`, `&[u32]`) to work with data without taking ownership
+- Returns a tuple `(value, bytes_read)` for tracking parser position without maintaining state
+- Uses `Vec::with_capacity` to optimize memory allocation when the size is known
+- Takes advantage of bitwise operations (`<<`, `>>`, `&`, `|`) for efficient bit manipulation
+- Implements the visitor pattern via slice indexing (`&bytes[i..]`) to advance through data
+- Combines functional and imperative styles
+
 ---
 
 This list was initially generated with Claude code with the following prompt:
@@ -710,7 +726,7 @@ Here are all solutions ordered by lines of code. Use this a proxy for how comple
 ====================================================================================================
  Language                                 Files        Lines         Code     Comments       Blanks
 ====================================================================================================
- Rust                                        63         2778         2161          231          386
+ Rust                                        64         2853         2220          234          399
 ----------------------------------------------------------------------------------------------------
  ./alphametics/src/lib.rs                                463          289          111           63
  ./bowling/src/lib.rs                                    211          161           17           33
@@ -720,6 +736,7 @@ Here are all solutions ordered by lines of code. Use this a proxy for how comple
  ./simple-linked-list/src/lib.rs                         108           77           10           21
  ./palindrome-products/src/lib.rs                         86           73            1           12
  ./paasio/src/lib.rs                                      79           66            0           13
+ ./variable-length-quantity/src/lib.rs                    75           59            3           13
  ./bottle-song/src/lib.rs                                 62           58            0            4
  ./minesweeper/src/lib.rs                                 71           56            6            9
  ./say/src/lib.rs                                         72           51            5           16
@@ -740,14 +757,14 @@ Here are all solutions ordered by lines of code. Use this a proxy for how comple
  ./triangle/src/lib.rs                                    31           25            0            6
  ./kindergarten-garden/src/lib.rs                         26           23            0            3
  ./dot-dsl/src/graph/graph_items/edge.rs                  27           23            0            4
- ./high-scores/src/lib.rs                                 28           23            0            5
  ./matching-brackets/src/lib.rs                           30           23            4            3
+ ./high-scores/src/lib.rs                                 28           23            0            5
  ./nth-prime/src/lib.rs                                   28           22            2            4
  ./pascals-triangle/src/lib.rs                            24           21            0            3
  ./acronym/src/lib.rs                                     28           21            4            3
  ./dot-dsl/src/graph/graph_items/node.rs                  25           21            0            4
- ./luhn/src/lib.rs                                        24           20            1            3
  ./saddle-points/src/lib.rs                               23           20            0            3
+ ./luhn/src/lib.rs                                        24           20            1            3
  ./bob/src/lib.rs                                         21           19            0            2
  ./prime-factors/src/lib.rs                               20           18            0            2
  ./nucleotide-count/src/lib.rs                            20           17            0            3
@@ -759,8 +776,8 @@ Here are all solutions ordered by lines of code. Use this a proxy for how comple
  ./raindrops/src/lib.rs                                   14           13            0            1
  ./reverse-string/src/lib.rs                              20           13            4            3
  ./sieve/src/lib.rs                                       17           12            2            3
- ./say/src/constants.rs                                   12           10            0            2
  ./sum-of-multiples/src/lib.rs                            11           10            0            1
+ ./say/src/constants.rs                                   12           10            0            2
  ./armstrong-numbers/src/lib.rs                           11           10            0            1
  ./grains/src/lib.rs                                      10            9            0            1
  ./difference-of-squares/src/lib.rs                       17            9            5            3
@@ -776,7 +793,7 @@ Here are all solutions ordered by lines of code. Use this a proxy for how comple
  ./hello-world/src/lib.rs                                  4            3            1            0
  ./dot-dsl/src/lib.rs                                      1            1            0            0
 ====================================================================================================
- Total                                       63         2778         2161          231          386
+ Total                                       64         2853         2220          234          399
 ====================================================================================================
 ```
 
