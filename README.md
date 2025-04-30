@@ -116,7 +116,7 @@ Solutions to exercises in the [Exercism Rust track](https://exercism.org/tracks/
 ## Data Structures
 
 ### Maps and Sets
-- `HashMap`/`HashSet` for Efficient Collections - Used in [Allergies](#allergies), [Anagram](#anagram), [ETL](#etl), [Isogram](#isogram), [Nucleotide Count](#nucleotide-count), [Sum of Multiples](#sum-of-multiples)
+- `HashMap`/`HashSet` for Efficient Collections - Used in [Allergies](#allergies), [Anagram](#anagram), [ETL](#etl), [Isogram](#isogram), [Nucleotide Count](#nucleotide-count), [Sum of Multiples](#sum-of-multiples), and many others
 - `BTreeMap`/`BTreeSet` for Ordered Collections - Used in [Grade School](#grade-school), [Dot DSL](#dot-dsl)
 
 ### Custom Data Structures
@@ -146,7 +146,7 @@ Solutions to exercises in the [Exercism Rust track](https://exercism.org/tracks/
 ## Error Handling
 
 ### Result and Option Patterns
-- Custom `Error` Enums - Used in [All-Your-Base](#all-your-base), [Bowling](#bowling)
+- Custom `Error` Enums - Used in [All-Your-Base](#all-your-base), [Bowling](#bowling), [Variable Length Quantity](#variable-length-quantity) and others
 - `Option` for Missing Values - Used in [Binary Search](#binary-search), [High Scores](#high-scores), [Two Bucket](#two-bucket)
 - `?` Operator - Used in [Perfect Numbers](#perfect-numbers), [Sieve of Eratosthenes](#sieve-of-eratosthenes), [Variable Length Quantity](#variable-length-quantity)
 
@@ -228,12 +228,12 @@ Solutions to exercises in the [Exercism Rust track](https://exercism.org/tracks/
 ### Domain Modeling
 - Type-safe Domain Models - Used in [Tournament](#tournament)
 - State Encapsulation - Used in [Bowling](#bowling)
-- Abstraction with Enums - Used in [Spiral Matrix](#spiral-matrix) with `Direction` enum
+- Abstraction with Enums - Used in [Spiral Matrix](#spiral-matrix)
 
 ## Type Conversions and Parsing
 
 ### Number Conversions
-- `to_digit(1`)` - Used in [Luhn](#luhn), [Armstrong Numbers](#armstrong-numbers) for char-to-digit conversion
+- `to_digit(1)` - Used in [Luhn](#luhn), [Armstrong Numbers](#armstrong-numbers) for char-to-digit conversion
 - `parse()` - Used in [Run-length Encoding](#run-length-encoding), [Say](#say) for string-to-number parsing
 - `as_bytes()` - Used in [Minesweeper](#minesweeper) for performance optimization in grid operations
 
