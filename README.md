@@ -60,6 +60,7 @@ Below is a brief analysis of each solution. This can be used to search for commo
 - [Sum of Multiples](#sum-of-multiples)
 - [Tournament](#tournament)
 - [Triangle](#triangle)
+- [Two Bucket](#two-bucket)
 - [Testing](#testing)
 - [Metrics](#metrics)
 
@@ -468,6 +469,17 @@ Below is a brief analysis of each solution. This can be used to search for commo
 - Use of trait bounds and generics to allow both integer and float triangles
 - Array destructuring for brevity
 
+## [Two Bucket](https://github.com/eaverdeja/exercism-rust/tree/main/two-bucket/src/lib.rs)
+
+- Uses breadth-first search (BFS) to find the minimum number of moves
+- Uses `VecDeque` to process states with `push_back()` and `pop_front()`
+- Tracks visited states with a `HashSet` to avoid cycles
+- `State` struct encapsulates bucket state and operations
+- Uses `with()` method for creating new states immutably
+- Validates solvability using GCD property before attempting search
+- Separates state manipulation logic from search algorithm
+- Helper functions isolate mathematical logic
+
 ---
 
 This list was initially generated with Claude code with the following prompt:
@@ -509,11 +521,12 @@ Here are all solutions ordered by lines of code. Use this a proxy for how comple
 ====================================================================================================
  Language                                 Files        Lines         Code     Comments       Blanks
 ====================================================================================================
- Rust                                        61         2588         2013          216          359
+ Rust                                        63         2778         2161          231          386
 ----------------------------------------------------------------------------------------------------
  ./alphametics/src/lib.rs                                463          289          111           63
  ./bowling/src/lib.rs                                    211          161           17           33
  ./tournament/src/lib.rs                                 150          126            0           24
+ ./two-bucket/src/lib.rs                                 159          123           15           21
  ./spiral-matrix/src/lib.rs                               93           81            0           12
  ./simple-linked-list/src/lib.rs                         108           77           10           21
  ./palindrome-products/src/lib.rs                         86           73            1           12
@@ -535,16 +548,17 @@ Here are all solutions ordered by lines of code. Use this a proxy for how comple
  ./queen-attack/src/lib.rs                                35           28            1            6
  ./anagram/src/lib.rs                                     32           27            0            5
  ./clock/src/lib.rs                                       32           25            0            7
+ ./triangle/src/lib.rs                                    31           25            0            6
  ./kindergarten-garden/src/lib.rs                         26           23            0            3
  ./dot-dsl/src/graph/graph_items/edge.rs                  27           23            0            4
- ./matching-brackets/src/lib.rs                           30           23            4            3
  ./high-scores/src/lib.rs                                 28           23            0            5
+ ./matching-brackets/src/lib.rs                           30           23            4            3
  ./nth-prime/src/lib.rs                                   28           22            2            4
- ./acronym/src/lib.rs                                     28           21            4            3
  ./pascals-triangle/src/lib.rs                            24           21            0            3
+ ./acronym/src/lib.rs                                     28           21            4            3
  ./dot-dsl/src/graph/graph_items/node.rs                  25           21            0            4
- ./saddle-points/src/lib.rs                               23           20            0            3
  ./luhn/src/lib.rs                                        24           20            1            3
+ ./saddle-points/src/lib.rs                               23           20            0            3
  ./bob/src/lib.rs                                         21           19            0            2
  ./prime-factors/src/lib.rs                               20           18            0            2
  ./nucleotide-count/src/lib.rs                            20           17            0            3
@@ -556,13 +570,13 @@ Here are all solutions ordered by lines of code. Use this a proxy for how comple
  ./raindrops/src/lib.rs                                   14           13            0            1
  ./reverse-string/src/lib.rs                              20           13            4            3
  ./sieve/src/lib.rs                                       17           12            2            3
- ./sum-of-multiples/src/lib.rs                            11           10            0            1
  ./say/src/constants.rs                                   12           10            0            2
+ ./sum-of-multiples/src/lib.rs                            11           10            0            1
  ./armstrong-numbers/src/lib.rs                           11           10            0            1
  ./grains/src/lib.rs                                      10            9            0            1
  ./difference-of-squares/src/lib.rs                       17            9            5            3
- ./isogram/src/lib.rs                                     10            8            0            2
  ./hamming/src/lib.rs                                     12            8            2            2
+ ./isogram/src/lib.rs                                     10            8            0            2
  ./series/src/lib.rs                                       8            8            0            0
  ./etl/src/lib.rs                                          9            7            0            2
  ./leap/src/lib.rs                                        13            6            7            0
@@ -573,7 +587,7 @@ Here are all solutions ordered by lines of code. Use this a proxy for how comple
  ./hello-world/src/lib.rs                                  4            3            1            0
  ./dot-dsl/src/lib.rs                                      1            1            0            0
 ====================================================================================================
- Total                                       61         2588         2013          216          359
+ Total                                       63         2778         2161          231          386
 ====================================================================================================
 ```
 

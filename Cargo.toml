@@ -57,4 +57,5 @@ members = [
     "sum-of-multiples",
     "tournament",
     "triangle",
+    "two-bucket",
 ]
