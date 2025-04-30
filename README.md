@@ -59,6 +59,7 @@ Below is a brief analysis of each solution. This can be used to search for commo
 - [Sublist](#sublist)
 - [Sum of Multiples](#sum-of-multiples)
 - [Tournament](#tournament)
+- [Triangle](#triangle)
 - [Testing](#testing)
 - [Metrics](#metrics)
 
@@ -461,6 +462,11 @@ Below is a brief analysis of each solution. This can be used to search for commo
 - Builder pattern and method chaining with `entry` API
 - Optimized sorting with `sort_by_cached_key`
 - String formatting logic with format specifiers
+
+## [Triangle](https://github.com/eaverdeja/exercism-rust/tree/main/triangle/src/lib.rs)
+
+- Use of trait bounds and generics to allow both integer and float triangles
+- Array destructuring for brevity
 
 ---
 

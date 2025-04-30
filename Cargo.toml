@@ -56,4 +56,5 @@ members = [
     "sublist",
     "sum-of-multiples",
     "tournament",
+    "triangle",
 ]
