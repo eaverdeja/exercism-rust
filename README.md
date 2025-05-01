@@ -22,6 +22,7 @@ This repo and README can be used to search for common language features. I hope 
   - [Iteration Techniques](#iteration-techniques)
     - [Basic Iterator Methods](#basic-iterator-methods)
     - [Advanced Iterator Methods](#advanced-iterator-methods)
+    - [Iterator combinators for collection generation](#iterator-combinators-for-collection-generation)
   - [Error Handling](#error-handling)
     - [Result and Option Patterns](#result-and-option-patterns)
   - [Pattern Matching](#pattern-matching)
@@ -98,6 +99,7 @@ This repo and README can be used to search for common language features. I hope 
   - [Reverse String](#reverse-string)
   - [RNA Transcription](#rna-transcription)
   - [Robot Simulator](#robot-simulator)
+  - [Robot Name](#robot-name)
   - [Run-length Encoding](#run-length-encoding)
   - [Saddle Points](#saddle-points)
   - [Say](#say)
@@ -122,7 +124,7 @@ This repo and README can be used to search for common language features. I hope 
 ## Data Structures
 
 ### Maps and Sets
-- `HashMap`/`HashSet` for Efficient Collections - Used in [Allergies](#allergies), [Anagram](#anagram), [ETL](#etl), [Isogram](#isogram), [Nucleotide Count](#nucleotide-count), [Sum of Multiples](#sum-of-multiples), and many others
+- `HashMap`/`HashSet` for Efficient Collections - Used in [Allergies](#allergies), [Anagram](#anagram), [ETL](#etl), [Isogram](#isogram), [Nucleotide Count](#nucleotide-count), [Sum of Multiples](#sum-of-multiples), [Robot Name](#robot-name) and many others
 - `BTreeMap`/`BTreeSet` for Ordered Collections - Used in [Grade School](#grade-school), [Dot DSL](#dot-dsl)
 
 ### Custom Data Structures
@@ -134,6 +136,7 @@ This repo and README can be used to search for common language features. I hope 
 
 - `VecDeque` for queue processing - Used in [Two Bucket](#two-bucket)
 - `abs_diff()` for convenient diffing - Used on [Queen Attack](#queen-attack)
+- `LazyLock` for lazy static initialization
 
 ## Iteration Techniques
 
@@ -144,11 +147,22 @@ This repo and README can be used to search for common language features. I hope 
 - `zip()` - Used in [Hamming](#hamming)
 - `flat_map()` - Used in [Alphametics](#alphametics), [ETL](#etl), [Kindergarten Garden](#kindergarten-garden), [Sum of Multiples](#sum-of-multiples), [Variable Length Quantity](#variable-length-quantity)
 - `fold()` - Used in [Luhn](#luhn), [Robot Simulator](#robot-simulator), [Pascal's Triangle](#pascals-triangle)
+- `chain()` - Used in [Bottle Song](#bottle-song), [Robot Name](#robot-name)
 
 ### Advanced Iterator Methods
 - `try_fold()` - Used in [All-Your-Base](#all-your-base), [ISBN Verifier](#isbn-verifier), [RNA Transcription](#rna-transcription)
 - `peekable()` - Used in [Pig Latin](#pig-latin), [Run-length Encoding](#run-length-encoding)
 - `step_by()` - Used in [Sieve of Eratosthenes](#sieve-of-eratosthenes), [Sum of Multiples](#sum-of-multiples)
+- `iter::once()` - Used in [Acronym](#acronym), [Alphametics](#alphametics), [Nth Prime](#nth-prime), [Proverb](#proverb)
+
+### Iterator combinators for collection generation
+
+- Functional string building - Used in [Robot Name](#robot-name) with `map()`, `chain()`, `collect()` pattern
+- Sequence generation - Used in [Palindrome Products](#palindrome-products) for generating factor pairs
+- String transformation - Used in [Reverse String](#reverse-string) with `chars().rev().collect()` pattern
+- Subslice extraction - Used in [Series](#series) with `windows()` combined with `map()` and `collect()`
+- Filtered collection building - Used in [Alphametics](#alphametics) and [Sieve of Eratosthenes](#sieve-of-eratosthenes) with `filter_map()`
+- Incremental construction with `fold()` - Used in [Pascal's Triangle](#pascals-triangle) for building rows from previous ones
 
 ## Error Handling
 
@@ -226,6 +240,7 @@ This repo and README can be used to search for common language features. I hope 
 - Zero-copy Parsing - Used in [Tournament](#tournament) with string borrows
 - `Box<T>` for Heap Allocation - Used in [Simple Linked List](#simple-linked-list)
 - Slices and slice indexing - Used in [Variable Length Quantity](#variable-length-quantity)
+- `Mutex` for safe shared state management
 
 ## Design Patterns
 
@@ -578,6 +593,14 @@ Below is a brief analysis of each solution. Solutions are ordered alphabetically
 - Immutable state transitions (`with_direction`, `with_coordinates`) for clean state updates
 - Domain modeling with custom `Enum` for robot directions
 
+## [Robot Name](https://github.com/eaverdeja/exercism-rust/tree/main/robot-name/src/lib.rs)
+
+- Uses `LazyLock<Mutex<HashSet<String>>>` for global state management to track used robot names
+  - Note that this is generally discouraged, but was implemented for the sake of the exercise. Still a good to know!
+- Implements thread-safe name uniqueness checking with synchronization primitives (`lock()`)
+- Leverages the `rand` crate for random character generation
+- Uses iterator combinators (`map()`, `chain()`, `collect()`) for functional name construction
+
 ## [Run-length Encoding](https://github.com/eaverdeja/exercism-rust/tree/main/run-length-encoding/src/lib.rs)
 
 - `peekable()` iterator for lookahead while encoding
@@ -741,7 +764,7 @@ Here are all solutions ordered by lines of code. Use this a proxy for how comple
 ====================================================================================================
  Language                                 Files        Lines         Code     Comments       Blanks
 ====================================================================================================
- Rust                                        65         2947         2300          234          413
+ Rust                                        66         3007         2348          234          425
 ----------------------------------------------------------------------------------------------------
  ./alphametics/src/lib.rs                                463          289          111           63
  ./bowling/src/lib.rs                                    211          161           17           33
@@ -756,6 +779,7 @@ Here are all solutions ordered by lines of code. Use this a proxy for how comple
  ./bottle-song/src/lib.rs                                 62           58            0            4
  ./minesweeper/src/lib.rs                                 71           56            6            9
  ./say/src/lib.rs                                         72           51            5           16
+ ./robot-name/src/lib.rs                                  60           48            0           12
  ./space-age/src/lib.rs                                   51           46            0            5
  ./allergies/src/lib.rs                                   56           45            5            6
  ./all-your-base/src/lib.rs                               50           44            0            6
@@ -771,10 +795,10 @@ Here are all solutions ordered by lines of code. Use this a proxy for how comple
  ./anagram/src/lib.rs                                     32           27            0            5
  ./clock/src/lib.rs                                       32           25            0            7
  ./triangle/src/lib.rs                                    31           25            0            6
- ./dot-dsl/src/graph/graph_items/edge.rs                  27           23            0            4
  ./kindergarten-garden/src/lib.rs                         26           23            0            3
- ./high-scores/src/lib.rs                                 28           23            0            5
+ ./dot-dsl/src/graph/graph_items/edge.rs                  27           23            0            4
  ./matching-brackets/src/lib.rs                           30           23            4            3
+ ./high-scores/src/lib.rs                                 28           23            0            5
  ./nth-prime/src/lib.rs                                   28           22            2            4
  ./acronym/src/lib.rs                                     28           21            4            3
  ./pascals-triangle/src/lib.rs                            24           21            0            3
@@ -792,13 +816,13 @@ Here are all solutions ordered by lines of code. Use this a proxy for how comple
  ./raindrops/src/lib.rs                                   14           13            0            1
  ./reverse-string/src/lib.rs                              20           13            4            3
  ./sieve/src/lib.rs                                       17           12            2            3
- ./armstrong-numbers/src/lib.rs                           11           10            0            1
  ./say/src/constants.rs                                   12           10            0            2
+ ./armstrong-numbers/src/lib.rs                           11           10            0            1
  ./sum-of-multiples/src/lib.rs                            11           10            0            1
  ./grains/src/lib.rs                                      10            9            0            1
  ./difference-of-squares/src/lib.rs                       17            9            5            3
- ./hamming/src/lib.rs                                     12            8            2            2
  ./isogram/src/lib.rs                                     10            8            0            2
+ ./hamming/src/lib.rs                                     12            8            2            2
  ./series/src/lib.rs                                       8            8            0            0
  ./etl/src/lib.rs                                          9            7            0            2
  ./eliuds-eggs/src/lib.rs                                  7            6            0            1
@@ -809,7 +833,7 @@ Here are all solutions ordered by lines of code. Use this a proxy for how comple
  ./hello-world/src/lib.rs                                  4            3            1            0
  ./dot-dsl/src/lib.rs                                      1            1            0            0
 ====================================================================================================
- Total                                       65         2947         2300          234          413
+ Total                                       66         3007         2348          234          425
 ====================================================================================================
 ```
 
