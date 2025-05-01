@@ -10,6 +10,9 @@ This repo and README can be used to search for common language features. I hope 
 > inspired by community solutions from Exercism, others were ideas proposed by AI.
 > There are even a few that were of my own devise, but even then I probably
 > tapped into the collective unconscious to come up with them.
+> Also, these are just possible solutions to the problems, not the best solutions.
+> I come from an object-oriented world and web development, so the code I 
+> write is influenced by that.
 
 - [Rust Features by Category](#rust-features-by-category)
   - [Data Structures](#data-structures)
@@ -94,6 +97,7 @@ This repo and README can be used to search for common language features. I hope 
   - [Raindrops](#raindrops)
   - [Reverse String](#reverse-string)
   - [RNA Transcription](#rna-transcription)
+  - [Robot Simulator](#robot-simulator)
   - [Run-length Encoding](#run-length-encoding)
   - [Saddle Points](#saddle-points)
   - [Say](#say)
@@ -124,7 +128,7 @@ This repo and README can be used to search for common language features. I hope 
 ### Custom Data Structures
 - Custom Linked List Implementation - `Option<Box<Node<T>>>` on [Simple Linked List](#simple-linked-list) for safe memory management
 - Custom Wrapper Types - Used in [PaaS I/O](#paas-io) for I/O statistics tracking
-- Object-oriented Design - Used in [Bowling](#bowling) with multiple structures
+- Object-oriented Design - Used in [Bowling](#bowling) with multiple structures, [Robot Simulator](#robot-simulator)
 
 ## Less common standard library features
 
@@ -139,6 +143,7 @@ This repo and README can be used to search for common language features. I hope 
 - `enumerate()` - Used in [Saddle Points](#saddle-points), [All-Your-Base](#all-your-base), [ISBN Verifier](#isbn-verifier), and many others. This one is also pretty popular!
 - `zip()` - Used in [Hamming](#hamming)
 - `flat_map()` - Used in [Alphametics](#alphametics), [ETL](#etl), [Kindergarten Garden](#kindergarten-garden), [Sum of Multiples](#sum-of-multiples), [Variable Length Quantity](#variable-length-quantity)
+- `fold()` - Used in [Luhn](#luhn), [Robot Simulator](#robot-simulator), [Pascal's Triangle](#pascals-triangle)
 
 ### Advanced Iterator Methods
 - `try_fold()` - Used in [All-Your-Base](#all-your-base), [ISBN Verifier](#isbn-verifier), [RNA Transcription](#rna-transcription)
@@ -171,7 +176,8 @@ This repo and README can be used to search for common language features. I hope 
 
 ### Immutable Design
 - Pure Functions - Used in [Clock](#clock) returning new objects
-- Immutable State Transformations - Used in [Two Bucket](#two-bucket) via `with()` method
+- Immutable State Transformations - Used in [Two Bucket](#two-bucket) via `with()` method, [Robot Simulator](#robot-simulator) via `with_*` methods
+- Spread operator to keep unchanged fields when creating new objects (`..self`) - Used in [Robot Simulator](#robot-simulator)
 
 ## Bit Manipulation
 
@@ -228,9 +234,9 @@ This repo and README can be used to search for common language features. I hope 
 - Method Chaining - Used in [Tournament](#tournament) with `entry` API
 
 ### Domain Modeling
-- Type-safe Domain Models - Used in [Tournament](#tournament)
+- Type-safe Domain Models - Used in [Tournament](#tournament), [Robot Simulator](#robot-simulator)
 - State Encapsulation - Used in [Bowling](#bowling)
-- Abstraction with Enums - Used in [Spiral Matrix](#spiral-matrix)
+- Abstraction with Enums - Used in [Spiral Matrix](#spiral-matrix), [Robot Simulator](#robot-simulator)
 
 ## Type Conversions and Parsing
 
@@ -559,13 +565,20 @@ Below is a brief analysis of each solution. Solutions are ordered alphabetically
 - `chars().rev().collect()` pattern
 - Alternative `fold`-based approach
 
-## [RNA Transcription](https://github.com/eaverdeja/exercism-rust/tree/main/rna-transcription)
+## [RNA Transcription](https://github.com/eaverdeja/exercism-rust/tree/main/rna-transcription/src/lib.rs)
 
 - Tuple structs with private data (`Dna(String)`, `Rna(String)`)
 - Pattern matching with match for nucleotide conversion
 - `try_fold` for validation with early return on error
 
-## [Run-length Encoding](https://github.com/eaverdeja/exercism-rust/tree/main/run-length-encoding)
+## [Robot Simulator](https://github.com/eaverdeja/exercism-rust/tree/main/robot-simulator/src/lib.rs)
+
+- Pattern matching with `match` expressions for direction changes
+- Functional programming with `fold()` and method chaining to process instruction sequences
+- Immutable state transitions (`with_direction`, `with_coordinates`) for clean state updates
+- Domain modeling with custom `Enum` for robot directions
+
+## [Run-length Encoding](https://github.com/eaverdeja/exercism-rust/tree/main/run-length-encoding/src/lib.rs)
 
 - `peekable()` iterator for lookahead while encoding
 - Iterative approach with state tracking variables for decoding
@@ -728,13 +741,14 @@ Here are all solutions ordered by lines of code. Use this a proxy for how comple
 ====================================================================================================
  Language                                 Files        Lines         Code     Comments       Blanks
 ====================================================================================================
- Rust                                        64         2853         2220          234          399
+ Rust                                        65         2947         2300          234          413
 ----------------------------------------------------------------------------------------------------
  ./alphametics/src/lib.rs                                463          289          111           63
  ./bowling/src/lib.rs                                    211          161           17           33
  ./tournament/src/lib.rs                                 150          126            0           24
  ./two-bucket/src/lib.rs                                 159          123           15           21
  ./spiral-matrix/src/lib.rs                               93           81            0           12
+ ./robot-simulator/src/lib.rs                             94           80            0           14
  ./simple-linked-list/src/lib.rs                         108           77           10           21
  ./palindrome-products/src/lib.rs                         86           73            1           12
  ./paasio/src/lib.rs                                      79           66            0           13
@@ -757,13 +771,13 @@ Here are all solutions ordered by lines of code. Use this a proxy for how comple
  ./anagram/src/lib.rs                                     32           27            0            5
  ./clock/src/lib.rs                                       32           25            0            7
  ./triangle/src/lib.rs                                    31           25            0            6
- ./kindergarten-garden/src/lib.rs                         26           23            0            3
  ./dot-dsl/src/graph/graph_items/edge.rs                  27           23            0            4
- ./matching-brackets/src/lib.rs                           30           23            4            3
+ ./kindergarten-garden/src/lib.rs                         26           23            0            3
  ./high-scores/src/lib.rs                                 28           23            0            5
+ ./matching-brackets/src/lib.rs                           30           23            4            3
  ./nth-prime/src/lib.rs                                   28           22            2            4
- ./pascals-triangle/src/lib.rs                            24           21            0            3
  ./acronym/src/lib.rs                                     28           21            4            3
+ ./pascals-triangle/src/lib.rs                            24           21            0            3
  ./dot-dsl/src/graph/graph_items/node.rs                  25           21            0            4
  ./saddle-points/src/lib.rs                               23           20            0            3
  ./luhn/src/lib.rs                                        24           20            1            3
@@ -778,24 +792,24 @@ Here are all solutions ordered by lines of code. Use this a proxy for how comple
  ./raindrops/src/lib.rs                                   14           13            0            1
  ./reverse-string/src/lib.rs                              20           13            4            3
  ./sieve/src/lib.rs                                       17           12            2            3
- ./sum-of-multiples/src/lib.rs                            11           10            0            1
- ./say/src/constants.rs                                   12           10            0            2
  ./armstrong-numbers/src/lib.rs                           11           10            0            1
+ ./say/src/constants.rs                                   12           10            0            2
+ ./sum-of-multiples/src/lib.rs                            11           10            0            1
  ./grains/src/lib.rs                                      10            9            0            1
  ./difference-of-squares/src/lib.rs                       17            9            5            3
  ./hamming/src/lib.rs                                     12            8            2            2
  ./isogram/src/lib.rs                                     10            8            0            2
  ./series/src/lib.rs                                       8            8            0            0
  ./etl/src/lib.rs                                          9            7            0            2
- ./leap/src/lib.rs                                        13            6            7            0
  ./eliuds-eggs/src/lib.rs                                  7            6            0            1
+ ./leap/src/lib.rs                                        13            6            7            0
  ./gigasecond/src/lib.rs                                   8            5            1            2
  ./pangram/src/lib.rs                                      4            4            0            0
  ./dot-dsl/src/graph/graph_items.rs                        3            3            0            0
  ./hello-world/src/lib.rs                                  4            3            1            0
  ./dot-dsl/src/lib.rs                                      1            1            0            0
 ====================================================================================================
- Total                                       64         2853         2220          234          399
+ Total                                       65         2947         2300          234          413
 ====================================================================================================
 ```
 
