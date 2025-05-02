@@ -745,10 +745,10 @@ Below is a brief analysis of each solution. Solutions are ordered alphabetically
 
 ## [Wordy](https://github.com/eaverdeja/exercism-rust/tree/main/wordy/src/lib.rs)
 
-- Three-phase interpreter design (extract, tokenize, evaluate)
+- Two-phase interpreter design (tokenize, evaluate)
 - Immutable approach with passing state between phases
 - `Token` enum with variants for numbers and operations
-- Stateful tokenizer using `split_whitespace().peekable()` for lookahead parsing
+- Stateful tokenizer using `split_whitespace().peekable()` for lookahead parsing via `next_if_eq()`
 - Pattern matching with destructuring, match guards and the `@` binding operator in match arms
 - Pipeline architecture with `Option` and the `?` operator for clean error propagation
 - `Option` handling with `is_some_and()` and `take()`

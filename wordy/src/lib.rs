@@ -1,5 +1,3 @@
-use std::{iter::Peekable, str::SplitWhitespace};
-
 #[derive(Debug)]
 enum Token {
     Number(i32),
@@ -11,22 +9,11 @@ enum Token {
 }
 
 pub fn answer(command: &str) -> Option<i32> {
-    let expression = extract_expression(command)?;
+    let expression = command.strip_prefix("What is")?.strip_suffix("?")?;
     let tokens = tokenize(expression)?;
     let result = evaluate(tokens)?;
 
     Some(result)
-}
-
-fn extract_expression(command: &str) -> Option<&str> {
-    if command.starts_with("What is") && command.ends_with("?") {
-        command
-            .strip_prefix("What is")
-            .expect("'What is' prefix should be present!")
-            .strip_suffix("?")
-    } else {
-        None
-    }
 }
 
 fn tokenize(command: &str) -> Option<Vec<Token>> {
@@ -34,26 +21,26 @@ fn tokenize(command: &str) -> Option<Vec<Token>> {
     let mut iter = command.split_whitespace().peekable();
 
     while let Some(word) = iter.next() {
-        let token = match word {
+        tokens.push(match word {
             "plus" => Token::Plus,
             "minus" => Token::Minus,
             "multiplied" => {
-                consume_word(&mut iter, "by");
+                iter.next_if_eq(&"by")?;
                 Token::Multiply
             }
             "divided" => {
-                consume_word(&mut iter, "by");
+                iter.next_if_eq(&"by")?;
                 Token::Divide
             }
             "raised" => {
-                consume_word(&mut iter, "to");
-                consume_word(&mut iter, "the");
+                iter.next_if_eq(&"to")?;
+                iter.next_if_eq(&"the")?;
                 let power = iter.next().expect("unterminated exponential expression!");
                 let token = match power[..power.len() - 2].parse::<u32>() {
                     Ok(num) => Token::Pow(num),
                     Err(_) => return None,
                 };
-                consume_word(&mut iter, "power");
+                iter.next_if_eq(&"power")?;
 
                 token
             }
@@ -65,9 +52,7 @@ fn tokenize(command: &str) -> Option<Vec<Token>> {
                     Err(_) => return None, // Everything else is invalid
                 }
             }
-        };
-
-        tokens.push(token)
+        })
     }
 
     Some(tokens)
@@ -109,10 +94,4 @@ fn evaluate(tokens: Vec<Token>) -> Option<i32> {
     }
 
     Some(result)
-}
-
-fn consume_word(iter: &mut Peekable<SplitWhitespace<'_>>, word: &str) {
-    if iter.peek().is_some_and(|&w| w == word) {
-        iter.next();
-    }
 }
