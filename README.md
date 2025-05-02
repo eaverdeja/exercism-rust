@@ -46,6 +46,7 @@ This repo and README can be used to search for common language features. I hope 
     - [Ownership Patterns](#ownership-patterns)
   - [Design Patterns](#design-patterns)
     - [Builder Pattern](#builder-pattern)
+    - [Interpreter Pattern](#interpreter-pattern)
     - [Domain Modeling](#domain-modeling)
   - [Type Conversions and Parsing](#type-conversions-and-parsing)
     - [Number Conversions](#number-conversions)
@@ -116,6 +117,7 @@ This repo and README can be used to search for common language features. I hope 
   - [Triangle](#triangle)
   - [Two Bucket](#two-bucket)
   - [Variable Length Quantity](#variable-length-quantity)
+  - [Wordy](#wordy)
 - [Testing](#testing)
 - [Metrics](#metrics)
 
@@ -153,7 +155,7 @@ This repo and README can be used to search for common language features. I hope 
 
 ### Advanced Iterator Methods
 - `try_fold()` - Used in [All-Your-Base](#all-your-base), [ISBN Verifier](#isbn-verifier), [RNA Transcription](#rna-transcription)
-- `peekable()` - Used in [Pig Latin](#pig-latin), [Run-length Encoding](#run-length-encoding)
+- `peekable()` - Used in [Pig Latin](#pig-latin), [Run-length Encoding](#run-length-encoding), [Wordy](#wordy)
 - `step_by()` - Used in [Sieve of Eratosthenes](#sieve-of-eratosthenes), [Sum of Multiples](#sum-of-multiples)
 - `iter::once()` - Used in [Acronym](#acronym), [Alphametics](#alphametics), [Nth Prime](#nth-prime), [Proverb](#proverb)
 - `itertools::fold_while()` - Used in [Protein Translation](#protein-translation)
@@ -171,16 +173,17 @@ This repo and README can be used to search for common language features. I hope 
 
 ### Result and Option Patterns
 - Custom `Error` Enums - Used in [All-Your-Base](#all-your-base), [Bowling](#bowling), [Variable Length Quantity](#variable-length-quantity) and others
-- `Option` for Missing Values & Error Handling - Used in [Binary Search](#binary-search), [High Scores](#high-scores), [Two Bucket](#two-bucket), [Protein Translation](#protein-translation)
-- `?` Operator - Used in [Perfect Numbers](#perfect-numbers), [Sieve of Eratosthenes](#sieve-of-eratosthenes), [Variable Length Quantity](#variable-length-quantity)
+- `Option` for Missing Values & Error Handling - Used in [Binary Search](#binary-search), [High Scores](#high-scores), [Two Bucket](#two-bucket), [Protein Translation](#protein-translation), [Wordy](#wordy)
+- `?` Operator - Used in [Perfect Numbers](#perfect-numbers), [Sieve of Eratosthenes](#sieve-of-eratosthenes), [Variable Length Quantity](#variable-length-quantity), [Wordy](#wordy)
 
 ## Pattern Matching
 
 ### Match Expressions
 - Pattern Matching with Guards - Used in [Bob](#bob), [Leap](#leap)
 - Complex String Parsing - Used in [Pig Latin](#pig-latin)
-- Multi-pattern Matching with `|` operator - Used in [Scrabble Score](#scrabble-score), [Protein Translation](#protein-translation)
+- Multi-pattern Matching with `|` operator - Used in [Scrabble Score](#scrabble-score), [Protein Translation](#protein-translation), [Wordy](#wordy)
 - Matching against byte string literals - Used in [Protein Translation](#protein-translation)
+- `@` binding operator - Used in [Wordy](#wordy)
 
 ### Enum Patterns
 - `Enum` with Explicit Discriminators - Used in [Allergies](#allergies)
@@ -223,6 +226,7 @@ This repo and README can be used to search for common language features. I hope 
 - Number-to-Words Conversion - Used in [Say](#say) with recursive approach
 - Run-length Encoding - Used in [Run-length Encoding](#run-length-encoding)
 - Byte-level string manipulation with `as_bytes()` - Used in [Minesweeper](#minesweeper), [Protein Translation](#protein-translation)
+- Substring extraction with `strip_prefix()` and `strip_suffix()` - Used in [Wordy](#wordy)
 
 ### Formatting
 - String Formatting - Used in [Clock](#clock), [Tournament](#tournament) with format specifiers
@@ -252,6 +256,9 @@ This repo and README can be used to search for common language features. I hope 
 ### Builder Pattern
 - Fluent Interfaces - Used in [Dot DSL](#dot-dsl)
 - Method Chaining - Used in [Tournament](#tournament) with `entry` API
+
+### Interpreter Pattern
+- Tokenization and Evaluation - Used in [Wordy](#wordy)
 
 ### Domain Modeling
 - Type-safe Domain Models - Used in [Tournament](#tournament), [Robot Simulator](#robot-simulator)
@@ -736,6 +743,17 @@ Below is a brief analysis of each solution. Solutions are ordered alphabetically
 - Implements the visitor pattern via slice indexing (`&bytes[i..]`) to advance through data
 - Combines functional and imperative styles
 
+## [Wordy](https://github.com/eaverdeja/exercism-rust/tree/main/wordy/src/lib.rs)
+
+- Three-phase interpreter design (extract, tokenize, evaluate)
+- Immutable approach with passing state between phases
+- `Token` enum with variants for numbers and operations
+- Stateful tokenizer using `split_whitespace().peekable()` for lookahead parsing
+- Pattern matching with destructuring, match guards and the `@` binding operator in match arms
+- Pipeline architecture with `Option` and the `?` operator for clean error propagation
+- `Option` handling with `is_some_and()` and `take()`
+- String manipulation with `strip_prefix()` and `strip_suffix()`
+
 ---
 
 This list was initially generated with Claude code with the following prompt:
@@ -777,12 +795,13 @@ Here are all solutions ordered by lines of code. Use this a proxy for how comple
 ====================================================================================================
  Language                                 Files        Lines         Code     Comments       Blanks
 ====================================================================================================
- Rust                                        66         3007         2348          234          425
+ Rust                                        68         3152         2471          238          443
 ----------------------------------------------------------------------------------------------------
  ./alphametics/src/lib.rs                                463          289          111           63
  ./bowling/src/lib.rs                                    211          161           17           33
  ./tournament/src/lib.rs                                 150          126            0           24
  ./two-bucket/src/lib.rs                                 159          123           15           21
+ ./wordy/src/lib.rs                                      118           98            4           16
  ./spiral-matrix/src/lib.rs                               93           81            0           12
  ./robot-simulator/src/lib.rs                             94           80            0           14
  ./simple-linked-list/src/lib.rs                         108           77           10           21
@@ -792,7 +811,7 @@ Here are all solutions ordered by lines of code. Use this a proxy for how comple
  ./bottle-song/src/lib.rs                                 62           58            0            4
  ./minesweeper/src/lib.rs                                 71           56            6            9
  ./say/src/lib.rs                                         72           51            5           16
- ./robot-name/src/lib.rs                                  60           48            0           12
+ ./robot-name/src/lib.rs                                  58           46            0           12
  ./space-age/src/lib.rs                                   51           46            0            5
  ./allergies/src/lib.rs                                   56           45            5            6
  ./all-your-base/src/lib.rs                               50           44            0            6
@@ -803,18 +822,19 @@ Here are all solutions ordered by lines of code. Use this a proxy for how comple
  ./perfect-numbers/src/lib.rs                             38           32            2            4
  ./sublist/src/lib.rs                                     32           29            0            3
  ./dot-dsl/src/graph/graph_items/attrs.rs                 35           29            0            6
- ./dot-dsl/src/graph.rs                                   35           28            0            7
  ./queen-attack/src/lib.rs                                35           28            1            6
+ ./dot-dsl/src/graph.rs                                   35           28            0            7
  ./anagram/src/lib.rs                                     32           27            0            5
+ ./protein-translation/src/lib.rs                         29           27            0            2
  ./clock/src/lib.rs                                       32           25            0            7
  ./triangle/src/lib.rs                                    31           25            0            6
  ./kindergarten-garden/src/lib.rs                         26           23            0            3
  ./dot-dsl/src/graph/graph_items/edge.rs                  27           23            0            4
- ./matching-brackets/src/lib.rs                           30           23            4            3
  ./high-scores/src/lib.rs                                 28           23            0            5
+ ./matching-brackets/src/lib.rs                           30           23            4            3
  ./nth-prime/src/lib.rs                                   28           22            2            4
- ./acronym/src/lib.rs                                     28           21            4            3
  ./pascals-triangle/src/lib.rs                            24           21            0            3
+ ./acronym/src/lib.rs                                     28           21            4            3
  ./dot-dsl/src/graph/graph_items/node.rs                  25           21            0            4
  ./saddle-points/src/lib.rs                               23           20            0            3
  ./luhn/src/lib.rs                                        24           20            1            3
@@ -829,13 +849,13 @@ Here are all solutions ordered by lines of code. Use this a proxy for how comple
  ./raindrops/src/lib.rs                                   14           13            0            1
  ./reverse-string/src/lib.rs                              20           13            4            3
  ./sieve/src/lib.rs                                       17           12            2            3
- ./say/src/constants.rs                                   12           10            0            2
  ./armstrong-numbers/src/lib.rs                           11           10            0            1
+ ./say/src/constants.rs                                   12           10            0            2
  ./sum-of-multiples/src/lib.rs                            11           10            0            1
  ./grains/src/lib.rs                                      10            9            0            1
  ./difference-of-squares/src/lib.rs                       17            9            5            3
- ./isogram/src/lib.rs                                     10            8            0            2
  ./hamming/src/lib.rs                                     12            8            2            2
+ ./isogram/src/lib.rs                                     10            8            0            2
  ./series/src/lib.rs                                       8            8            0            0
  ./etl/src/lib.rs                                          9            7            0            2
  ./eliuds-eggs/src/lib.rs                                  7            6            0            1
@@ -846,7 +866,7 @@ Here are all solutions ordered by lines of code. Use this a proxy for how comple
  ./hello-world/src/lib.rs                                  4            3            1            0
  ./dot-dsl/src/lib.rs                                      1            1            0            0
 ====================================================================================================
- Total                                       66         3007         2348          234          425
+ Total                                       68         3152         2471          238          443
 ====================================================================================================
 ```
 

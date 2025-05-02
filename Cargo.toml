@@ -62,4 +62,5 @@ members = [
     "triangle",
     "two-bucket",
     "variable-length-quantity",
+    "wordy",
 ]
