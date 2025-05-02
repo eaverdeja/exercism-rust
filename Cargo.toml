@@ -39,6 +39,7 @@ members = [
     "perfect-numbers",
     "pig-latin",
     "prime-factors",
+    "protein-translation",
     "proverb",
     "queen-attack",
     "raindrops",

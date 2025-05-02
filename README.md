@@ -93,6 +93,7 @@ This repo and README can be used to search for common language features. I hope 
   - [Perfect Numbers](#perfect-numbers)
   - [Pig Latin](#pig-latin)
   - [Prime Factors](#prime-factors)
+  - [Protein Translation](#protein-translation)
   - [Proverb](#proverb)
   - [Queen Attack](#queen-attack)
   - [Raindrops](#raindrops)
@@ -136,13 +137,14 @@ This repo and README can be used to search for common language features. I hope 
 
 - `VecDeque` for queue processing - Used in [Two Bucket](#two-bucket)
 - `abs_diff()` for convenient diffing - Used on [Queen Attack](#queen-attack)
-- `LazyLock` for lazy static initialization
+- `LazyLock` for lazy static initialization - Used on [Robot Name](#robot-name)
 
 ## Iteration Techniques
 
 ### Basic Iterator Methods
 - `map()`/`filter()`/`collect()` - Used in [Acronym](#acronym), [Armstrong Numbers](#armstrong-numbers), [Scrabble Score](#scrabble-score), [Difference of Squares](#difference-of-squares) and the list goes on! These ones are hard *not* to find in a solution! 
 - `windows()` - Used in [Proverb](#proverb), [Series](#series), [Sublist](#sublist) for processing adjacent elements
+- `chunks()` - Used in [Protein Translation](#protein-translation)
 - `enumerate()` - Used in [Saddle Points](#saddle-points), [All-Your-Base](#all-your-base), [ISBN Verifier](#isbn-verifier), and many others. This one is also pretty popular!
 - `zip()` - Used in [Hamming](#hamming)
 - `flat_map()` - Used in [Alphametics](#alphametics), [ETL](#etl), [Kindergarten Garden](#kindergarten-garden), [Sum of Multiples](#sum-of-multiples), [Variable Length Quantity](#variable-length-quantity)
@@ -154,6 +156,7 @@ This repo and README can be used to search for common language features. I hope 
 - `peekable()` - Used in [Pig Latin](#pig-latin), [Run-length Encoding](#run-length-encoding)
 - `step_by()` - Used in [Sieve of Eratosthenes](#sieve-of-eratosthenes), [Sum of Multiples](#sum-of-multiples)
 - `iter::once()` - Used in [Acronym](#acronym), [Alphametics](#alphametics), [Nth Prime](#nth-prime), [Proverb](#proverb)
+- `itertools::fold_while()` - Used in [Protein Translation](#protein-translation)
 
 ### Iterator combinators for collection generation
 
@@ -168,7 +171,7 @@ This repo and README can be used to search for common language features. I hope 
 
 ### Result and Option Patterns
 - Custom `Error` Enums - Used in [All-Your-Base](#all-your-base), [Bowling](#bowling), [Variable Length Quantity](#variable-length-quantity) and others
-- `Option` for Missing Values - Used in [Binary Search](#binary-search), [High Scores](#high-scores), [Two Bucket](#two-bucket)
+- `Option` for Missing Values & Error Handling - Used in [Binary Search](#binary-search), [High Scores](#high-scores), [Two Bucket](#two-bucket), [Protein Translation](#protein-translation)
 - `?` Operator - Used in [Perfect Numbers](#perfect-numbers), [Sieve of Eratosthenes](#sieve-of-eratosthenes), [Variable Length Quantity](#variable-length-quantity)
 
 ## Pattern Matching
@@ -176,7 +179,8 @@ This repo and README can be used to search for common language features. I hope 
 ### Match Expressions
 - Pattern Matching with Guards - Used in [Bob](#bob), [Leap](#leap)
 - Complex String Parsing - Used in [Pig Latin](#pig-latin)
-- Multi-pattern Matching - Used in [Scrabble Score](#scrabble-score) with `|` operator
+- Multi-pattern Matching with `|` operator - Used in [Scrabble Score](#scrabble-score), [Protein Translation](#protein-translation)
+- Matching against byte string literals - Used in [Protein Translation](#protein-translation)
 
 ### Enum Patterns
 - `Enum` with Explicit Discriminators - Used in [Allergies](#allergies)
@@ -218,6 +222,7 @@ This repo and README can be used to search for common language features. I hope 
 - Unicode-aware Processing - Used in [Anagram](#anagram), [Reverse String](#reverse-string)
 - Number-to-Words Conversion - Used in [Say](#say) with recursive approach
 - Run-length Encoding - Used in [Run-length Encoding](#run-length-encoding)
+- Byte-level string manipulation with `as_bytes()` - Used in [Minesweeper](#minesweeper), [Protein Translation](#protein-translation)
 
 ### Formatting
 - String Formatting - Used in [Clock](#clock), [Tournament](#tournament) with format specifiers
@@ -551,6 +556,14 @@ Below is a brief analysis of each solution. Solutions are ordered alphabetically
 - Loop with pattern matching
 - Trial division algorithm
 - Efficient value/divisor updates
+
+## [Protein Translation](https://github.com/eaverdeja/exercism-rust/tree/main/protein-translation/src/lib.rs)
+
+- Leverages `chunks(3)` for processing 3-character codons
+- Uses pattern matching with multi-pattern branches for codon translation
+- Matches against byte string literals (`b"UAA"`) to allow matching on a slice of bytes (`&[u8]`)
+- Uses `itertools::fold_while` with `Continue` and `Done` for more fine-grained folding with early exit capability
+- Returns `Option<Vec<&str>>` to handle both valid translations and errors
 
 ## [Proverb](https://github.com/eaverdeja/exercism-rust/tree/main/proverb/src/lib.rs)
 
