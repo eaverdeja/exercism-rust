@@ -46,8 +46,7 @@ fn tokenize(command: &str) -> Option<Vec<Token>> {
             }
             _ => {
                 // The only thing left are numbers
-                let sanitized = word.replace(",", "");
-                match sanitized.parse::<i32>() {
+                match word.parse::<i32>() {
                     Ok(num) => Token::Number(num),
                     Err(_) => return None, // Everything else is invalid
                 }
@@ -60,15 +59,13 @@ fn tokenize(command: &str) -> Option<Vec<Token>> {
 
 fn evaluate(tokens: Vec<Token>) -> Option<i32> {
     let mut iter = tokens.into_iter();
-    let first_token = iter.next()?;
-
-    let first_num = match first_token {
-        Token::Number(num) => num,
-        _ => return None, // We must start an expression with a number
-    };
-
-    let mut result = first_num;
     let mut operator = None;
+
+    // We must start an expression with a number
+    let mut result = match iter.next()? {
+        Token::Number(num) => num,
+        _ => return None,
+    };
 
     for token in iter {
         match token {
