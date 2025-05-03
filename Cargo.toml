@@ -16,6 +16,7 @@ members = [
     "bowling",
     "clock",
     "collatz-conjecture",
+    "crypto-square",
     "custom-set",
     "difference-of-squares",
     "dot-dsl",

@@ -72,6 +72,7 @@ This repo and README can be used to search for common language features. I hope 
   - [Bowling](#bowling)
   - [Clock](#clock)
   - [Collatz Conjecture](#collatz-conjecture)
+  - [Crypto Square](#crypto-square)
   - [Custom Set](#custom-set)
   - [Difference of Squares](#difference-of-squares)
   - [Dot DSL](#dot-dsl)
@@ -168,7 +169,7 @@ This repo and README can be used to search for common language features. I hope 
 
 ### Iterator combinators for collection generation
 
-- Functional string building with `map()`, `filter()`, `chain()`, `collect()` patterns - Used in [Atbash Cipher](#atbash-cipher), [Robot Name](#robot-name)
+- Functional string building with `map()`, `filter()`, `chain()`, `collect()` patterns - Used in [Atbash Cipher](#atbash-cipher), [Crypto Square](#crypto-square), [Robot Name](#robot-name)
 - Sequence generation - Used in [Palindrome Products](#palindrome-products) for generating factor pairs
 - String transformation - Used in [Reverse String](#reverse-string) with `chars().rev().collect()` pattern
 - Subslice extraction - Used in [Series](#series) with `windows()` combined with `map()` and `collect()`
@@ -237,6 +238,7 @@ This repo and README can be used to search for common language features. I hope 
 - `chunks()` on `&[char]` - Used in [Affine Cipher](#affine-cipher), [Atbash Cipher](#atbash-cipher), [Protein Translation](#protein-translation)
 - Byte-level string manipulation with `as_bytes()` - Used in [Minesweeper](#minesweeper), [Protein Translation](#protein-translation)
 - Substring extraction with `strip_prefix()` and `strip_suffix()` - Used in [Wordy](#wordy)
+- Grid-based text transpostion - Used in [Crypto Square](#crypto-square)
 
 ### Formatting
 - String Formatting - Used in [Clock](#clock), [Tournament](#tournament) with format specifiers
@@ -427,6 +429,15 @@ Below is a brief analysis of each solution. Solutions are ordered alphabetically
 - Recursive function with `Option` for errors
 - Guard against arithmetic overflow with `checked_*`
 - Function composition with `map`
+
+## [Crypto Square](https://github.com/eaverdeja/exercism-rust/tree/main/crypto-square/src/lib.rs)
+
+- String normalization with `filter()` and `to_ascii_lowercase()`
+- Uses `div_ceil()` integer division with ceiling for rectangle sizing
+- Optimal rectangle dimensions found through sequence generation with `(1..).map().find()`
+- Handling of incomplete rectangles with `unwrap_or(&' ')` for padding
+- Functional string building with nested `map()` operations and `collect()`
+- Joins output columns with spaces using `collect::<Vec<_>>().join(" ")`
 
 ## [Custom Set](https://github.com/eaverdeja/exercism-rust/tree/main/custom-set/src/lib.rs)
 
@@ -845,7 +856,7 @@ Here are all solutions ordered by lines of code. Use this a proxy for how comple
 ====================================================================================================
  Language                                 Files        Lines         Code     Comments       Blanks
 ====================================================================================================
- Rust                                        71         3418         2671          263          484
+ Rust                                        73         3470         2718          263          489
 ----------------------------------------------------------------------------------------------------
  ./alphametics/src/lib.rs                                463          289          111           63
  ./bowling/src/lib.rs                                    211          161           17           33
@@ -879,15 +890,17 @@ Here are all solutions ordered by lines of code. Use this a proxy for how comple
  ./anagram/src/lib.rs                                     32           27            0            5
  ./protein-translation/src/lib.rs                         29           27            0            2
  ./clock/src/lib.rs                                       32           25            0            7
+ ./atbash-cipher/src/lib.rs                               27           25            0            2
  ./triangle/src/lib.rs                                    31           25            0            6
  ./kindergarten-garden/src/lib.rs                         26           23            0            3
  ./dot-dsl/src/graph/graph_items/edge.rs                  27           23            0            4
  ./matching-brackets/src/lib.rs                           30           23            4            3
  ./high-scores/src/lib.rs                                 28           23            0            5
  ./nth-prime/src/lib.rs                                   28           22            2            4
+ ./crypto-square/src/lib.rs                               25           22            0            3
  ./acronym/src/lib.rs                                     28           21            4            3
- ./pascals-triangle/src/lib.rs                            24           21            0            3
  ./dot-dsl/src/graph/graph_items/node.rs                  25           21            0            4
+ ./pascals-triangle/src/lib.rs                            24           21            0            3
  ./saddle-points/src/lib.rs                               23           20            0            3
  ./luhn/src/lib.rs                                        24           20            1            3
  ./bob/src/lib.rs                                         21           19            0            2
@@ -902,9 +915,9 @@ Here are all solutions ordered by lines of code. Use this a proxy for how comple
  ./reverse-string/src/lib.rs                              20           13            4            3
  ./sieve/src/lib.rs                                       17           12            2            3
  ./accumulate/src/lib.rs                                  10           10            0            0
- ./sum-of-multiples/src/lib.rs                            11           10            0            1
  ./say/src/constants.rs                                   12           10            0            2
  ./armstrong-numbers/src/lib.rs                           11           10            0            1
+ ./sum-of-multiples/src/lib.rs                            11           10            0            1
  ./grains/src/lib.rs                                      10            9            0            1
  ./difference-of-squares/src/lib.rs                       17            9            5            3
  ./hamming/src/lib.rs                                     12            8            2            2
@@ -919,7 +932,7 @@ Here are all solutions ordered by lines of code. Use this a proxy for how comple
  ./hello-world/src/lib.rs                                  4            3            1            0
  ./dot-dsl/src/lib.rs                                      1            1            0            0
 ====================================================================================================
- Total                                       71         3418         2671          263          484
+ Total                                       73         3470         2718          263          489
 ====================================================================================================
 ```
 
