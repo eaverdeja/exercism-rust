@@ -44,6 +44,7 @@ This repo and README can be used to search for common language features. I hope 
     - [Generic Programming](#generic-programming)
   - [Memory Management](#memory-management)
     - [Ownership Patterns](#ownership-patterns)
+  - [Optimizations](#optimizations)
   - [Design Patterns](#design-patterns)
     - [Builder Pattern](#builder-pattern)
     - [Interpreter Pattern](#interpreter-pattern)
@@ -68,6 +69,7 @@ This repo and README can be used to search for common language features. I hope 
   - [Bowling](#bowling)
   - [Clock](#clock)
   - [Collatz Conjecture](#collatz-conjecture)
+  - [Custom Set](#custom-set)
   - [Difference of Squares](#difference-of-squares)
   - [Dot DSL](#dot-dsl)
   - [Eliud's Eggs](#eliuds-eggs)
@@ -134,6 +136,7 @@ This repo and README can be used to search for common language features. I hope 
 - Custom Linked List Implementation - `Option<Box<Node<T>>>` on [Simple Linked List](#simple-linked-list) for safe memory management
 - Custom Wrapper Types - Used in [PaaS I/O](#paas-io) for I/O statistics tracking
 - Object-oriented Design - Used in [Bowling](#bowling) with multiple structures, [Robot Simulator](#robot-simulator)
+- Custom Hash Table - Used in [Custom Set](#custom-set)
 
 ## Less common standard library features
 
@@ -240,7 +243,7 @@ This repo and README can be used to search for common language features. I hope 
 
 ### Generic Programming
 - Generic Functions - Used in [Binary Search](#binary-search) with type parameters, [Simple Linked List](#simple-linked-list) with `Node<T>`
-- Trait Bounds - Used in [Triangle](#triangle) for numeric constraints
+- Trait Bounds - Used in [Triangle](#triangle), [Custom Set](#custom-set)
 
 ## Memory Management
 
@@ -250,6 +253,9 @@ This repo and README can be used to search for common language features. I hope 
 - `Box<T>` for Heap Allocation - Used in [Simple Linked List](#simple-linked-list)
 - Slices and slice indexing - Used in [Variable Length Quantity](#variable-length-quantity)
 - `Mutex` for safe shared state management
+
+## Optimizations
+- Pre-allocating space with `Vec::with_capacity()` - Used in [Custom Set](#custom-set), [PaaS I/O](#paas-io), [Variable Length Quantity](#variable-length-quantity)
 
 ## Design Patterns
 
@@ -390,6 +396,19 @@ Below is a brief analysis of each solution. Solutions are ordered alphabetically
 - Recursive function with `Option` for errors
 - Guard against arithmetic overflow with `checked_*`
 - Function composition with `map`
+
+## [Custom Set](https://github.com/eaverdeja/exercism-rust/tree/main/custom-set/src/lib.rs)
+
+- Custom hash table implementation with linear probing for collision resolution
+- Implements standard set operations: `union`, `intersection`, `difference`
+- Comparison operations like `is_subset`, `is_disjoint`
+- Maintains O(1) average-case complexity for basic operations
+- Manual memory management with `Vec::with_capacity`
+- Dynamic resizing to maintain performance characteristics
+- Provides simple iterator access via custom `iter()` method
+- Uses `Hash` trait for key hashing with `DefaultHasher`
+- Implements `PartialEq`, `Eq`, and `Clone` traits
+- Uses generics with trait bounds (`Hash + Eq + Clone`)
 
 ## [Difference of Squares](https://github.com/eaverdeja/exercism-rust/tree/main/difference-of-squares/src/lib.rs)
 
@@ -795,15 +814,16 @@ Here are all solutions ordered by lines of code. Use this a proxy for how comple
 ====================================================================================================
  Language                                 Files        Lines         Code     Comments       Blanks
 ====================================================================================================
- Rust                                        68         3152         2471          238          443
+ Rust                                        69         3327         2592          260          475
 ----------------------------------------------------------------------------------------------------
  ./alphametics/src/lib.rs                                463          289          111           63
  ./bowling/src/lib.rs                                    211          161           17           33
+ ./custom-set/src/lib.rs                                 199          141           21           37
  ./tournament/src/lib.rs                                 150          126            0           24
  ./two-bucket/src/lib.rs                                 159          123           15           21
- ./wordy/src/lib.rs                                      118           98            4           16
  ./spiral-matrix/src/lib.rs                               93           81            0           12
  ./robot-simulator/src/lib.rs                             94           80            0           14
+ ./wordy/src/lib.rs                                       94           78            5           11
  ./simple-linked-list/src/lib.rs                         108           77           10           21
  ./palindrome-products/src/lib.rs                         86           73            1           12
  ./paasio/src/lib.rs                                      79           66            0           13
@@ -849,24 +869,24 @@ Here are all solutions ordered by lines of code. Use this a proxy for how comple
  ./raindrops/src/lib.rs                                   14           13            0            1
  ./reverse-string/src/lib.rs                              20           13            4            3
  ./sieve/src/lib.rs                                       17           12            2            3
- ./armstrong-numbers/src/lib.rs                           11           10            0            1
  ./say/src/constants.rs                                   12           10            0            2
  ./sum-of-multiples/src/lib.rs                            11           10            0            1
+ ./armstrong-numbers/src/lib.rs                           11           10            0            1
  ./grains/src/lib.rs                                      10            9            0            1
  ./difference-of-squares/src/lib.rs                       17            9            5            3
  ./hamming/src/lib.rs                                     12            8            2            2
  ./isogram/src/lib.rs                                     10            8            0            2
  ./series/src/lib.rs                                       8            8            0            0
  ./etl/src/lib.rs                                          9            7            0            2
- ./eliuds-eggs/src/lib.rs                                  7            6            0            1
  ./leap/src/lib.rs                                        13            6            7            0
+ ./eliuds-eggs/src/lib.rs                                  7            6            0            1
  ./gigasecond/src/lib.rs                                   8            5            1            2
  ./pangram/src/lib.rs                                      4            4            0            0
  ./dot-dsl/src/graph/graph_items.rs                        3            3            0            0
  ./hello-world/src/lib.rs                                  4            3            1            0
  ./dot-dsl/src/lib.rs                                      1            1            0            0
 ====================================================================================================
- Total                                       68         3152         2471          238          443
+ Total                                       69         3327         2592          260          475
 ====================================================================================================
 ```
 
