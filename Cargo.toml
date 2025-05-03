@@ -9,6 +9,7 @@ members = [
     "alphametics",
     "anagram",
     "armstrong-numbers",
+    "atbash-cipher",
     "binary-search",
     "bob",
     "bottle-song",

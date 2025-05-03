@@ -65,6 +65,7 @@ This repo and README can be used to search for common language features. I hope 
   - [Alphametics](#alphametics)
   - [Anagram](#anagram)
   - [Armstrong Numbers](#armstrong-numbers)
+  - [Atbash Cipher](#atbash-cipher)
   - [Binary Search](#binary-search)
   - [Bob](#bob)
   - [Bottle Song](#bottle-song)
@@ -149,7 +150,7 @@ This repo and README can be used to search for common language features. I hope 
 ## Iteration Techniques
 
 ### Basic Iterator Methods
-- `map()`/`filter()`/`collect()` - Used in [Acronym](#acronym), [Armstrong Numbers](#armstrong-numbers), [Scrabble Score](#scrabble-score), [Difference of Squares](#difference-of-squares) and the list goes on! These ones are hard *not* to find in a solution! 
+- `map()`/`filter()`/`collect()` - Used in [Acronym](#acronym), [Armstrong Numbers](#armstrong-numbers), [Atbash Cipher](#atbash-cipher), [Scrabble Score](#scrabble-score), [Difference of Squares](#difference-of-squares) and the list goes on! These ones are hard *not* to find in a solution! 
 - `windows()` - Used in [Proverb](#proverb), [Series](#series), [Sublist](#sublist) for processing adjacent elements
 - `chunks()` - Used in [Protein Translation](#protein-translation)
 - `enumerate()` - Used in [Saddle Points](#saddle-points), [All-Your-Base](#all-your-base), [ISBN Verifier](#isbn-verifier), and many others. This one is also pretty popular!
@@ -167,7 +168,7 @@ This repo and README can be used to search for common language features. I hope 
 
 ### Iterator combinators for collection generation
 
-- Functional string building - Used in [Robot Name](#robot-name) with `map()`, `chain()`, `collect()` pattern
+- Functional string building with `map()`, `filter()`, `chain()`, `collect()` patterns - Used in [Atbash Cipher](#atbash-cipher), [Robot Name](#robot-name)
 - Sequence generation - Used in [Palindrome Products](#palindrome-products) for generating factor pairs
 - String transformation - Used in [Reverse String](#reverse-string) with `chars().rev().collect()` pattern
 - Subslice extraction - Used in [Series](#series) with `windows()` combined with `map()` and `collect()`
@@ -233,7 +234,7 @@ This repo and README can be used to search for common language features. I hope 
 - Unicode-aware Processing - Used in [Anagram](#anagram), [Reverse String](#reverse-string)
 - Number-to-Words Conversion - Used in [Say](#say) with recursive approach
 - Run-length Encoding - Used in [Run-length Encoding](#run-length-encoding)
-- `chunks()` on `&[char]` - Used in [Affine Cipher](#affine-cipher), [Protein Translation](#protein-translation)
+- `chunks()` on `&[char]` - Used in [Affine Cipher](#affine-cipher), [Atbash Cipher](#atbash-cipher), [Protein Translation](#protein-translation)
 - Byte-level string manipulation with `as_bytes()` - Used in [Minesweeper](#minesweeper), [Protein Translation](#protein-translation)
 - Substring extraction with `strip_prefix()` and `strip_suffix()` - Used in [Wordy](#wordy)
 
@@ -293,6 +294,7 @@ This repo and README can be used to search for common language features. I hope 
 - Custom `From` Implementations - Used in [Space Age](#space-age) to convert between domain types
 - Manual Parsing Logic - Used in [Nucleotide Count](#nucleotide-count), [Acronym](#acronym) for domain-specific parsing
 - Type-driven Design - Used in [Tournament](#tournament) with newtypes to prevent mixing of related values
+- ASCII arithmetic - Used in [Atbash Cipher](#atbash-cipher)
 
 ## Tuple and Array Patterns
 
@@ -371,6 +373,14 @@ Below is a brief analysis of each solution. Solutions are ordered alphabetically
 - Iterators with `map()` and `sum()` for calculation
 - Type conversion with `to_digit(10)`
 - Leveraging numeric `pow()` function for exponentiation
+
+## [Atbash Cipher](https://github.com/eaverdeja/exercism-rust/tree/main/atbash-cipher/src/lib.rs)
+
+- Direct character encoding/decoding without lookup tables
+- Leverages ASCII arithmetic for character substitution with `b'z' - (char - b'a')` pattern
+- Functional approach with chained methods like `map()`, `collect()` and `enumerate()`
+- String chunking with `chunks()` and `join(" ")` for encoding output
+- Character manipulation with `is_ascii_alphanumeric()` and `to_ascii_lowercase()`
 
 ## [Binary Search](https://github.com/eaverdeja/exercism-rust/tree/main/binary-search/src/lib.rs)
 

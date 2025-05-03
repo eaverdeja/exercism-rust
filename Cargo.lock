@@ -38,6 +38,10 @@ name = "armstrong_numbers"
 version = "0.1.0"
 
 [[package]]
+name = "atbash_cipher"
+version = "0.1.0"
+
+[[package]]
 name = "binary_search"
 version = "0.1.0"
 
