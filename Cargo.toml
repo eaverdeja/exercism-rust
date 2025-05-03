@@ -3,6 +3,7 @@
 members = [
     "accumulate",
     "acronym",
+    "affine-cipher",
     "all-your-base",
     "allergies",
     "alphametics",

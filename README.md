@@ -59,6 +59,7 @@ This repo and README can be used to search for common language features. I hope 
 - [Solutions to the problems](#solutions-to-the-problems)
   - [Accumulate](#accumulate)
   - [Acronym](#acronym)
+  - [Affine Cipher](#affine-cipher)
   - [All-Your-Base](#all-your-base)
   - [Allergies](#allergies)
   - [Alphametics](#alphametics)
@@ -223,6 +224,8 @@ This repo and README can be used to search for common language features. I hope 
 - Sieve of Eratosthenes - Used in [Sieve of Eratosthenes](#sieve-of-eratosthenes)
 - Prime Checking - Used in [Nth Prime](#nth-prime) with square root optimization
 - Factor Finding - Used in [Perfect Numbers](#perfect-numbers) with square root optimization, [Palindrome Products](#palindrome-products) to find palindrome products
+- Modular arithmetic with `rem_euclid()` - Used in [Affine Cipher](#affine-cipher), [Clock](#clock)
+- Greatest common divisor (GCD) calculation - Used in [Affine Cipher](#affine-cipher), [Two Bucket](#two-bucket)
 
 ## String Processing
 
@@ -230,6 +233,7 @@ This repo and README can be used to search for common language features. I hope 
 - Unicode-aware Processing - Used in [Anagram](#anagram), [Reverse String](#reverse-string)
 - Number-to-Words Conversion - Used in [Say](#say) with recursive approach
 - Run-length Encoding - Used in [Run-length Encoding](#run-length-encoding)
+- `chunks()` on `&[char]` - Used in [Affine Cipher](#affine-cipher), [Protein Translation](#protein-translation)
 - Byte-level string manipulation with `as_bytes()` - Used in [Minesweeper](#minesweeper), [Protein Translation](#protein-translation)
 - Substring extraction with `strip_prefix()` and `strip_suffix()` - Used in [Wordy](#wordy)
 
@@ -320,6 +324,14 @@ Below is a brief analysis of each solution. Solutions are ordered alphabetically
 - Iterator combinators (`once`, `chain`, `skip`)
 - Separate function handling special cases
 - Pattern matching with `char` predicates
+
+## [Affine Cipher](https://github.com/eaverdeja/exercism-rust/tree/main/affine-cipher/src/lib.rs)
+
+- Modular arithmetic operations for encryption/decryption with `rem_euclid()`
+- Extended Euclidean algorithm for calculating modular multiplicative inverse (MMI)
+- Functional approach with chain of iterator methods (`filter()` `map()`, multiple `collect()`s with turbofish)
+- String processing with chunking for formatted output with `chunks()` and `join()`
+- Mathematical validation of key properties (coprime check)
 
 ## [All-Your-Base](https://github.com/eaverdeja/exercism-rust/tree/main/all-your-base/src/lib.rs)
 
@@ -823,7 +835,7 @@ Here are all solutions ordered by lines of code. Use this a proxy for how comple
 ====================================================================================================
  Language                                 Files        Lines         Code     Comments       Blanks
 ====================================================================================================
- Rust                                        70         3331         2601          260          470
+ Rust                                        71         3418         2671          263          484
 ----------------------------------------------------------------------------------------------------
  ./alphametics/src/lib.rs                                463          289          111           63
  ./bowling/src/lib.rs                                    211          161           17           33
@@ -835,6 +847,7 @@ Here are all solutions ordered by lines of code. Use this a proxy for how comple
  ./wordy/src/lib.rs                                       94           78            5           11
  ./simple-linked-list/src/lib.rs                         108           77           10           21
  ./palindrome-products/src/lib.rs                         86           73            1           12
+ ./affine-cipher/src/lib.rs                               87           70            3           14
  ./paasio/src/lib.rs                                      79           66            0           13
  ./variable-length-quantity/src/lib.rs                    75           59            3           13
  ./bottle-song/src/lib.rs                                 62           58            0            4
@@ -862,11 +875,11 @@ Here are all solutions ordered by lines of code. Use this a proxy for how comple
  ./matching-brackets/src/lib.rs                           30           23            4            3
  ./high-scores/src/lib.rs                                 28           23            0            5
  ./nth-prime/src/lib.rs                                   28           22            2            4
- ./pascals-triangle/src/lib.rs                            24           21            0            3
  ./acronym/src/lib.rs                                     28           21            4            3
+ ./pascals-triangle/src/lib.rs                            24           21            0            3
  ./dot-dsl/src/graph/graph_items/node.rs                  25           21            0            4
- ./luhn/src/lib.rs                                        24           20            1            3
  ./saddle-points/src/lib.rs                               23           20            0            3
+ ./luhn/src/lib.rs                                        24           20            1            3
  ./bob/src/lib.rs                                         21           19            0            2
  ./prime-factors/src/lib.rs                               20           18            0            2
  ./nucleotide-count/src/lib.rs                            20           17            0            3
@@ -879,13 +892,13 @@ Here are all solutions ordered by lines of code. Use this a proxy for how comple
  ./reverse-string/src/lib.rs                              20           13            4            3
  ./sieve/src/lib.rs                                       17           12            2            3
  ./accumulate/src/lib.rs                                  10           10            0            0
- ./say/src/constants.rs                                   12           10            0            2
  ./sum-of-multiples/src/lib.rs                            11           10            0            1
+ ./say/src/constants.rs                                   12           10            0            2
  ./armstrong-numbers/src/lib.rs                           11           10            0            1
  ./grains/src/lib.rs                                      10            9            0            1
  ./difference-of-squares/src/lib.rs                       17            9            5            3
- ./isogram/src/lib.rs                                     10            8            0            2
  ./hamming/src/lib.rs                                     12            8            2            2
+ ./isogram/src/lib.rs                                     10            8            0            2
  ./series/src/lib.rs                                       8            8            0            0
  ./etl/src/lib.rs                                          9            7            0            2
  ./leap/src/lib.rs                                        13            6            7            0
@@ -896,7 +909,7 @@ Here are all solutions ordered by lines of code. Use this a proxy for how comple
  ./hello-world/src/lib.rs                                  4            3            1            0
  ./dot-dsl/src/lib.rs                                      1            1            0            0
 ====================================================================================================
- Total                                       70         3331         2601          260          470
+ Total                                       71         3418         2671          263          484
 ====================================================================================================
 ```
 
