@@ -1,6 +1,7 @@
 # Auto-generated with update-workspace.sh! Do not edit manually
 [workspace]
 members = [
+    "accumulate",
     "acronym",
     "all-your-base",
     "allergies",

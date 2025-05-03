@@ -57,6 +57,7 @@ This repo and README can be used to search for common language features. I hope 
     - [Tuple Operations](#tuple-operations)
     - [Array Techniques](#array-techniques)
 - [Solutions to the problems](#solutions-to-the-problems)
+  - [Accumulate](#accumulate)
   - [Acronym](#acronym)
   - [All-Your-Base](#all-your-base)
   - [Allergies](#allergies)
@@ -197,6 +198,7 @@ This repo and README can be used to search for common language features. I hope 
 ### Functional Style
 - Method Chaining - Used in [Raindrops](#raindrops), [Acronym](#acronym)
 - Closures for Operations - Used in [Acronym](#acronym), [Spiral Matrix](#spiral-matrix)
+- Higher-order functions with closure parameters (`FnMut`) - Used in [Accumulate](#accumulate)
 
 ### Immutable Design
 - Pure Functions - Used in [Clock](#clock) returning new objects
@@ -242,7 +244,7 @@ This repo and README can be used to search for common language features. I hope 
 - `From` and Type Conversion - Used in [Space Age](#space-age)
 
 ### Generic Programming
-- Generic Functions - Used in [Binary Search](#binary-search) with type parameters, [Simple Linked List](#simple-linked-list) with `Node<T>`
+- Generic Functions - Used in [Binary Search](#binary-search) with type parameters, [Simple Linked List](#simple-linked-list) with `Node<T>`, [Accumulate](#accumulate)
 - Trait Bounds - Used in [Triangle](#triangle), [Custom Set](#custom-set)
 
 ## Memory Management
@@ -303,7 +305,14 @@ This repo and README can be used to search for common language features. I hope 
 # Solutions to the problems
 
 Below is a brief analysis of each solution. Solutions are ordered alphabetically.
-  
+
+## [Accumulate](https://github.com/eaverdeja/exercism-rust/tree/main/accumulate/src/lib.rs)
+
+- Generic function with `FnMut(T) -> U` signature for closure parameter
+- Functional programming with higher-order functions
+- Creates new collection rather than mutating in place
+- Manual collection transformation without standard library iterators  
+
 ## [Acronym](https://github.com/eaverdeja/exercism-rust/tree/main/acronym/src/lib.rs)
 
 - Method chaining with `split`, `filter`, `map`, `collect`
@@ -814,11 +823,11 @@ Here are all solutions ordered by lines of code. Use this a proxy for how comple
 ====================================================================================================
  Language                                 Files        Lines         Code     Comments       Blanks
 ====================================================================================================
- Rust                                        69         3327         2592          260          475
+ Rust                                        70         3331         2601          260          470
 ----------------------------------------------------------------------------------------------------
  ./alphametics/src/lib.rs                                463          289          111           63
  ./bowling/src/lib.rs                                    211          161           17           33
- ./custom-set/src/lib.rs                                 199          141           21           37
+ ./custom-set/src/lib.rs                                 193          140           21           32
  ./tournament/src/lib.rs                                 150          126            0           24
  ./two-bucket/src/lib.rs                                 159          123           15           21
  ./spiral-matrix/src/lib.rs                               93           81            0           12
@@ -842,22 +851,22 @@ Here are all solutions ordered by lines of code. Use this a proxy for how comple
  ./perfect-numbers/src/lib.rs                             38           32            2            4
  ./sublist/src/lib.rs                                     32           29            0            3
  ./dot-dsl/src/graph/graph_items/attrs.rs                 35           29            0            6
- ./queen-attack/src/lib.rs                                35           28            1            6
  ./dot-dsl/src/graph.rs                                   35           28            0            7
+ ./queen-attack/src/lib.rs                                35           28            1            6
  ./anagram/src/lib.rs                                     32           27            0            5
  ./protein-translation/src/lib.rs                         29           27            0            2
  ./clock/src/lib.rs                                       32           25            0            7
  ./triangle/src/lib.rs                                    31           25            0            6
  ./kindergarten-garden/src/lib.rs                         26           23            0            3
  ./dot-dsl/src/graph/graph_items/edge.rs                  27           23            0            4
- ./high-scores/src/lib.rs                                 28           23            0            5
  ./matching-brackets/src/lib.rs                           30           23            4            3
+ ./high-scores/src/lib.rs                                 28           23            0            5
  ./nth-prime/src/lib.rs                                   28           22            2            4
  ./pascals-triangle/src/lib.rs                            24           21            0            3
  ./acronym/src/lib.rs                                     28           21            4            3
  ./dot-dsl/src/graph/graph_items/node.rs                  25           21            0            4
- ./saddle-points/src/lib.rs                               23           20            0            3
  ./luhn/src/lib.rs                                        24           20            1            3
+ ./saddle-points/src/lib.rs                               23           20            0            3
  ./bob/src/lib.rs                                         21           19            0            2
  ./prime-factors/src/lib.rs                               20           18            0            2
  ./nucleotide-count/src/lib.rs                            20           17            0            3
@@ -869,13 +878,14 @@ Here are all solutions ordered by lines of code. Use this a proxy for how comple
  ./raindrops/src/lib.rs                                   14           13            0            1
  ./reverse-string/src/lib.rs                              20           13            4            3
  ./sieve/src/lib.rs                                       17           12            2            3
+ ./accumulate/src/lib.rs                                  10           10            0            0
  ./say/src/constants.rs                                   12           10            0            2
  ./sum-of-multiples/src/lib.rs                            11           10            0            1
  ./armstrong-numbers/src/lib.rs                           11           10            0            1
  ./grains/src/lib.rs                                      10            9            0            1
  ./difference-of-squares/src/lib.rs                       17            9            5            3
- ./hamming/src/lib.rs                                     12            8            2            2
  ./isogram/src/lib.rs                                     10            8            0            2
+ ./hamming/src/lib.rs                                     12            8            2            2
  ./series/src/lib.rs                                       8            8            0            0
  ./etl/src/lib.rs                                          9            7            0            2
  ./leap/src/lib.rs                                        13            6            7            0
@@ -886,8 +896,8 @@ Here are all solutions ordered by lines of code. Use this a proxy for how comple
  ./hello-world/src/lib.rs                                  4            3            1            0
  ./dot-dsl/src/lib.rs                                      1            1            0            0
 ====================================================================================================
- Total                                       69         3327         2592          260          475
+ Total                                       70         3331         2601          260          470
 ====================================================================================================
 ```
 
-> This table was generated with `tokei`. See [this script](https://github.com/eaverdeja/exercism-rust/blob/main/loc-all.sh) for exact params.
+> This table was generated with `tokei`. See [this script](https://github.com/eaverdeja/exercism-rust/blob/19d4f8b4bc6235769322e6cc57be4e463cd32e8e/justfile#L6) for exact params.
