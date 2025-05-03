@@ -88,37 +88,21 @@ impl<T: Hash + Eq + Clone> CustomSet<T> {
     }
 
     pub fn union(&self, other: &CustomSet<T>) -> CustomSet<T> {
-        let mut result = self.clone();
-
-        for item in other.iter() {
-            result.add(item.clone());
-        }
-
-        result
+        self.iter().cloned().chain(other.iter().cloned()).collect()
     }
 
     pub fn intersection(&self, other: &CustomSet<T>) -> CustomSet<T> {
-        let mut result = CustomSet::new(&[]);
-
-        for item in self.iter() {
-            if other.contains(item) {
-                result.add(item.clone());
-            }
-        }
-
-        result
+        self.iter()
+            .filter(|item| other.contains(*item))
+            .cloned()
+            .collect()
     }
 
     pub fn difference(&self, other: &CustomSet<T>) -> CustomSet<T> {
-        let mut result = CustomSet::new(&[]);
-
-        for item in self.iter() {
-            if !other.contains(item) {
-                result.add(item.clone());
-            }
-        }
-
-        result
+        self.iter()
+            .filter(|item| !other.contains(*item))
+            .cloned()
+            .collect()
     }
 
     fn find_entry_index(&self, key: &T) -> usize {
@@ -177,6 +161,16 @@ impl<T: Hash + Eq + Clone> Clone for CustomSet<T> {
             count: self.count,
             capacity: self.capacity,
         }
+    }
+}
+
+impl<T: Hash + Eq + Clone> FromIterator<T> for CustomSet<T> {
+    fn from_iter<I: IntoIterator<Item = T>>(iter: I) -> Self {
+        let mut set = CustomSet::new(&[]);
+        for item in iter {
+            set.add(item);
+        }
+        set
     }
 }
 

@@ -407,7 +407,7 @@ Below is a brief analysis of each solution. Solutions are ordered alphabetically
 - Dynamic resizing to maintain performance characteristics
 - Provides simple iterator access via custom `iter()` method
 - Uses `Hash` trait for key hashing with `DefaultHasher`
-- Implements `PartialEq`, `Eq`, and `Clone` traits
+- Implements `PartialEq`, `Eq`, `FromIterator` and `Clone` traits
 - Uses generics with trait bounds (`Hash + Eq + Clone`)
 
 ## [Difference of Squares](https://github.com/eaverdeja/exercism-rust/tree/main/difference-of-squares/src/lib.rs)
