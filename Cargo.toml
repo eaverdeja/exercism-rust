@@ -47,6 +47,7 @@ members = [
     "pangram",
     "pascals-triangle",
     "perfect-numbers",
+    "phone-number",
     "pig-latin",
     "prime-factors",
     "protein-translation",

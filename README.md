@@ -104,6 +104,7 @@ This repo and README can be used to search for common language features. I hope 
   - [Pangram](#pangram)
   - [Pascal's Triangle](#pascals-triangle)
   - [Perfect Numbers](#perfect-numbers)
+  - [Phone Number](#phone-number)
   - [Pig Latin](#pig-latin)
   - [Prime Factors](#prime-factors)
   - [Protein Translation](#protein-translation)
@@ -165,6 +166,7 @@ This repo and README can be used to search for common language features. I hope 
 - `flat_map()` - Used in [Alphametics](#alphametics), [ETL](#etl), [Kindergarten Garden](#kindergarten-garden), [Sum of Multiples](#sum-of-multiples), [Variable Length Quantity](#variable-length-quantity)
 - `fold()` - Used in [Luhn](#luhn), [Robot Simulator](#robot-simulator), [Pascal's Triangle](#pascals-triangle)
 - `chain()` - Used in [Bottle Song](#bottle-song), [Robot Name](#robot-name)
+- `nth()` - Used in [Alphametics](#alphametics), [Phone Number](#phone-number), [Nth Prime](#nth-prime)
 
 ### Advanced Iterator Methods
 - `try_fold()` - Used in [All-Your-Base](#all-your-base), [ISBN Verifier](#isbn-verifier), [RNA Transcription](#rna-transcription)
@@ -190,6 +192,7 @@ This repo and README can be used to search for common language features. I hope 
 - `Option` for Missing Values & Error Handling - Used in [Binary Search](#binary-search), [High Scores](#high-scores), [Two Bucket](#two-bucket), [Protein Translation](#protein-translation), [Wordy](#wordy)
 - `?` Operator - Used in [Perfect Numbers](#perfect-numbers), [Sieve of Eratosthenes](#sieve-of-eratosthenes), [Variable Length Quantity](#variable-length-quantity), [Wordy](#wordy)
 - `ok_or()` for converting `Option` to `Result` - Used in [Largest Series Product](#largest-series-product)
+- `or_else()` for dynamically handling `None` values - Used in [List Ops](#list-ops)
 
 ## Pattern Matching
 
@@ -240,6 +243,7 @@ This repo and README can be used to search for common language features. I hope 
 ## String Processing
 
 ### String Manipulation
+- Simple sanitization & validation - Used in [Phone Number](#phone-number)
 - Unicode-aware Processing - Used in [Anagram](#anagram), [Reverse String](#reverse-string)
 - Number-to-Words Conversion - Used in [Say](#say) with recursive approach
 - Run-length Encoding - Used in [Run-length Encoding](#run-length-encoding)
@@ -654,6 +658,14 @@ Below is a brief analysis of each solution. Solutions are ordered alphabetically
 - Square root optimization for factors
 - `?` operator for error propagation
 
+## [Phone Number](https://github.com/eaverdeja/exercism-rust/tree/main/phone-number)
+
+- String filtering with `filter(char::is_ascii_digit)` to extract just numeric characters
+- Control flow with early returns and `?` operator for propagating `None` values
+- `strip_prefix()` to conditionally handle country code "1"
+- Range patterns with `('2'..='9').contains(&char)` for NANP validation rules
+- `chars().nth()` to check specific positions in the normalized number
+
 ## [Pig Latin](https://github.com/eaverdeja/exercism-rust/tree/main/pig-latin/src/lib.rs)
 
 - Complex string parsing with pattern matching
@@ -898,7 +910,7 @@ Here are all solutions ordered by lines of code. Use this a proxy for how comple
 ====================================================================================================
  Language                                 Files        Lines         Code     Comments       Blanks
 ====================================================================================================
- Rust                                        77         3585         2818          263          504
+ Rust                                        79         3679         2902          263          514
 ----------------------------------------------------------------------------------------------------
  ./alphametics/src/lib.rs                                463          289          111           63
  ./bowling/src/lib.rs                                    211          161           17           33
@@ -912,6 +924,7 @@ Here are all solutions ordered by lines of code. Use this a proxy for how comple
  ./palindrome-products/src/lib.rs                         86           73            1           12
  ./affine-cipher/src/lib.rs                               87           70            3           14
  ./paasio/src/lib.rs                                      79           66            0           13
+ ./list-ops/src/lib.rs                                    74           66            0            8
  ./variable-length-quantity/src/lib.rs                    75           59            3           13
  ./bottle-song/src/lib.rs                                 62           58            0            4
  ./minesweeper/src/lib.rs                                 71           56            6            9
@@ -943,14 +956,15 @@ Here are all solutions ordered by lines of code. Use this a proxy for how comple
  ./nth-prime/src/lib.rs                                   28           22            2            4
  ./crypto-square/src/lib.rs                               25           22            0            3
  ./largest-series-product/src/lib.rs                      25           22            0            3
- ./acronym/src/lib.rs                                     28           21            4            3
  ./pascals-triangle/src/lib.rs                            24           21            0            3
+ ./acronym/src/lib.rs                                     28           21            4            3
  ./dot-dsl/src/graph/graph_items/node.rs                  25           21            0            4
- ./luhn/src/lib.rs                                        24           20            1            3
  ./saddle-points/src/lib.rs                               23           20            0            3
+ ./luhn/src/lib.rs                                        24           20            1            3
  ./bob/src/lib.rs                                         21           19            0            2
  ./diamond/src/lib.rs                                     20           19            0            1
  ./prime-factors/src/lib.rs                               20           18            0            2
+ ./phone-number/src/lib.rs                                20           18            0            2
  ./nucleotide-count/src/lib.rs                            20           17            0            3
  ./proverb/src/lib.rs                                     19           16            0            3
  ./isbn-verifier/src/lib.rs                               17           16            0            1
@@ -970,15 +984,15 @@ Here are all solutions ordered by lines of code. Use this a proxy for how comple
  ./isogram/src/lib.rs                                     10            8            0            2
  ./series/src/lib.rs                                       8            8            0            0
  ./etl/src/lib.rs                                          9            7            0            2
- ./eliuds-eggs/src/lib.rs                                  7            6            0            1
  ./leap/src/lib.rs                                        13            6            7            0
+ ./eliuds-eggs/src/lib.rs                                  7            6            0            1
  ./gigasecond/src/lib.rs                                   8            5            1            2
  ./pangram/src/lib.rs                                      4            4            0            0
  ./dot-dsl/src/graph/graph_items.rs                        3            3            0            0
  ./hello-world/src/lib.rs                                  4            3            1            0
  ./dot-dsl/src/lib.rs                                      1            1            0            0
 ====================================================================================================
- Total                                       77         3585         2818          263          504
+ Total                                       79         3679         2902          263          514
 ====================================================================================================
 ```
 
