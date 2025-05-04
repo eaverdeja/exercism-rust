@@ -91,6 +91,7 @@ This repo and README can be used to search for common language features. I hope 
   - [Kindergarten Garden](#kindergarten-garden)
   - [Largest Series Product](#largest-series-product)
   - [Leap](#leap)
+  - [List Ops](#list-ops)
   - [Luhn](#luhn)
   - [Luhn From](#luhn-from)
   - [Luhn Trait](#luhn-trait)
@@ -171,6 +172,7 @@ This repo and README can be used to search for common language features. I hope 
 - `step_by()` - Used in [Sieve of Eratosthenes](#sieve-of-eratosthenes), [Sum of Multiples](#sum-of-multiples)
 - `iter::once()` - Used in [Acronym](#acronym), [Alphametics](#alphametics), [Nth Prime](#nth-prime), [Proverb](#proverb)
 - `itertools::fold_while()` - Used in [Protein Translation](#protein-translation)
+- `iter::from_fn()` for creating custom stateful iterators - Used in [List Ops](#list-ops)
 
 ### Iterator combinators for collection generation
 
@@ -257,9 +259,10 @@ This repo and README can be used to search for common language features. I hope 
 - `From` and Type Conversion - Used in [Space Age](#space-age)
 
 ### Generic Programming
-- Generic Functions - Used in [Binary Search](#binary-search) with type parameters, [Simple Linked List](#simple-linked-list) with `Node<T>`, [Accumulate](#accumulate)
+- Generic Functions - Used in [Binary Search](#binary-search) with type parameters, [Simple Linked List](#simple-linked-list) with `Node<T>`, [Accumulate](#accumulate), [List Ops](#list-ops)
 - Generic `impl` with Trait Bounds - Used in [Custom Set](#custom-set), [Luhn From](#luhn-from), [Simple Linked List](#simple-linked-list), [Triangle](#triangle)
 - Generic `trait` - Used in [Luhn Trait](#luhn-trait)
+
 
 ## Memory Management
 
@@ -268,7 +271,8 @@ This repo and README can be used to search for common language features. I hope 
 - Zero-copy Parsing - Used in [Tournament](#tournament) with string borrows
 - `Box<T>` for Heap Allocation - Used in [Simple Linked List](#simple-linked-list)
 - Slices and slice indexing - Used in [Variable Length Quantity](#variable-length-quantity)
-- `Mutex` for safe shared state management
+- `Mutex` for safe shared state management - Used in [Robot Name](#robot-name)
+- `move` closures to transfer ownership - Used in [List Ops](#list-ops)
 
 ## Optimizations
 - Pre-allocating space with `Vec::with_capacity()` - Used in [Custom Set](#custom-set), [PaaS I/O](#paas-io), [Variable Length Quantity](#variable-length-quantity)
@@ -562,6 +566,14 @@ Below is a brief analysis of each solution. Solutions are ordered alphabetically
 - Pattern matching for different cases
 - Readable approach to complex boolean logic
 - Performance-optimized conditionals
+
+## [List Ops](https://github.com/eaverdeja/exercism-rust/tree/main/list-ops)
+
+- Implements fundamental list operations with custom iterator functions
+- Uses `iter::from_fn` to create stateful iterators without explicit structs
+- Handles generic types with traits (`Iterator`, `DoubleEndedIterator`)
+- Uses `next_back` to process iterators in reverse
+- Uses closure state capture for stateful iteration with `move`
 
 ## [Luhn](https://github.com/eaverdeja/exercism-rust/tree/main/luhn/src/lib.rs)
 
