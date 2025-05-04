@@ -92,6 +92,7 @@ This repo and README can be used to search for common language features. I hope 
   - [Largest Series Product](#largest-series-product)
   - [Leap](#leap)
   - [Luhn](#luhn)
+  - [Luhn From](#luhn-from)
   - [Matching Brackets](#matching-brackets)
   - [Minesweeper](#minesweeper)
   - [Nth Prime](#nth-prime)
@@ -256,7 +257,7 @@ This repo and README can be used to search for common language features. I hope 
 
 ### Generic Programming
 - Generic Functions - Used in [Binary Search](#binary-search) with type parameters, [Simple Linked List](#simple-linked-list) with `Node<T>`, [Accumulate](#accumulate)
-- Trait Bounds - Used in [Triangle](#triangle), [Custom Set](#custom-set)
+- Generic `impl` with Trait Bounds - Used in [Custom Set](#custom-set), [Luhn From](#luhn-from), [Simple Linked List](#simple-linked-list), [Triangle](#triangle)
 
 ## Memory Management
 
@@ -300,7 +301,7 @@ This repo and README can be used to search for common language features. I hope 
 - `TryFrom`/`TryInto` - Used in [All-Your-Base](#all-your-base) for fallible conversions
 
 ### Custom Type Conversions
-- Custom `From` Implementations - Used in [Space Age](#space-age) to convert between domain types
+- Custom `From` Implementations - Used in [Luhn From](#luhn-from), [Space Age](#space-age)
 - Manual Parsing Logic - Used in [Nucleotide Count](#nucleotide-count), [Acronym](#acronym) for domain-specific parsing
 - Type-driven Design - Used in [Tournament](#tournament) with newtypes to prevent mixing of related values
 
@@ -566,6 +567,11 @@ Below is a brief analysis of each solution. Solutions are ordered alphabetically
 - Advanced iterator operations
 - Numeric conversion with `to_digit(10)`
 - Modulo checking for algorithm validation
+
+## [Luhn From](https://github.com/eaverdeja/exercism-rust/tree/main/luhn-from/src/lib.rs)
+
+- Uses generics and trait bounds with `impl<T: ToString> From<T>` to allow for the construction of custom `Lunh` structs from any input type that is displayable
+
 
 ## [Matching Brackets](https://github.com/eaverdeja/exercism-rust/tree/main/matching-brackets/src/lib.rs)
 
@@ -873,7 +879,7 @@ Here are all solutions ordered by lines of code. Use this a proxy for how comple
 ====================================================================================================
  Language                                 Files        Lines         Code     Comments       Blanks
 ====================================================================================================
- Rust                                        75         3515         2759          263          493
+ Rust                                        76         3548         2787          263          498
 ----------------------------------------------------------------------------------------------------
  ./alphametics/src/lib.rs                                463          289          111           63
  ./bowling/src/lib.rs                                    211          161           17           33
@@ -902,6 +908,7 @@ Here are all solutions ordered by lines of code. Use this a proxy for how comple
  ./perfect-numbers/src/lib.rs                             38           32            2            4
  ./sublist/src/lib.rs                                     32           29            0            3
  ./dot-dsl/src/graph/graph_items/attrs.rs                 35           29            0            6
+ ./luhn-from/src/lib.rs                                   33           28            0            5
  ./dot-dsl/src/graph.rs                                   35           28            0            7
  ./queen-attack/src/lib.rs                                35           28            1            6
  ./anagram/src/lib.rs                                     32           27            0            5
@@ -916,8 +923,8 @@ Here are all solutions ordered by lines of code. Use this a proxy for how comple
  ./nth-prime/src/lib.rs                                   28           22            2            4
  ./crypto-square/src/lib.rs                               25           22            0            3
  ./largest-series-product/src/lib.rs                      25           22            0            3
- ./pascals-triangle/src/lib.rs                            24           21            0            3
  ./acronym/src/lib.rs                                     28           21            4            3
+ ./pascals-triangle/src/lib.rs                            24           21            0            3
  ./dot-dsl/src/graph/graph_items/node.rs                  25           21            0            4
  ./saddle-points/src/lib.rs                               23           20            0            3
  ./luhn/src/lib.rs                                        24           20            1            3
@@ -934,8 +941,8 @@ Here are all solutions ordered by lines of code. Use this a proxy for how comple
  ./reverse-string/src/lib.rs                              20           13            4            3
  ./sieve/src/lib.rs                                       17           12            2            3
  ./accumulate/src/lib.rs                                  10           10            0            0
- ./sum-of-multiples/src/lib.rs                            11           10            0            1
  ./say/src/constants.rs                                   12           10            0            2
+ ./sum-of-multiples/src/lib.rs                            11           10            0            1
  ./armstrong-numbers/src/lib.rs                           11           10            0            1
  ./grains/src/lib.rs                                      10            9            0            1
  ./difference-of-squares/src/lib.rs                       17            9            5            3
@@ -951,7 +958,7 @@ Here are all solutions ordered by lines of code. Use this a proxy for how comple
  ./hello-world/src/lib.rs                                  4            3            1            0
  ./dot-dsl/src/lib.rs                                      1            1            0            0
 ====================================================================================================
- Total                                       75         3515         2759          263          493
+ Total                                       76         3548         2787          263          498
 ====================================================================================================
 ```
 

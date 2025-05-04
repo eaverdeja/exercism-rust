@@ -35,6 +35,7 @@ members = [
     "largest-series-product",
     "leap",
     "luhn",
+    "luhn-from",
     "matching-brackets",
     "minesweeper",
     "nth-prime",
