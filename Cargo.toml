@@ -36,6 +36,7 @@ members = [
     "leap",
     "luhn",
     "luhn-from",
+    "luhn-trait",
     "matching-brackets",
     "minesweeper",
     "nth-prime",
