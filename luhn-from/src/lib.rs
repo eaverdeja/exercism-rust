@@ -1,6 +1,8 @@
+use std::fmt::Display;
+
 pub struct Luhn(String);
 
-impl<T: ToString> From<T> for Luhn {
+impl<T: Display> From<T> for Luhn {
     fn from(input: T) -> Self {
         Self(input.to_string())
     }
