@@ -32,6 +32,7 @@ members = [
     "isbn-verifier",
     "isogram",
     "kindergarten-garden",
+    "largest-series-product",
     "leap",
     "luhn",
     "matching-brackets",

@@ -89,6 +89,7 @@ This repo and README can be used to search for common language features. I hope 
   - [ISBN Verifier](#isbn-verifier)
   - [Isogram](#isogram)
   - [Kindergarten Garden](#kindergarten-garden)
+  - [Largest Series Product](#largest-series-product)
   - [Leap](#leap)
   - [Luhn](#luhn)
   - [Matching Brackets](#matching-brackets)
@@ -154,7 +155,7 @@ This repo and README can be used to search for common language features. I hope 
 
 ### Basic Iterator Methods
 - `map()`/`filter()`/`collect()` - Used in [Acronym](#acronym), [Armstrong Numbers](#armstrong-numbers), [Atbash Cipher](#atbash-cipher), [Scrabble Score](#scrabble-score), [Difference of Squares](#difference-of-squares) and the list goes on! These ones are hard *not* to find in a solution! 
-- `windows()` - Used in [Proverb](#proverb), [Series](#series), [Sublist](#sublist) for processing adjacent elements
+- `windows()` - Used in [Largest Series Product](#largest-series-product), [Proverb](#proverb), [Series](#series), [Sublist](#sublist) for processing adjacent elements
 - `chunks()` - Used in [Protein Translation](#protein-translation)
 - `enumerate()` - Used in [Saddle Points](#saddle-points), [All-Your-Base](#all-your-base), [ISBN Verifier](#isbn-verifier), and many others. This one is also pretty popular!
 - `zip()` - Used in [Hamming](#hamming)
@@ -184,6 +185,7 @@ This repo and README can be used to search for common language features. I hope 
 - Custom `Error` Enums - Used in [All-Your-Base](#all-your-base), [Bowling](#bowling), [Variable Length Quantity](#variable-length-quantity) and others
 - `Option` for Missing Values & Error Handling - Used in [Binary Search](#binary-search), [High Scores](#high-scores), [Two Bucket](#two-bucket), [Protein Translation](#protein-translation), [Wordy](#wordy)
 - `?` Operator - Used in [Perfect Numbers](#perfect-numbers), [Sieve of Eratosthenes](#sieve-of-eratosthenes), [Variable Length Quantity](#variable-length-quantity), [Wordy](#wordy)
+- `ok_or()` for converting `Option` to `Result` - Used in [Largest Series Product](#largest-series-product)
 
 ## Pattern Matching
 
@@ -238,7 +240,7 @@ This repo and README can be used to search for common language features. I hope 
 - Number-to-Words Conversion - Used in [Say](#say) with recursive approach
 - Run-length Encoding - Used in [Run-length Encoding](#run-length-encoding)
 - `chunks()` on `&[char]` - Used in [Affine Cipher](#affine-cipher), [Atbash Cipher](#atbash-cipher), [Protein Translation](#protein-translation)
-- Byte-level string manipulation with `as_bytes()` - Used in [Minesweeper](#minesweeper), [Protein Translation](#protein-translation)
+- Byte-level string manipulation with `as_bytes()` - Used in [Largest Series Product](#largest-series-product), [Minesweeper](#minesweeper), [Protein Translation](#protein-translation)
 - Substring extraction with `strip_prefix()` and `strip_suffix()` - Used in [Wordy](#wordy)
 - Grid-based text transpostion - Used in [Crypto Square](#crypto-square)
 
@@ -287,10 +289,10 @@ This repo and README can be used to search for common language features. I hope 
 ### Number Conversions
 - `to_digit(1)` - Used in [Luhn](#luhn), [Armstrong Numbers](#armstrong-numbers) for char-to-digit conversion
 - `parse()` - Used in [Run-length Encoding](#run-length-encoding), [Say](#say) for string-to-number parsing
-- `as_bytes()` - Used in [Minesweeper](#minesweeper) for performance optimization in grid operations
+- `as_bytes()` - Used in [Minesweeper](#minesweeper) for grid operations
 
 ### Single byte conversions
-- ASCII arithmetic - Used in [Atbash Cipher](#atbash-cipher), [Diamond](#diamond)
+- ASCII arithmetic - Used in [Atbash Cipher](#atbash-cipher), [Diamond](#diamond), [Largest Series Product](#largest-series-product)
 
 ### Safe Conversions
 - `checked_*` Operations - Used in [Collatz Conjecture](#collatz-conjecture) to prevent arithmetic overflow
@@ -545,6 +547,12 @@ Below is a brief analysis of each solution. Solutions are ordered alphabetically
 - `position()` to find array index by name
 - Pattern matching for seed type conversion
 - Complex iterator chaining
+
+## [Largest Series Product](https://github.com/eaverdeja/exercism-rust/tree/main/largest-series-product)
+
+- `windows()` method for sliding window operations over bytes with `as_bytes()`
+- Direct byte manipulation with ASCII arithmetic (`byte - b'0'`)
+- Uses `ok_or()` to convert `Option` to `Result` for the empty string case
 
 ## [Leap](https://github.com/eaverdeja/exercism-rust/tree/main/leap/src/lib.rs)
 
@@ -865,7 +873,7 @@ Here are all solutions ordered by lines of code. Use this a proxy for how comple
 ====================================================================================================
  Language                                 Files        Lines         Code     Comments       Blanks
 ====================================================================================================
- Rust                                        73         3470         2718          263          489
+ Rust                                        75         3515         2759          263          493
 ----------------------------------------------------------------------------------------------------
  ./alphametics/src/lib.rs                                463          289          111           63
  ./bowling/src/lib.rs                                    211          161           17           33
@@ -907,12 +915,14 @@ Here are all solutions ordered by lines of code. Use this a proxy for how comple
  ./high-scores/src/lib.rs                                 28           23            0            5
  ./nth-prime/src/lib.rs                                   28           22            2            4
  ./crypto-square/src/lib.rs                               25           22            0            3
+ ./largest-series-product/src/lib.rs                      25           22            0            3
+ ./pascals-triangle/src/lib.rs                            24           21            0            3
  ./acronym/src/lib.rs                                     28           21            4            3
  ./dot-dsl/src/graph/graph_items/node.rs                  25           21            0            4
- ./pascals-triangle/src/lib.rs                            24           21            0            3
  ./saddle-points/src/lib.rs                               23           20            0            3
  ./luhn/src/lib.rs                                        24           20            1            3
  ./bob/src/lib.rs                                         21           19            0            2
+ ./diamond/src/lib.rs                                     20           19            0            1
  ./prime-factors/src/lib.rs                               20           18            0            2
  ./nucleotide-count/src/lib.rs                            20           17            0            3
  ./proverb/src/lib.rs                                     19           16            0            3
@@ -924,9 +934,9 @@ Here are all solutions ordered by lines of code. Use this a proxy for how comple
  ./reverse-string/src/lib.rs                              20           13            4            3
  ./sieve/src/lib.rs                                       17           12            2            3
  ./accumulate/src/lib.rs                                  10           10            0            0
+ ./sum-of-multiples/src/lib.rs                            11           10            0            1
  ./say/src/constants.rs                                   12           10            0            2
  ./armstrong-numbers/src/lib.rs                           11           10            0            1
- ./sum-of-multiples/src/lib.rs                            11           10            0            1
  ./grains/src/lib.rs                                      10            9            0            1
  ./difference-of-squares/src/lib.rs                       17            9            5            3
  ./hamming/src/lib.rs                                     12            8            2            2
@@ -941,7 +951,7 @@ Here are all solutions ordered by lines of code. Use this a proxy for how comple
  ./hello-world/src/lib.rs                                  4            3            1            0
  ./dot-dsl/src/lib.rs                                      1            1            0            0
 ====================================================================================================
- Total                                       73         3470         2718          263          489
+ Total                                       75         3515         2759          263          493
 ====================================================================================================
 ```
 
