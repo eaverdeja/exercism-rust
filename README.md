@@ -51,6 +51,7 @@ This repo and README can be used to search for common language features. I hope 
     - [Domain Modeling](#domain-modeling)
   - [Type Conversions and Parsing](#type-conversions-and-parsing)
     - [Number Conversions](#number-conversions)
+    - [Single byte conversions](#single-byte-conversions)
     - [Safe Conversions](#safe-conversions)
     - [Custom Type Conversions](#custom-type-conversions)
   - [Tuple and Array Patterns](#tuple-and-array-patterns)
@@ -74,6 +75,7 @@ This repo and README can be used to search for common language features. I hope 
   - [Collatz Conjecture](#collatz-conjecture)
   - [Crypto Square](#crypto-square)
   - [Custom Set](#custom-set)
+  - [Diamond](#diamond)
   - [Difference of Squares](#difference-of-squares)
   - [Dot DSL](#dot-dsl)
   - [Eliud's Eggs](#eliuds-eggs)
@@ -242,7 +244,7 @@ This repo and README can be used to search for common language features. I hope 
 
 ### Formatting
 - String Formatting - Used in [Clock](#clock), [Tournament](#tournament) with format specifiers
-- String Building - Used in [Bottle Song](#bottle-song) with `format!()` macro
+- String Building with `format!()` macro - Used in [Bottle Song](#bottle-song), [Diamond](#diamond)
 
 ## Traits and Generics
 
@@ -287,6 +289,9 @@ This repo and README can be used to search for common language features. I hope 
 - `parse()` - Used in [Run-length Encoding](#run-length-encoding), [Say](#say) for string-to-number parsing
 - `as_bytes()` - Used in [Minesweeper](#minesweeper) for performance optimization in grid operations
 
+### Single byte conversions
+- ASCII arithmetic - Used in [Atbash Cipher](#atbash-cipher), [Diamond](#diamond)
+
 ### Safe Conversions
 - `checked_*` Operations - Used in [Collatz Conjecture](#collatz-conjecture) to prevent arithmetic overflow
 - String/Integer Conversion - Used in [Armstrong Numbers](#armstrong-numbers), [ISBN Verifier](#isbn-verifier)
@@ -296,7 +301,6 @@ This repo and README can be used to search for common language features. I hope 
 - Custom `From` Implementations - Used in [Space Age](#space-age) to convert between domain types
 - Manual Parsing Logic - Used in [Nucleotide Count](#nucleotide-count), [Acronym](#acronym) for domain-specific parsing
 - Type-driven Design - Used in [Tournament](#tournament) with newtypes to prevent mixing of related values
-- ASCII arithmetic - Used in [Atbash Cipher](#atbash-cipher)
 
 ## Tuple and Array Patterns
 
@@ -451,6 +455,11 @@ Below is a brief analysis of each solution. Solutions are ordered alphabetically
 - Uses `Hash` trait for key hashing with `DefaultHasher`
 - Implements `PartialEq`, `Eq`, `FromIterator` and `Clone` traits
 - Uses generics with trait bounds (`Hash + Eq + Clone`)
+
+## [Diamond](https://github.com/eaverdeja/exercism-rust/tree/main/diamond/src/lib.rs)
+
+- Character manipulation with offsets (`as u8` and `as char`)
+- Handles whitespace padding based on calculated dimensions with `format!` and width/fill modifiers (`width$`, `^`, `<`, `>`)
 
 ## [Difference of Squares](https://github.com/eaverdeja/exercism-rust/tree/main/difference-of-squares/src/lib.rs)
 
