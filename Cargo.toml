@@ -53,6 +53,7 @@ members = [
     "protein-translation",
     "proverb",
     "queen-attack",
+    "rail-fence-cipher",
     "raindrops",
     "reverse-string",
     "rna-transcription",

@@ -110,6 +110,7 @@ This repo and README can be used to search for common language features. I hope 
   - [Protein Translation](#protein-translation)
   - [Proverb](#proverb)
   - [Queen Attack](#queen-attack)
+  - [Rail Fence Cipher](#rail-fence-cipher)
   - [Raindrops](#raindrops)
   - [Reverse String](#reverse-string)
   - [RNA Transcription](#rna-transcription)
@@ -164,9 +165,10 @@ This repo and README can be used to search for common language features. I hope 
 - `enumerate()` - Used in [Saddle Points](#saddle-points), [All-Your-Base](#all-your-base), [ISBN Verifier](#isbn-verifier), and many others. This one is also pretty popular!
 - `zip()` - Used in [Hamming](#hamming)
 - `flat_map()` - Used in [Alphametics](#alphametics), [ETL](#etl), [Kindergarten Garden](#kindergarten-garden), [Sum of Multiples](#sum-of-multiples), [Variable Length Quantity](#variable-length-quantity)
-- `fold()` - Used in [Luhn](#luhn), [Robot Simulator](#robot-simulator), [Pascal's Triangle](#pascals-triangle)
+- `fold()` - Used in [Luhn](#luhn), [Robot Simulator](#robot-simulator), [Pascal's Triangle](#pascals-triangle), [Rail Fence Cipher](#rail-fence-cipher)
 - `chain()` - Used in [Bottle Song](#bottle-song), [Robot Name](#robot-name)
 - `nth()` - Used in [Alphametics](#alphametics), [Phone Number](#phone-number), [Nth Prime](#nth-prime)
+- `flatten()`- Used in [Custom Set](#custom-set), [Rail Fence Cipher](#rail-fence-cipher)
 
 ### Advanced Iterator Methods
 - `try_fold()` - Used in [All-Your-Base](#all-your-base), [ISBN Verifier](#isbn-verifier), [RNA Transcription](#rna-transcription)
@@ -189,7 +191,7 @@ This repo and README can be used to search for common language features. I hope 
 
 ### Result and Option Patterns
 - Custom `Error` Enums - Used in [All-Your-Base](#all-your-base), [Bowling](#bowling), [Variable Length Quantity](#variable-length-quantity) and others
-- `Option` for Missing Values & Error Handling - Used in [Binary Search](#binary-search), [High Scores](#high-scores), [Two Bucket](#two-bucket), [Protein Translation](#protein-translation), [Wordy](#wordy)
+- `Option` for Missing Values & Error Handling - Used in [Binary Search](#binary-search), [High Scores](#high-scores), [Two Bucket](#two-bucket), [Protein Translation](#protein-translation), [Wordy](#wordy), [Rail Fence Cipher](#rail-fence-cipher)
 - `?` Operator - Used in [Perfect Numbers](#perfect-numbers), [Sieve of Eratosthenes](#sieve-of-eratosthenes), [Variable Length Quantity](#variable-length-quantity), [Wordy](#wordy)
 - `ok_or()` for converting `Option` to `Result` - Used in [Largest Series Product](#largest-series-product)
 - `or_else()` for dynamically handling `None` values - Used in [List Ops](#list-ops)
@@ -251,6 +253,7 @@ This repo and README can be used to search for common language features. I hope 
 - Byte-level string manipulation with `as_bytes()` - Used in [Largest Series Product](#largest-series-product), [Minesweeper](#minesweeper), [Protein Translation](#protein-translation)
 - Substring extraction with `strip_prefix()` and `strip_suffix()` - Used in [Wordy](#wordy)
 - Grid-based text transpostion - Used in [Crypto Square](#crypto-square)
+- Character-by-character processing with positional tracking - Used in [Rail Fence Cipher](#rail-fence-cipher)
 
 ### Formatting
 - String Formatting - Used in [Clock](#clock), [Tournament](#tournament) with format specifiers
@@ -701,6 +704,16 @@ Below is a brief analysis of each solution. Solutions are ordered alphabetically
 - Algebraic properties for attack detection
 - Absolute differences for diagonal checking with `abs_diff()`
 
+## [Rail Fence Cipher](https://github.com/eaverdeja/exercism-rust/tree/main/rail-fence-cipher)
+
+- Uses `fold()` with a vector of vectors as accumulator to organize characters by rail
+- Encoding creates the fence as a `Vec<Vec<char>>` and `flatten()`s it to create the encoded result
+- Decoding approach uses a two-phase strategy:
+  1. First creates a template with position markers
+  2. Then fills the template with characters from the cipher text in rail order
+- Uses `filter_map()` to extract valid positions from the template
+- Creates an initial placeholder vector with `vec!['?'; cipher_len]` that's filled during decoding
+
 ## [Raindrops](https://github.com/eaverdeja/exercism-rust/tree/main/raindrops/src/lib.rs)
 
 - Functional approach with iterators
@@ -910,7 +923,7 @@ Here are all solutions ordered by lines of code. Use this a proxy for how comple
 ====================================================================================================
  Language                                 Files        Lines         Code     Comments       Blanks
 ====================================================================================================
- Rust                                        79         3679         2902          263          514
+ Rust                                        80         3754         2961          267          526
 ----------------------------------------------------------------------------------------------------
  ./alphametics/src/lib.rs                                463          289          111           63
  ./bowling/src/lib.rs                                    211          161           17           33
@@ -925,6 +938,7 @@ Here are all solutions ordered by lines of code. Use this a proxy for how comple
  ./affine-cipher/src/lib.rs                               87           70            3           14
  ./paasio/src/lib.rs                                      79           66            0           13
  ./list-ops/src/lib.rs                                    74           66            0            8
+ ./rail-fence-cipher/src/lib.rs                           75           59            4           12
  ./variable-length-quantity/src/lib.rs                    75           59            3           13
  ./bottle-song/src/lib.rs                                 62           58            0            4
  ./minesweeper/src/lib.rs                                 71           56            6            9
@@ -956,11 +970,11 @@ Here are all solutions ordered by lines of code. Use this a proxy for how comple
  ./nth-prime/src/lib.rs                                   28           22            2            4
  ./crypto-square/src/lib.rs                               25           22            0            3
  ./largest-series-product/src/lib.rs                      25           22            0            3
- ./pascals-triangle/src/lib.rs                            24           21            0            3
  ./acronym/src/lib.rs                                     28           21            4            3
+ ./pascals-triangle/src/lib.rs                            24           21            0            3
  ./dot-dsl/src/graph/graph_items/node.rs                  25           21            0            4
- ./saddle-points/src/lib.rs                               23           20            0            3
  ./luhn/src/lib.rs                                        24           20            1            3
+ ./saddle-points/src/lib.rs                               23           20            0            3
  ./bob/src/lib.rs                                         21           19            0            2
  ./diamond/src/lib.rs                                     20           19            0            1
  ./prime-factors/src/lib.rs                               20           18            0            2
@@ -980,8 +994,8 @@ Here are all solutions ordered by lines of code. Use this a proxy for how comple
  ./armstrong-numbers/src/lib.rs                           11           10            0            1
  ./grains/src/lib.rs                                      10            9            0            1
  ./difference-of-squares/src/lib.rs                       17            9            5            3
- ./hamming/src/lib.rs                                     12            8            2            2
  ./isogram/src/lib.rs                                     10            8            0            2
+ ./hamming/src/lib.rs                                     12            8            2            2
  ./series/src/lib.rs                                       8            8            0            0
  ./etl/src/lib.rs                                          9            7            0            2
  ./leap/src/lib.rs                                        13            6            7            0
@@ -992,7 +1006,7 @@ Here are all solutions ordered by lines of code. Use this a proxy for how comple
  ./hello-world/src/lib.rs                                  4            3            1            0
  ./dot-dsl/src/lib.rs                                      1            1            0            0
 ====================================================================================================
- Total                                       79         3679         2902          263          514
+ Total                                       80         3754         2961          267          526
 ====================================================================================================
 ```
 
