@@ -60,6 +60,7 @@ members = [
     "robot-name",
     "robot-simulator",
     "roman-numerals",
+    "rotational-cipher",
     "run-length-encoding",
     "saddle-points",
     "say",

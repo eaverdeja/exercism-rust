@@ -117,6 +117,7 @@ This repo and README can be used to search for common language features. I hope 
   - [Robot Simulator](#robot-simulator)
   - [Robot Name](#robot-name)
   - [Roman Numerals](#roman-numerals)
+  - [Rotational Cipher](#rotational-cipher)
   - [Run-length Encoding](#run-length-encoding)
   - [Saddle Points](#saddle-points)
   - [Say](#say)
@@ -308,7 +309,7 @@ This repo and README can be used to search for common language features. I hope 
 - `as_bytes()` - Used in [Minesweeper](#minesweeper) for grid operations
 
 ### Single byte conversions
-- ASCII arithmetic - Used in [Atbash Cipher](#atbash-cipher), [Diamond](#diamond), [Largest Series Product](#largest-series-product)
+- ASCII arithmetic - Used in [Atbash Cipher](#atbash-cipher), [Diamond](#diamond), [Largest Series Product](#largest-series-product), [Rotational Cipher](#rotational-cipher)
 
 ### Safe Conversions
 - `checked_*` Operations - Used in [Collatz Conjecture](#collatz-conjecture) to prevent arithmetic overflow
@@ -760,6 +761,13 @@ Below is a brief analysis of each solution. Solutions are ordered alphabetically
 - Positional digit extraction with modulo and division operations
 - String composition with `format!` macro
 
+## [Rotational Cipher](https://github.com/eaverdeja/exercism-rust/tree/main/rotational-cipher)
+
+- Uses character range patterns (`'a'..='z'`, `'A'..='Z'`) for matching letter cases
+- Character manipulation with ASCII arithmetic (`char` to `u8` and back)
+- Implements Caesar cipher with modulo operation to handle wrapping (`% 26`)
+- Maintains non-alphabetic characters unchanged with wildcard pattern matching
+
 ## [Run-length Encoding](https://github.com/eaverdeja/exercism-rust/tree/main/run-length-encoding/src/lib.rs)
 
 - `peekable()` iterator for lookahead while encoding
@@ -934,7 +942,7 @@ Here are all solutions ordered by lines of code. Use this a proxy for how comple
 ====================================================================================================
  Language                                 Files        Lines         Code     Comments       Blanks
 ====================================================================================================
- Rust                                        81         3786         2989          267          530
+ Rust                                        82         3802         3004          267          531
 ----------------------------------------------------------------------------------------------------
  ./alphametics/src/lib.rs                                463          289          111           63
  ./bowling/src/lib.rs                                    211          161           17           33
@@ -968,8 +976,8 @@ Here are all solutions ordered by lines of code. Use this a proxy for how comple
  ./dot-dsl/src/graph/graph_items/attrs.rs                 35           29            0            6
  ./sublist/src/lib.rs                                     32           29            0            3
  ./dot-dsl/src/graph.rs                                   35           28            0            7
- ./roman-numerals/src/lib.rs                              32           28            0            4
  ./queen-attack/src/lib.rs                                35           28            1            6
+ ./roman-numerals/src/lib.rs                              32           28            0            4
  ./anagram/src/lib.rs                                     32           27            0            5
  ./protein-translation/src/lib.rs                         29           27            0            2
  ./clock/src/lib.rs                                       32           25            0            7
@@ -982,9 +990,9 @@ Here are all solutions ordered by lines of code. Use this a proxy for how comple
  ./nth-prime/src/lib.rs                                   28           22            2            4
  ./crypto-square/src/lib.rs                               25           22            0            3
  ./largest-series-product/src/lib.rs                      25           22            0            3
- ./pascals-triangle/src/lib.rs                            24           21            0            3
  ./dot-dsl/src/graph/graph_items/node.rs                  25           21            0            4
  ./acronym/src/lib.rs                                     28           21            4            3
+ ./pascals-triangle/src/lib.rs                            24           21            0            3
  ./saddle-points/src/lib.rs                               23           20            0            3
  ./luhn/src/lib.rs                                        24           20            1            3
  ./bob/src/lib.rs                                         21           19            0            2
@@ -995,6 +1003,7 @@ Here are all solutions ordered by lines of code. Use this a proxy for how comple
  ./proverb/src/lib.rs                                     19           16            0            3
  ./isbn-verifier/src/lib.rs                               17           16            0            1
  ./collatz-conjecture/src/lib.rs                          16           15            1            0
+ ./rotational-cipher/src/lib.rs                           16           15            0            1
  ./binary-search/src/lib.rs                               37           14           20            3
  ./scrabble-score/src/lib.rs                              14           14            0            0
  ./raindrops/src/lib.rs                                   14           13            0            1
@@ -1006,8 +1015,8 @@ Here are all solutions ordered by lines of code. Use this a proxy for how comple
  ./sum-of-multiples/src/lib.rs                            11           10            0            1
  ./grains/src/lib.rs                                      10            9            0            1
  ./difference-of-squares/src/lib.rs                       17            9            5            3
- ./isogram/src/lib.rs                                     10            8            0            2
  ./hamming/src/lib.rs                                     12            8            2            2
+ ./isogram/src/lib.rs                                     10            8            0            2
  ./series/src/lib.rs                                       8            8            0            0
  ./etl/src/lib.rs                                          9            7            0            2
  ./eliuds-eggs/src/lib.rs                                  7            6            0            1
@@ -1018,7 +1027,7 @@ Here are all solutions ordered by lines of code. Use this a proxy for how comple
  ./hello-world/src/lib.rs                                  4            3            1            0
  ./dot-dsl/src/lib.rs                                      1            1            0            0
 ====================================================================================================
- Total                                       81         3786         2989          267          530
+ Total                                       82         3802         3004          267          531
 ====================================================================================================
 ```
 
