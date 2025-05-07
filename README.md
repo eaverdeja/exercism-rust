@@ -116,6 +116,7 @@ This repo and README can be used to search for common language features. I hope 
   - [RNA Transcription](#rna-transcription)
   - [Robot Simulator](#robot-simulator)
   - [Robot Name](#robot-name)
+  - [Roman Numerals](#roman-numerals)
   - [Run-length Encoding](#run-length-encoding)
   - [Saddle Points](#saddle-points)
   - [Say](#say)
@@ -241,6 +242,7 @@ This repo and README can be used to search for common language features. I hope 
 - Factor Finding - Used in [Perfect Numbers](#perfect-numbers) with square root optimization, [Palindrome Products](#palindrome-products) to find palindrome products
 - Modular arithmetic with `rem_euclid()` - Used in [Affine Cipher](#affine-cipher), [Clock](#clock)
 - Greatest common divisor (GCD) calculation - Used in [Affine Cipher](#affine-cipher), [Two Bucket](#two-bucket)
+- Positional digit extraction with modulo and division operations - Used in [Roman Numerals](#roman-numerals)
 
 ## String Processing
 
@@ -257,13 +259,13 @@ This repo and README can be used to search for common language features. I hope 
 
 ### Formatting
 - String Formatting - Used in [Clock](#clock), [Tournament](#tournament) with format specifiers
-- String Building with `format!()` macro - Used in [Bottle Song](#bottle-song), [Diamond](#diamond)
+- String Building with `format!()` macro - Used in [Bottle Song](#bottle-song), [Diamond](#diamond), [Roman Numerals](#roman-numerals)
 
 ## Traits and Generics
 
 ### Custom Trait Implementations
 - `Display` and `PartialEq` - Used in [Clock](#clock)
-- `From` and Type Conversion - Used in [Space Age](#space-age)
+- `From` and Type Conversion - Used in [Space Age](#space-age), [Roman Numerals](#roman-numerals)
 
 ### Generic Programming
 - Generic Functions - Used in [Binary Search](#binary-search) with type parameters, [Simple Linked List](#simple-linked-list) with `Node<T>`, [Accumulate](#accumulate), [List Ops](#list-ops)
@@ -329,6 +331,7 @@ This repo and README can be used to search for common language features. I hope 
 - Fixed-size Arrays - Used in [Raindrops](#raindrops) with array of tuples
 - Array Destructuring - Used in [Triangle](#triangle) for brevity and pattern matching
 - Array of Constants - Used in [Say](#say), [Space Age](#space-age) for lookup tables
+- Static array for lookup tables - Used in [Roman Numerals](#roman-numerals)
 
 # Solutions to the problems
 
@@ -749,6 +752,14 @@ Below is a brief analysis of each solution. Solutions are ordered alphabetically
 - Leverages the `rand` crate for random character generation
 - Uses iterator combinators (`map()`, `chain()`, `collect()`) for functional name construction
 
+## [Roman Numerals](https://github.com/eaverdeja/exercism-rust/tree/main/roman-numerals/src/lib.rs)
+
+- Static lookup tables (`&[&str]`) for digit-to-numeral conversion
+- Implementation of `Display` trait for formatting
+- Custom `From<u32>` implementation for type conversion
+- Positional digit extraction with modulo and division operations
+- String composition with `format!` macro
+
 ## [Run-length Encoding](https://github.com/eaverdeja/exercism-rust/tree/main/run-length-encoding/src/lib.rs)
 
 - `peekable()` iterator for lookahead while encoding
@@ -923,7 +934,7 @@ Here are all solutions ordered by lines of code. Use this a proxy for how comple
 ====================================================================================================
  Language                                 Files        Lines         Code     Comments       Blanks
 ====================================================================================================
- Rust                                        80         3754         2961          267          526
+ Rust                                        81         3786         2989          267          530
 ----------------------------------------------------------------------------------------------------
  ./alphametics/src/lib.rs                                463          289          111           63
  ./bowling/src/lib.rs                                    211          161           17           33
@@ -954,27 +965,28 @@ Here are all solutions ordered by lines of code. Use this a proxy for how comple
  ./perfect-numbers/src/lib.rs                             38           32            2            4
  ./luhn-trait/src/lib.rs                                  35           30            0            5
  ./luhn-from/src/lib.rs                                   35           29            0            6
- ./sublist/src/lib.rs                                     32           29            0            3
  ./dot-dsl/src/graph/graph_items/attrs.rs                 35           29            0            6
+ ./sublist/src/lib.rs                                     32           29            0            3
  ./dot-dsl/src/graph.rs                                   35           28            0            7
+ ./roman-numerals/src/lib.rs                              32           28            0            4
  ./queen-attack/src/lib.rs                                35           28            1            6
  ./anagram/src/lib.rs                                     32           27            0            5
  ./protein-translation/src/lib.rs                         29           27            0            2
  ./clock/src/lib.rs                                       32           25            0            7
  ./atbash-cipher/src/lib.rs                               27           25            0            2
  ./triangle/src/lib.rs                                    31           25            0            6
- ./kindergarten-garden/src/lib.rs                         26           23            0            3
  ./dot-dsl/src/graph/graph_items/edge.rs                  27           23            0            4
+ ./kindergarten-garden/src/lib.rs                         26           23            0            3
  ./matching-brackets/src/lib.rs                           30           23            4            3
  ./high-scores/src/lib.rs                                 28           23            0            5
  ./nth-prime/src/lib.rs                                   28           22            2            4
  ./crypto-square/src/lib.rs                               25           22            0            3
  ./largest-series-product/src/lib.rs                      25           22            0            3
- ./acronym/src/lib.rs                                     28           21            4            3
  ./pascals-triangle/src/lib.rs                            24           21            0            3
  ./dot-dsl/src/graph/graph_items/node.rs                  25           21            0            4
- ./luhn/src/lib.rs                                        24           20            1            3
+ ./acronym/src/lib.rs                                     28           21            4            3
  ./saddle-points/src/lib.rs                               23           20            0            3
+ ./luhn/src/lib.rs                                        24           20            1            3
  ./bob/src/lib.rs                                         21           19            0            2
  ./diamond/src/lib.rs                                     20           19            0            1
  ./prime-factors/src/lib.rs                               20           18            0            2
@@ -990,23 +1002,23 @@ Here are all solutions ordered by lines of code. Use this a proxy for how comple
  ./sieve/src/lib.rs                                       17           12            2            3
  ./accumulate/src/lib.rs                                  10           10            0            0
  ./say/src/constants.rs                                   12           10            0            2
- ./sum-of-multiples/src/lib.rs                            11           10            0            1
  ./armstrong-numbers/src/lib.rs                           11           10            0            1
+ ./sum-of-multiples/src/lib.rs                            11           10            0            1
  ./grains/src/lib.rs                                      10            9            0            1
  ./difference-of-squares/src/lib.rs                       17            9            5            3
  ./isogram/src/lib.rs                                     10            8            0            2
  ./hamming/src/lib.rs                                     12            8            2            2
  ./series/src/lib.rs                                       8            8            0            0
  ./etl/src/lib.rs                                          9            7            0            2
- ./leap/src/lib.rs                                        13            6            7            0
  ./eliuds-eggs/src/lib.rs                                  7            6            0            1
+ ./leap/src/lib.rs                                        13            6            7            0
  ./gigasecond/src/lib.rs                                   8            5            1            2
  ./pangram/src/lib.rs                                      4            4            0            0
  ./dot-dsl/src/graph/graph_items.rs                        3            3            0            0
  ./hello-world/src/lib.rs                                  4            3            1            0
  ./dot-dsl/src/lib.rs                                      1            1            0            0
 ====================================================================================================
- Total                                       80         3754         2961          267          526
+ Total                                       81         3786         2989          267          530
 ====================================================================================================
 ```
 

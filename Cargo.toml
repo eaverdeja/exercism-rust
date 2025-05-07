@@ -59,6 +59,7 @@ members = [
     "rna-transcription",
     "robot-name",
     "robot-simulator",
+    "roman-numerals",
     "run-length-encoding",
     "saddle-points",
     "say",
