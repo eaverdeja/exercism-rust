@@ -124,6 +124,7 @@ This repo and README can be used to search for common language features. I hope 
   - [Scrabble Score](#scrabble-score)
   - [Series](#series)
   - [Sieve of Eratosthenes](#sieve-of-eratosthenes)
+  - [Simple Cipher](#simple-cipher)
   - [Simple Linked List](#simple-linked-list)
   - [Space Age](#space-age)
   - [Spiral Matrix](#spiral-matrix)
@@ -165,12 +166,13 @@ This repo and README can be used to search for common language features. I hope 
 - `windows()` - Used in [Largest Series Product](#largest-series-product), [Proverb](#proverb), [Series](#series), [Sublist](#sublist) for processing adjacent elements
 - `chunks()` - Used in [Protein Translation](#protein-translation)
 - `enumerate()` - Used in [Saddle Points](#saddle-points), [All-Your-Base](#all-your-base), [ISBN Verifier](#isbn-verifier), and many others. This one is also pretty popular!
-- `zip()` - Used in [Hamming](#hamming)
+- `zip()` - Used in [Hamming](#hamming), [Simple Cipher](#simple-cipher)
 - `flat_map()` - Used in [Alphametics](#alphametics), [ETL](#etl), [Kindergarten Garden](#kindergarten-garden), [Sum of Multiples](#sum-of-multiples), [Variable Length Quantity](#variable-length-quantity)
 - `fold()` - Used in [Luhn](#luhn), [Robot Simulator](#robot-simulator), [Pascal's Triangle](#pascals-triangle), [Rail Fence Cipher](#rail-fence-cipher)
 - `chain()` - Used in [Bottle Song](#bottle-song), [Robot Name](#robot-name)
 - `nth()` - Used in [Alphametics](#alphametics), [Phone Number](#phone-number), [Nth Prime](#nth-prime)
 - `flatten()`- Used in [Custom Set](#custom-set), [Rail Fence Cipher](#rail-fence-cipher)
+- `cycle()` - Used in [Simple Cipher](#simple-cipher)
 
 ### Advanced Iterator Methods
 - `try_fold()` - Used in [All-Your-Base](#all-your-base), [ISBN Verifier](#isbn-verifier), [RNA Transcription](#rna-transcription)
@@ -208,8 +210,9 @@ This repo and README can be used to search for common language features. I hope 
 - `@` binding operator - Used in [Wordy](#wordy)
 
 ### Enum Patterns
-- `Enum` with Explicit Discriminators - Used in [Allergies](#allergies)
-- `Enum` for Result Classification - Used in [Sublist](#sublist), [Perfect Numbers](#perfect-numbers)
+- Explicit Discriminators - Used in [Allergies](#allergies)
+- Result Classification - Used in [Sublist](#sublist), [Perfect Numbers](#perfect-numbers)
+- Branching - Used in [Simple Cipher](#simple-cipher)
 
 ## Functional Programming
 
@@ -309,7 +312,7 @@ This repo and README can be used to search for common language features. I hope 
 - `as_bytes()` - Used in [Minesweeper](#minesweeper) for grid operations
 
 ### Single byte conversions
-- ASCII arithmetic - Used in [Atbash Cipher](#atbash-cipher), [Diamond](#diamond), [Largest Series Product](#largest-series-product), [Rotational Cipher](#rotational-cipher)
+- ASCII arithmetic - Used in [Atbash Cipher](#atbash-cipher), [Diamond](#diamond), [Largest Series Product](#largest-series-product), [Rotational Cipher](#rotational-cipher), [Simple Cipher](#simple-cipher)
 
 ### Safe Conversions
 - `checked_*` Operations - Used in [Collatz Conjecture](#collatz-conjecture) to prevent arithmetic overflow
@@ -811,6 +814,13 @@ Below is a brief analysis of each solution. Solutions are ordered alphabetically
 - Performance optimization with `i.pow(2)` to start marking from square of prime
 - `step_by()` to efficiently iterate through multiples
 - Type conversion with as `usize` for indexing
+
+## [Simple Cipher](https://github.com/eaverdeja/exercism-rust/tree/main/simple-cipher)
+
+- Uses `enum Op` for cryptographic operation selection (encode/decode)
+- Character manipulation with ASCII arithmetic and range patterns (`'a'..='z'`, `'A'..='Z'`)
+- `zip()` with `cycle()` to pair plaintext with repeating key characters 
+- Uses the `rand` crate with `SampleString` and `Uniform` distribution for key generation
 
 ## [Simple Linked List](https://github.com/eaverdeja/exercism-rust/tree/main/simple-linked-list/src/lib.rs)
 
