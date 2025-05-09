@@ -65,6 +65,7 @@ members = [
     "saddle-points",
     "say",
     "scrabble-score",
+    "secret-handshake",
     "series",
     "sieve",
     "simple-cipher",

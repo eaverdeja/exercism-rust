@@ -122,6 +122,7 @@ This repo and README can be used to search for common language features. I hope 
   - [Saddle Points](#saddle-points)
   - [Say](#say)
   - [Scrabble Score](#scrabble-score)
+  - [Secret Handshake](#secret-handshake)
   - [Series](#series)
   - [Sieve of Eratosthenes](#sieve-of-eratosthenes)
   - [Simple Cipher](#simple-cipher)
@@ -204,7 +205,7 @@ This repo and README can be used to search for common language features. I hope 
 ## Pattern Matching
 
 ### Match Expressions
-- Pattern Matching with Guards - Used in [Bob](#bob), [Leap](#leap)
+- Pattern Matching with Guards - Used in [Bob](#bob), [Leap](#leap), [Secret Handshake](#secret-handshake)
 - Complex String Parsing - Used in [Pig Latin](#pig-latin)
 - Multi-pattern Matching with `|` operator - Used in [Scrabble Score](#scrabble-score), [Protein Translation](#protein-translation), [Wordy](#wordy)
 - Matching against byte string literals - Used in [Protein Translation](#protein-translation)
@@ -230,7 +231,7 @@ This repo and README can be used to search for common language features. I hope 
 ## Bit Manipulation
 
 ### Bitwise Operations
-- Flags and Bit Testing - Used in [Allergies](#allergies) with bitwise `&`
+- Flags and Bit Testing with bitwise `&` - Used in [Allergies](#allergies), [Secret Handshake](#secret-handshake)
 - Bit Counting - Used in [Eliud's Eggs](#eliuds-eggs) with shift and mask
 - Byte-by-byte decoding - Used in [Variable Length Quantity](#variable-length-quantity)
 
@@ -287,6 +288,7 @@ This repo and README can be used to search for common language features. I hope 
 - Slices and slice indexing - Used in [Variable Length Quantity](#variable-length-quantity)
 - `Mutex` for safe shared state management - Used in [Robot Name](#robot-name)
 - `move` closures to transfer ownership - Used in [List Ops](#list-ops)
+- `static` data structures - Used in [Robot Name](#robot-name), [Roman Numerals](#roman-numerals), [Secret Handshake](#secret-handshake)
 
 ## Optimizations
 - Pre-allocating space with `Vec::with_capacity()` - Used in [Custom Set](#custom-set), [PaaS I/O](#paas-io), [Variable Length Quantity](#variable-length-quantity)
@@ -802,6 +804,14 @@ Below is a brief analysis of each solution. Solutions are ordered alphabetically
 - Uses `to_ascii_uppercase()` to handle case-insensitive scoring
 - Uses a fallback with `_ => 0` to handle non-scoring characters gracefully
 
+## [Secret Handshake](https://github.com/eaverdeja/exercism-rust/tree/main/secret-handshake)
+
+- Bitwise operations for flag checking with `&` operator
+- Static lookup table with tuples to map bit flags to actions (`static &[(u8, &str)]`)
+- Functional approach with `filter_map()` for extracting matching actions
+- Pattern matching with guards (`match n & *mask { m if m == *mask => ... }`)
+- Leverages Rust's static string lifetimes with `&'static str` return type
+
 ## [Series](https://github.com/eaverdeja/exercism-rust/tree/main/series/src/lib.rs)
 
 - `windows()` for sliding window operations
@@ -959,7 +969,7 @@ Here are all solutions ordered by lines of code. Use this a proxy for how comple
 ====================================================================================================
  Language                                 Files        Lines         Code     Comments       Blanks
 ====================================================================================================
- Rust                                        84         3870         3063          267          540
+ Rust                                        85         3892         3082          267          543
 ----------------------------------------------------------------------------------------------------
  ./alphametics/src/lib.rs                                463          289          111           63
  ./bowling/src/lib.rs                                    211          161           17           33
@@ -994,8 +1004,8 @@ Here are all solutions ordered by lines of code. Use this a proxy for how comple
  ./dot-dsl/src/graph/graph_items/attrs.rs                 35           29            0            6
  ./sublist/src/lib.rs                                     32           29            0            3
  ./dot-dsl/src/graph.rs                                   35           28            0            7
- ./roman-numerals/src/lib.rs                              32           28            0            4
  ./queen-attack/src/lib.rs                                35           28            1            6
+ ./roman-numerals/src/lib.rs                              32           28            0            4
  ./anagram/src/lib.rs                                     32           27            0            5
  ./protein-translation/src/lib.rs                         29           27            0            2
  ./clock/src/lib.rs                                       32           25            0            7
@@ -1005,15 +1015,16 @@ Here are all solutions ordered by lines of code. Use this a proxy for how comple
  ./kindergarten-garden/src/lib.rs                         26           23            0            3
  ./matching-brackets/src/lib.rs                           30           23            4            3
  ./high-scores/src/lib.rs                                 28           23            0            5
- ./crypto-square/src/lib.rs                               25           22            0            3
  ./nth-prime/src/lib.rs                                   28           22            2            4
  ./largest-series-product/src/lib.rs                      25           22            0            3
+ ./crypto-square/src/lib.rs                               25           22            0            3
  ./dot-dsl/src/graph/graph_items/node.rs                  25           21            0            4
  ./acronym/src/lib.rs                                     28           21            4            3
  ./pascals-triangle/src/lib.rs                            24           21            0            3
- ./luhn/src/lib.rs                                        24           20            1            3
  ./saddle-points/src/lib.rs                               23           20            0            3
+ ./luhn/src/lib.rs                                        24           20            1            3
  ./bob/src/lib.rs                                         21           19            0            2
+ ./secret-handshake/src/lib.rs                            22           19            0            3
  ./diamond/src/lib.rs                                     20           19            0            1
  ./prime-factors/src/lib.rs                               20           18            0            2
  ./phone-number/src/lib.rs                                20           18            0            2
@@ -1034,8 +1045,8 @@ Here are all solutions ordered by lines of code. Use this a proxy for how comple
  ./sum-of-multiples/src/lib.rs                            11           10            0            1
  ./grains/src/lib.rs                                      10            9            0            1
  ./difference-of-squares/src/lib.rs                       17            9            5            3
- ./isogram/src/lib.rs                                     10            8            0            2
  ./hamming/src/lib.rs                                     12            8            2            2
+ ./isogram/src/lib.rs                                     10            8            0            2
  ./series/src/lib.rs                                       8            8            0            0
  ./etl/src/lib.rs                                          9            7            0            2
  ./eliuds-eggs/src/lib.rs                                  7            6            0            1
@@ -1046,7 +1057,7 @@ Here are all solutions ordered by lines of code. Use this a proxy for how comple
  ./hello-world/src/lib.rs                                  4            3            1            0
  ./dot-dsl/src/lib.rs                                      1            1            0            0
 ====================================================================================================
- Total                                       84         3870         3063          267          540
+ Total                                       85         3892         3082          267          543
 ====================================================================================================
 ```
 
