@@ -134,6 +134,7 @@ This repo and README can be used to search for common language features. I hope 
   - [Triangle](#triangle)
   - [Two Bucket](#two-bucket)
   - [Variable Length Quantity](#variable-length-quantity)
+  - [Word Count](#word-count)
   - [Wordy](#wordy)
 - [Testing](#testing)
 - [Metrics](#metrics)
@@ -168,7 +169,7 @@ This repo and README can be used to search for common language features. I hope 
 - `enumerate()` - Used in [Saddle Points](#saddle-points), [All-Your-Base](#all-your-base), [ISBN Verifier](#isbn-verifier), and many others. This one is also pretty popular!
 - `zip()` - Used in [Hamming](#hamming), [Simple Cipher](#simple-cipher)
 - `flat_map()` - Used in [Alphametics](#alphametics), [ETL](#etl), [Kindergarten Garden](#kindergarten-garden), [Sum of Multiples](#sum-of-multiples), [Variable Length Quantity](#variable-length-quantity)
-- `fold()` - Used in [Luhn](#luhn), [Robot Simulator](#robot-simulator), [Pascal's Triangle](#pascals-triangle), [Rail Fence Cipher](#rail-fence-cipher)
+- `fold()` - Used in [Luhn](#luhn), [Robot Simulator](#robot-simulator), [Pascal's Triangle](#pascals-triangle), [Rail Fence Cipher](#rail-fence-cipher), [Word Count](#word-count)
 - `chain()` - Used in [Bottle Song](#bottle-song), [Robot Name](#robot-name)
 - `nth()` - Used in [Alphametics](#alphametics), [Phone Number](#phone-number), [Nth Prime](#nth-prime)
 - `flatten()`- Used in [Custom Set](#custom-set), [Rail Fence Cipher](#rail-fence-cipher)
@@ -900,6 +901,12 @@ Below is a brief analysis of each solution. Solutions are ordered alphabetically
 - Implements the visitor pattern via slice indexing (`&bytes[i..]`) to advance through data
 - Combines functional and imperative styles
 
+## [Word Count](https://github.com/eaverdeja/exercism-rust/tree/main/word-count)
+
+- Custom splitting logic with a closure to handle punctuation and whitespace with `split()`
+- String normalization with `trim_matches('\'')` and `to_ascii_lowercase()`
+- `HashMap` entry API with `entry().and_modify().or_insert()` pattern
+
 ## [Wordy](https://github.com/eaverdeja/exercism-rust/tree/main/wordy/src/lib.rs)
 
 - Two-phase interpreter design (tokenize, evaluate)
@@ -952,7 +959,7 @@ Here are all solutions ordered by lines of code. Use this a proxy for how comple
 ====================================================================================================
  Language                                 Files        Lines         Code     Comments       Blanks
 ====================================================================================================
- Rust                                        82         3802         3004          267          531
+ Rust                                        84         3870         3063          267          540
 ----------------------------------------------------------------------------------------------------
  ./alphametics/src/lib.rs                                463          289          111           63
  ./bowling/src/lib.rs                                    211          161           17           33
@@ -972,6 +979,7 @@ Here are all solutions ordered by lines of code. Use this a proxy for how comple
  ./bottle-song/src/lib.rs                                 62           58            0            4
  ./minesweeper/src/lib.rs                                 71           56            6            9
  ./say/src/lib.rs                                         72           51            5           16
+ ./simple-cipher/src/lib.rs                               53           46            0            7
  ./robot-name/src/lib.rs                                  58           46            0           12
  ./space-age/src/lib.rs                                   51           46            0            5
  ./allergies/src/lib.rs                                   56           45            5            6
@@ -986,8 +994,8 @@ Here are all solutions ordered by lines of code. Use this a proxy for how comple
  ./dot-dsl/src/graph/graph_items/attrs.rs                 35           29            0            6
  ./sublist/src/lib.rs                                     32           29            0            3
  ./dot-dsl/src/graph.rs                                   35           28            0            7
- ./queen-attack/src/lib.rs                                35           28            1            6
  ./roman-numerals/src/lib.rs                              32           28            0            4
+ ./queen-attack/src/lib.rs                                35           28            1            6
  ./anagram/src/lib.rs                                     32           27            0            5
  ./protein-translation/src/lib.rs                         29           27            0            2
  ./clock/src/lib.rs                                       32           25            0            7
@@ -997,14 +1005,14 @@ Here are all solutions ordered by lines of code. Use this a proxy for how comple
  ./kindergarten-garden/src/lib.rs                         26           23            0            3
  ./matching-brackets/src/lib.rs                           30           23            4            3
  ./high-scores/src/lib.rs                                 28           23            0            5
- ./nth-prime/src/lib.rs                                   28           22            2            4
  ./crypto-square/src/lib.rs                               25           22            0            3
+ ./nth-prime/src/lib.rs                                   28           22            2            4
  ./largest-series-product/src/lib.rs                      25           22            0            3
  ./dot-dsl/src/graph/graph_items/node.rs                  25           21            0            4
  ./acronym/src/lib.rs                                     28           21            4            3
  ./pascals-triangle/src/lib.rs                            24           21            0            3
- ./saddle-points/src/lib.rs                               23           20            0            3
  ./luhn/src/lib.rs                                        24           20            1            3
+ ./saddle-points/src/lib.rs                               23           20            0            3
  ./bob/src/lib.rs                                         21           19            0            2
  ./diamond/src/lib.rs                                     20           19            0            1
  ./prime-factors/src/lib.rs                               20           18            0            2
@@ -1016,6 +1024,7 @@ Here are all solutions ordered by lines of code. Use this a proxy for how comple
  ./rotational-cipher/src/lib.rs                           16           15            0            1
  ./binary-search/src/lib.rs                               37           14           20            3
  ./scrabble-score/src/lib.rs                              14           14            0            0
+ ./word-count/src/lib.rs                                  15           13            0            2
  ./raindrops/src/lib.rs                                   14           13            0            1
  ./reverse-string/src/lib.rs                              20           13            4            3
  ./sieve/src/lib.rs                                       17           12            2            3
@@ -1025,8 +1034,8 @@ Here are all solutions ordered by lines of code. Use this a proxy for how comple
  ./sum-of-multiples/src/lib.rs                            11           10            0            1
  ./grains/src/lib.rs                                      10            9            0            1
  ./difference-of-squares/src/lib.rs                       17            9            5            3
- ./hamming/src/lib.rs                                     12            8            2            2
  ./isogram/src/lib.rs                                     10            8            0            2
+ ./hamming/src/lib.rs                                     12            8            2            2
  ./series/src/lib.rs                                       8            8            0            0
  ./etl/src/lib.rs                                          9            7            0            2
  ./eliuds-eggs/src/lib.rs                                  7            6            0            1
@@ -1037,7 +1046,7 @@ Here are all solutions ordered by lines of code. Use this a proxy for how comple
  ./hello-world/src/lib.rs                                  4            3            1            0
  ./dot-dsl/src/lib.rs                                      1            1            0            0
 ====================================================================================================
- Total                                       82         3802         3004          267          531
+ Total                                       84         3870         3063          267          540
 ====================================================================================================
 ```
 
