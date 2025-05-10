@@ -138,6 +138,7 @@ This repo and README can be used to search for common language features. I hope 
   - [Variable Length Quantity](#variable-length-quantity)
   - [Word Count](#word-count)
   - [Wordy](#wordy)
+  - [Yacht](#yacht)
 - [Testing](#testing)
 - [Metrics](#metrics)
 
@@ -147,7 +148,7 @@ This repo and README can be used to search for common language features. I hope 
 ## Data Structures
 
 ### Maps and Sets
-- `HashMap`/`HashSet` for Efficient Collections - Used in [Allergies](#allergies), [Anagram](#anagram), [ETL](#etl), [Isogram](#isogram), [Nucleotide Count](#nucleotide-count), [Sum of Multiples](#sum-of-multiples), [Robot Name](#robot-name) and many others
+- `HashMap`/`HashSet` for Efficient Collections - Used in [Allergies](#allergies), [Anagram](#anagram), [ETL](#etl), [Isogram](#isogram), [Nucleotide Count](#nucleotide-count), [Sum of Multiples](#sum-of-multiples), [Robot Name](#robot-name), [Yacht](#yacht) and many others
 - `BTreeMap`/`BTreeSet` for Ordered Collections - Used in [Grade School](#grade-school), [Dot DSL](#dot-dsl)
 
 ### Custom Data Structures
@@ -935,6 +936,14 @@ Below is a brief analysis of each solution. Solutions are ordered alphabetically
 - `Option` handling with `is_some_and()` and `take()`
 - String manipulation with `strip_prefix()` and `strip_suffix()`
 
+## [Yacht](https://github.com/eaverdeja/exercism-rust/tree/main/yacht)
+
+- Enums with explicit discriminator values (`enum Category { Ones = 1, Twos = 2, ... }`) 
+- Pattern matching with sorted arrays for straights (`[1, 2, 3, 4, 5]` and `[2, 3, 4, 5, 6]`)
+- `HashSet::from(array)` for efficient duplicate checking in Yacht category
+- Frequency counter implementation with `HashMap` and fold pattern
+- Entry API with `and_modify().or_insert()` for counting dice occurrences
+
 ---
 
 This list was initially generated with Claude code with the following prompt:
@@ -976,7 +985,7 @@ Here are all solutions ordered by lines of code. Use this a proxy for how comple
 ====================================================================================================
  Language                                 Files        Lines         Code     Comments       Blanks
 ====================================================================================================
- Rust                                        86         4030         3104          381          545
+ Rust                                        87         4110         3176          381          553
 ----------------------------------------------------------------------------------------------------
  ./alphametics/src/lib.rs                                463          289          111           63
  ./bowling/src/lib.rs                                    211          161           17           33
@@ -988,6 +997,7 @@ Here are all solutions ordered by lines of code. Use this a proxy for how comple
  ./wordy/src/lib.rs                                       94           78            5           11
  ./simple-linked-list/src/lib.rs                         108           77           10           21
  ./palindrome-products/src/lib.rs                         86           73            1           12
+ ./yacht/src/lib.rs                                       80           72            0            8
  ./affine-cipher/src/lib.rs                               87           70            3           14
  ./paasio/src/lib.rs                                      79           66            0           13
  ./list-ops/src/lib.rs                                    74           66            0            8
@@ -1008,11 +1018,11 @@ Here are all solutions ordered by lines of code. Use this a proxy for how comple
  ./perfect-numbers/src/lib.rs                             38           32            2            4
  ./luhn-trait/src/lib.rs                                  35           30            0            5
  ./luhn-from/src/lib.rs                                   35           29            0            6
- ./sublist/src/lib.rs                                     32           29            0            3
  ./dot-dsl/src/graph/graph_items/attrs.rs                 35           29            0            6
+ ./sublist/src/lib.rs                                     32           29            0            3
  ./dot-dsl/src/graph.rs                                   35           28            0            7
- ./queen-attack/src/lib.rs                                35           28            1            6
  ./roman-numerals/src/lib.rs                              32           28            0            4
+ ./queen-attack/src/lib.rs                                35           28            1            6
  ./anagram/src/lib.rs                                     32           27            0            5
  ./protein-translation/src/lib.rs                         29           27            0            2
  ./clock/src/lib.rs                                       32           25            0            7
@@ -1049,8 +1059,8 @@ Here are all solutions ordered by lines of code. Use this a proxy for how comple
  ./sieve/src/lib.rs                                       17           12            2            3
  ./accumulate/src/lib.rs                                  10           10            0            0
  ./say/src/constants.rs                                   12           10            0            2
- ./sum-of-multiples/src/lib.rs                            11           10            0            1
  ./armstrong-numbers/src/lib.rs                           11           10            0            1
+ ./sum-of-multiples/src/lib.rs                            11           10            0            1
  ./grains/src/lib.rs                                      10            9            0            1
  ./difference-of-squares/src/lib.rs                       17            9            5            3
  ./hamming/src/lib.rs                                     12            8            2            2
@@ -1065,7 +1075,7 @@ Here are all solutions ordered by lines of code. Use this a proxy for how comple
  ./hello-world/src/lib.rs                                  4            3            1            0
  ./dot-dsl/src/lib.rs                                      1            1            0            0
 ====================================================================================================
- Total                                       86         4030         3104          381          545
+ Total                                       87         4110         3176          381          553
 ====================================================================================================
 ```
 

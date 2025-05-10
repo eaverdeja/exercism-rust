@@ -81,4 +81,5 @@ members = [
     "variable-length-quantity",
     "word-count",
     "wordy",
+    "yacht",
 ]
