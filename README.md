@@ -97,6 +97,7 @@ This repo and README can be used to search for common language features. I hope 
   - [Luhn From](#luhn-from)
   - [Luhn Trait](#luhn-trait)
   - [Matching Brackets](#matching-brackets)
+  - [Matrix](#matrix)
   - [Minesweeper](#minesweeper)
   - [Nth Prime](#nth-prime)
   - [Nucleotide Count](#nucleotide-count)
@@ -265,6 +266,7 @@ This repo and README can be used to search for common language features. I hope 
 - Substring extraction with `strip_prefix()` and `strip_suffix()` - Used in [Wordy](#wordy)
 - Grid-based text transpostion - Used in [Crypto Square](#crypto-square)
 - Character-by-character processing with positional tracking - Used in [Rail Fence Cipher](#rail-fence-cipher)
+- String splitting with `lines()` and `split_ascii_whitespace()` - Used in [Matrix](#matrix)
 
 ### Formatting
 - String Formatting - Used in [Clock](#clock), [Tournament](#tournament) with format specifiers
@@ -624,6 +626,12 @@ Below is a brief analysis of each solution. Solutions are ordered alphabetically
 - Pattern matching for character types
 - Conditional logic with `if let`
 
+## [Matrix](https://github.com/eaverdeja/exercism-rust/tree/main/matrix)
+
+- Nested vector structure `Vec<Vec<u32>>` with a tuple struct pattern
+- Uses `lines()` and `split_ascii_whitespace()` to split elements
+- Crafty solution for `columns()` with `self.0.iter().map(|row| row.get(col_no - 1).cloned()).collect()`
+
 ## [Minesweeper](https://github.com/eaverdeja/exercism-rust/tree/main/minesweeper/src/lib.rs)
 
 - 2D grid processing with string/byte conversion
@@ -982,10 +990,10 @@ Here are all solutions ordered by lines of code. Use this a proxy for how comple
 > are not grouped together. But alas!
 
 ```console
-====================================================================================================
+=====================================================================================================
  Language                                 Files        Lines         Code     Comments       Blanks
 ====================================================================================================
- Rust                                        87         4110         3176          381          553
+ Rust                                        88         4137         3200          381          556
 ----------------------------------------------------------------------------------------------------
  ./alphametics/src/lib.rs                                463          289          111           63
  ./bowling/src/lib.rs                                    211          161           17           33
@@ -1028,14 +1036,15 @@ Here are all solutions ordered by lines of code. Use this a proxy for how comple
  ./clock/src/lib.rs                                       32           25            0            7
  ./atbash-cipher/src/lib.rs                               27           25            0            2
  ./triangle/src/lib.rs                                    31           25            0            6
+ ./matrix/src/lib.rs                                      27           24            0            3
  ./dot-dsl/src/graph/graph_items/edge.rs                  27           23            0            4
  ./kindergarten-garden/src/lib.rs                         26           23            0            3
  ./matching-brackets/src/lib.rs                           30           23            4            3
  ./high-scores/src/lib.rs                                 28           23            0            5
  ./nth-prime/src/lib.rs                                   28           22            2            4
  ./knapsack/src/lib.rs                                   138           22          114            2
- ./largest-series-product/src/lib.rs                      25           22            0            3
  ./crypto-square/src/lib.rs                               25           22            0            3
+ ./largest-series-product/src/lib.rs                      25           22            0            3
  ./dot-dsl/src/graph/graph_items/node.rs                  25           21            0            4
  ./acronym/src/lib.rs                                     28           21            4            3
  ./pascals-triangle/src/lib.rs                            24           21            0            3
@@ -1075,7 +1084,7 @@ Here are all solutions ordered by lines of code. Use this a proxy for how comple
  ./hello-world/src/lib.rs                                  4            3            1            0
  ./dot-dsl/src/lib.rs                                      1            1            0            0
 ====================================================================================================
- Total                                       87         4110         3176          381          553
+ Total                                       88         4137         3200          381          556
 ====================================================================================================
 ```
 

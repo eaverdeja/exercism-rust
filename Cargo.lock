@@ -219,6 +219,10 @@ name = "matching_brackets"
 version = "0.1.0"
 
 [[package]]
+name = "matrix"
+version = "0.1.0"
+
+[[package]]
 name = "minesweeper"
 version = "0.1.0"
 
