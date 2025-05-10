@@ -89,6 +89,7 @@ This repo and README can be used to search for common language features. I hope 
   - [ISBN Verifier](#isbn-verifier)
   - [Isogram](#isogram)
   - [Kindergarten Garden](#kindergarten-garden)
+  - [Knapsack](#knapsack)
   - [Largest Series Product](#largest-series-product)
   - [Leap](#leap)
   - [List Ops](#list-ops)
@@ -170,7 +171,7 @@ This repo and README can be used to search for common language features. I hope 
 - `enumerate()` - Used in [Saddle Points](#saddle-points), [All-Your-Base](#all-your-base), [ISBN Verifier](#isbn-verifier), and many others. This one is also pretty popular!
 - `zip()` - Used in [Hamming](#hamming), [Simple Cipher](#simple-cipher)
 - `flat_map()` - Used in [Alphametics](#alphametics), [ETL](#etl), [Kindergarten Garden](#kindergarten-garden), [Sum of Multiples](#sum-of-multiples), [Variable Length Quantity](#variable-length-quantity)
-- `fold()` - Used in [Luhn](#luhn), [Robot Simulator](#robot-simulator), [Pascal's Triangle](#pascals-triangle), [Rail Fence Cipher](#rail-fence-cipher), [Word Count](#word-count)
+- `fold()` - Used in [Luhn](#luhn), [Robot Simulator](#robot-simulator), [Pascal's Triangle](#pascals-triangle), [Rail Fence Cipher](#rail-fence-cipher), [Word Count](#word-count), [Knapsack](#knapsack)
 - `chain()` - Used in [Bottle Song](#bottle-song), [Robot Name](#robot-name)
 - `nth()` - Used in [Alphametics](#alphametics), [Phone Number](#phone-number), [Nth Prime](#nth-prime)
 - `flatten()`- Used in [Custom Set](#custom-set), [Rail Fence Cipher](#rail-fence-cipher)
@@ -249,6 +250,7 @@ This repo and README can be used to search for common language features. I hope 
 - Modular arithmetic with `rem_euclid()` - Used in [Affine Cipher](#affine-cipher), [Clock](#clock)
 - Greatest common divisor (GCD) calculation - Used in [Affine Cipher](#affine-cipher), [Two Bucket](#two-bucket)
 - Positional digit extraction with modulo and division operations - Used in [Roman Numerals](#roman-numerals)
+- Dynamic Programming - Used in [Knapsack](#knapsack)
 
 ## String Processing
 
@@ -572,6 +574,13 @@ Below is a brief analysis of each solution. Solutions are ordered alphabetically
 - Pattern matching for seed type conversion
 - Complex iterator chaining
 
+## [Knapsack](https://github.com/eaverdeja/exercism-rust/tree/main/knapsack)
+
+- Dynamic Programming solution to the classic 0/1 knapsack problem
+- Bottom-up approach that builds up the maximum values for each increasing subset of items
+- Uses `fold()` with a vector accumulator to represent the previous DP row. This reduces space completixty from `O(n*w)` to `O(w)`
+- Time complexity is `O(n*w)` as is typical of DP solutions
+
 ## [Largest Series Product](https://github.com/eaverdeja/exercism-rust/tree/main/largest-series-product)
 
 - `windows()` method for sliding window operations over bytes with `as_bytes()`
@@ -606,8 +615,6 @@ Below is a brief analysis of each solution. Solutions are ordered alphabetically
 ## [Luhn Trait](https://github.com/eaverdeja/exercism-rust/tree/main/luhn-trait/src/lib.rs)
 
 - Avoids the use of a custom struct entirely by defining a generic `Luhn<T>` trait and implementing it for displayable types with `impl<T: Display> Luhn<T> for T`
-
-
 
 ## [Matching Brackets](https://github.com/eaverdeja/exercism-rust/tree/main/matching-brackets/src/lib.rs)
 
@@ -969,7 +976,7 @@ Here are all solutions ordered by lines of code. Use this a proxy for how comple
 ====================================================================================================
  Language                                 Files        Lines         Code     Comments       Blanks
 ====================================================================================================
- Rust                                        85         3892         3082          267          543
+ Rust                                        86         4030         3104          381          545
 ----------------------------------------------------------------------------------------------------
  ./alphametics/src/lib.rs                                463          289          111           63
  ./bowling/src/lib.rs                                    211          161           17           33
@@ -1001,8 +1008,8 @@ Here are all solutions ordered by lines of code. Use this a proxy for how comple
  ./perfect-numbers/src/lib.rs                             38           32            2            4
  ./luhn-trait/src/lib.rs                                  35           30            0            5
  ./luhn-from/src/lib.rs                                   35           29            0            6
- ./dot-dsl/src/graph/graph_items/attrs.rs                 35           29            0            6
  ./sublist/src/lib.rs                                     32           29            0            3
+ ./dot-dsl/src/graph/graph_items/attrs.rs                 35           29            0            6
  ./dot-dsl/src/graph.rs                                   35           28            0            7
  ./queen-attack/src/lib.rs                                35           28            1            6
  ./roman-numerals/src/lib.rs                              32           28            0            4
@@ -1016,6 +1023,7 @@ Here are all solutions ordered by lines of code. Use this a proxy for how comple
  ./matching-brackets/src/lib.rs                           30           23            4            3
  ./high-scores/src/lib.rs                                 28           23            0            5
  ./nth-prime/src/lib.rs                                   28           22            2            4
+ ./knapsack/src/lib.rs                                   138           22          114            2
  ./largest-series-product/src/lib.rs                      25           22            0            3
  ./crypto-square/src/lib.rs                               25           22            0            3
  ./dot-dsl/src/graph/graph_items/node.rs                  25           21            0            4
@@ -1041,8 +1049,8 @@ Here are all solutions ordered by lines of code. Use this a proxy for how comple
  ./sieve/src/lib.rs                                       17           12            2            3
  ./accumulate/src/lib.rs                                  10           10            0            0
  ./say/src/constants.rs                                   12           10            0            2
- ./armstrong-numbers/src/lib.rs                           11           10            0            1
  ./sum-of-multiples/src/lib.rs                            11           10            0            1
+ ./armstrong-numbers/src/lib.rs                           11           10            0            1
  ./grains/src/lib.rs                                      10            9            0            1
  ./difference-of-squares/src/lib.rs                       17            9            5            3
  ./hamming/src/lib.rs                                     12            8            2            2
@@ -1057,7 +1065,7 @@ Here are all solutions ordered by lines of code. Use this a proxy for how comple
  ./hello-world/src/lib.rs                                  4            3            1            0
  ./dot-dsl/src/lib.rs                                      1            1            0            0
 ====================================================================================================
- Total                                       85         3892         3082          267          543
+ Total                                       86         4030         3104          381          545
 ====================================================================================================
 ```
 
