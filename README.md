@@ -80,6 +80,7 @@ This repo and README can be used to search for common language features. I hope 
   - [Dot DSL](#dot-dsl)
   - [Eliud's Eggs](#eliuds-eggs)
   - [ETL](#etl)
+  - [Fizzy](#fizzy)
   - [Gigasecond](#gigasecond)
   - [Grade School](#grade-school)
   - [Grains](#grains)
@@ -279,9 +280,10 @@ This repo and README can be used to search for common language features. I hope 
 - `From` and Type Conversion - Used in [Space Age](#space-age), [Roman Numerals](#roman-numerals)
 
 ### Generic Programming
-- Generic Functions - Used in [Binary Search](#binary-search) with type parameters, [Simple Linked List](#simple-linked-list) with `Node<T>`, [Accumulate](#accumulate), [List Ops](#list-ops)
-- Generic `impl` with Trait Bounds - Used in [Custom Set](#custom-set), [Luhn From](#luhn-from), [Simple Linked List](#simple-linked-list), [Triangle](#triangle)
+- Generic Functions - Used in [Binary Search](#binary-search) with type parameters, [Simple Linked List](#simple-linked-list) with `Node<T>`, [Accumulate](#accumulate), [List Ops](#list-ops), [Fizzy](#fizzy)
+- Generic `impl` with Trait Bounds - Used in [Custom Set](#custom-set), [Luhn From](#luhn-from), [Simple Linked List](#simple-linked-list), [Triangle](#triangle), [Fizzy](#fizzy)
 - Generic `trait` - Used in [Luhn Trait](#luhn-trait)
+- Trait objects - Used in [Fizzy](#fizzy)
 
 
 ## Memory Management
@@ -517,6 +519,16 @@ Below is a brief analysis of each solution. Solutions are ordered alphabetically
 - `BTreeMap` for ordered map functionality
 - Flat mapping for data transformation
 - Functional pipeline with iterators
+
+## [Fizzy](https://github.com/eaverdeja/exercism-rust/tree/main/fizzy)
+
+- Generic implementation with `trait` bounds for maximum flexibility
+- Higher-order functions with boxed closures (`Box<dyn Fn(T) -> bool>`)
+- Builder pattern with method chaining (`add_matcher()` returns `self`)
+- Parametric polymorphism using type parameters with multiple constraints
+- Generic numeric operations with `From<u8>`, `PartialEq` and `Rem<Output = T>`
+- Closures with `move` to capture environment variables
+- Uses type annotations to enforce trait bounds on return types
 
 ## [Gigasecond](https://github.com/eaverdeja/exercism-rust/tree/main/gigasecond/src/lib.rs)
 
@@ -990,10 +1002,10 @@ Here are all solutions ordered by lines of code. Use this a proxy for how comple
 > are not grouped together. But alas!
 
 ```console
-=====================================================================================================
+====================================================================================================
  Language                                 Files        Lines         Code     Comments       Blanks
 ====================================================================================================
- Rust                                        88         4137         3200          381          556
+ Rust                                        89         4209         3260          381          568
 ----------------------------------------------------------------------------------------------------
  ./alphametics/src/lib.rs                                463          289          111           63
  ./bowling/src/lib.rs                                    211          161           17           33
@@ -1009,6 +1021,7 @@ Here are all solutions ordered by lines of code. Use this a proxy for how comple
  ./affine-cipher/src/lib.rs                               87           70            3           14
  ./paasio/src/lib.rs                                      79           66            0           13
  ./list-ops/src/lib.rs                                    74           66            0            8
+ ./fizzy/src/lib.rs                                       72           60            0           12
  ./rail-fence-cipher/src/lib.rs                           75           59            4           12
  ./variable-length-quantity/src/lib.rs                    75           59            3           13
  ./bottle-song/src/lib.rs                                 62           58            0            4
@@ -1043,8 +1056,8 @@ Here are all solutions ordered by lines of code. Use this a proxy for how comple
  ./high-scores/src/lib.rs                                 28           23            0            5
  ./nth-prime/src/lib.rs                                   28           22            2            4
  ./knapsack/src/lib.rs                                   138           22          114            2
- ./crypto-square/src/lib.rs                               25           22            0            3
  ./largest-series-product/src/lib.rs                      25           22            0            3
+ ./crypto-square/src/lib.rs                               25           22            0            3
  ./dot-dsl/src/graph/graph_items/node.rs                  25           21            0            4
  ./acronym/src/lib.rs                                     28           21            4            3
  ./pascals-triangle/src/lib.rs                            24           21            0            3
@@ -1068,8 +1081,8 @@ Here are all solutions ordered by lines of code. Use this a proxy for how comple
  ./sieve/src/lib.rs                                       17           12            2            3
  ./accumulate/src/lib.rs                                  10           10            0            0
  ./say/src/constants.rs                                   12           10            0            2
- ./armstrong-numbers/src/lib.rs                           11           10            0            1
  ./sum-of-multiples/src/lib.rs                            11           10            0            1
+ ./armstrong-numbers/src/lib.rs                           11           10            0            1
  ./grains/src/lib.rs                                      10            9            0            1
  ./difference-of-squares/src/lib.rs                       17            9            5            3
  ./hamming/src/lib.rs                                     12            8            2            2
@@ -1084,7 +1097,7 @@ Here are all solutions ordered by lines of code. Use this a proxy for how comple
  ./hello-world/src/lib.rs                                  4            3            1            0
  ./dot-dsl/src/lib.rs                                      1            1            0            0
 ====================================================================================================
- Total                                       88         4137         3200          381          556
+ Total                                       89         4209         3260          381          568
 ====================================================================================================
 ```
 

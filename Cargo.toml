@@ -23,6 +23,7 @@ members = [
     "dot-dsl",
     "eliuds-eggs",
     "etl",
+    "fizzy",
     "gigasecond",
     "grade-school",
     "grains",
