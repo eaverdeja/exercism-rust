@@ -55,6 +55,7 @@ members = [
     "prime-factors",
     "protein-translation",
     "proverb",
+    "pythagorean-triplet",
     "queen-attack",
     "rail-fence-cipher",
     "raindrops",

@@ -112,6 +112,7 @@ This repo and README can be used to search for common language features. I hope 
   - [Prime Factors](#prime-factors)
   - [Protein Translation](#protein-translation)
   - [Proverb](#proverb)
+  - [Pythagorean Triplet](#pythagorean-triplet)
   - [Queen Attack](#queen-attack)
   - [Rail Fence Cipher](#rail-fence-cipher)
   - [Raindrops](#raindrops)
@@ -253,6 +254,7 @@ This repo and README can be used to search for common language features. I hope 
 - Modular arithmetic with `rem_euclid()` - Used in [Affine Cipher](#affine-cipher), [Clock](#clock)
 - Greatest common divisor (GCD) calculation - Used in [Affine Cipher](#affine-cipher), [Two Bucket](#two-bucket)
 - Positional digit extraction with modulo and division operations - Used in [Roman Numerals](#roman-numerals)
+- Euclid's Formula - Used in [Pythagorean Triplet](#pythagorean-triplet)
 - Dynamic Programming - Used in [Knapsack](#knapsack)
 
 ## String Processing
@@ -735,6 +737,12 @@ Below is a brief analysis of each solution. Solutions are ordered alphabetically
 - Chained iterators for output construction
 - `join()` for string concatenation
 
+## [Pythagorean Triplet](https://github.com/eaverdeja/exercism-rust/tree/main/pythagorean-triplet)
+
+- Uses Euclid's formula to generate Pythagorean triplets with integer pairs
+- `HashSet<[u32; 3]>` for storing unique triplets
+- Uses array mapping with `.map(|t| t * k)` to apply scaling factor
+
 ## [Queen Attack](https://github.com/eaverdeja/exercism-rust/tree/main/queen-attack/src/lib.rs)
 
 - Custom structs for chess positions
@@ -1005,7 +1013,7 @@ Here are all solutions ordered by lines of code. Use this a proxy for how comple
 ====================================================================================================
  Language                                 Files        Lines         Code     Comments       Blanks
 ====================================================================================================
- Rust                                        89         4209         3260          381          568
+ Rust                                        90         4262         3281          408          573
 ----------------------------------------------------------------------------------------------------
  ./alphametics/src/lib.rs                                463          289          111           63
  ./bowling/src/lib.rs                                    211          161           17           33
@@ -1042,8 +1050,8 @@ Here are all solutions ordered by lines of code. Use this a proxy for how comple
  ./dot-dsl/src/graph/graph_items/attrs.rs                 35           29            0            6
  ./sublist/src/lib.rs                                     32           29            0            3
  ./dot-dsl/src/graph.rs                                   35           28            0            7
- ./roman-numerals/src/lib.rs                              32           28            0            4
  ./queen-attack/src/lib.rs                                35           28            1            6
+ ./roman-numerals/src/lib.rs                              32           28            0            4
  ./anagram/src/lib.rs                                     32           27            0            5
  ./protein-translation/src/lib.rs                         29           27            0            2
  ./clock/src/lib.rs                                       32           25            0            7
@@ -1060,6 +1068,7 @@ Here are all solutions ordered by lines of code. Use this a proxy for how comple
  ./crypto-square/src/lib.rs                               25           22            0            3
  ./dot-dsl/src/graph/graph_items/node.rs                  25           21            0            4
  ./acronym/src/lib.rs                                     28           21            4            3
+ ./pythagorean-triplet/src/lib.rs                         53           21           27            5
  ./pascals-triangle/src/lib.rs                            24           21            0            3
  ./saddle-points/src/lib.rs                               23           20            0            3
  ./luhn/src/lib.rs                                        24           20            1            3
@@ -1081,8 +1090,8 @@ Here are all solutions ordered by lines of code. Use this a proxy for how comple
  ./sieve/src/lib.rs                                       17           12            2            3
  ./accumulate/src/lib.rs                                  10           10            0            0
  ./say/src/constants.rs                                   12           10            0            2
- ./sum-of-multiples/src/lib.rs                            11           10            0            1
  ./armstrong-numbers/src/lib.rs                           11           10            0            1
+ ./sum-of-multiples/src/lib.rs                            11           10            0            1
  ./grains/src/lib.rs                                      10            9            0            1
  ./difference-of-squares/src/lib.rs                       17            9            5            3
  ./hamming/src/lib.rs                                     12            8            2            2
@@ -1097,7 +1106,7 @@ Here are all solutions ordered by lines of code. Use this a proxy for how comple
  ./hello-world/src/lib.rs                                  4            3            1            0
  ./dot-dsl/src/lib.rs                                      1            1            0            0
 ====================================================================================================
- Total                                       89         4209         3260          381          568
+ Total                                       90         4262         3281          408          573
 ====================================================================================================
 ```
 
