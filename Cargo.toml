@@ -12,6 +12,7 @@ members = [
     "atbash-cipher",
     "binary-search",
     "bob",
+    "book-store",
     "bottle-song",
     "bowling",
     "clock",

@@ -69,6 +69,7 @@ This repo and README can be used to search for common language features. I hope 
   - [Atbash Cipher](#atbash-cipher)
   - [Binary Search](#binary-search)
   - [Bob](#bob)
+  - [Book Store](#book-store)
   - [Bottle Song](#bottle-song)
   - [Bowling](#bowling)
   - [Clock](#clock)
@@ -438,6 +439,16 @@ Below is a brief analysis of each solution. Solutions are ordered alphabetically
 - String manipulation (`trim()`, `ends_with()`)
 - Character classification methods
 - Efficient iterators with `filter()`, `all()`, `any()`
+
+## [Book Store](https://github.com/eaverdeja/exercism-rust/tree/main/book-store/src/lib.rs)
+
+- Uses three different algorithms to calculate the optimal discount strategy
+  - Largest-sets approach that maximizes set sizes
+  - Balanced-sets approach that distributes books evenly
+  - Specialized sets-of-four optimization targeted at the discount "sweet spot"
+- Uses `min()` to select the most cost-effective strategy
+- `sort_unstable_by_key()` with `Reverse` for frequency-based sorting
+- Type-parameterized functions with trait bounds (`IntoIterator + Clone`)
 
 ## [Bottle Song](https://github.com/eaverdeja/exercism-rust/tree/main/bottle-song/src/lib.rs)
 
@@ -1013,13 +1024,14 @@ Here are all solutions ordered by lines of code. Use this a proxy for how comple
 ====================================================================================================
  Language                                 Files        Lines         Code     Comments       Blanks
 ====================================================================================================
- Rust                                        90         4262         3281          408          573
+ Rust                                        91         4365         3363          408          594
 ----------------------------------------------------------------------------------------------------
  ./alphametics/src/lib.rs                                463          289          111           63
  ./bowling/src/lib.rs                                    211          161           17           33
  ./custom-set/src/lib.rs                                 193          140           21           32
  ./tournament/src/lib.rs                                 150          126            0           24
  ./two-bucket/src/lib.rs                                 159          123           15           21
+ ./book-store/src/lib.rs                                 103           82            0           21
  ./spiral-matrix/src/lib.rs                               93           81            0           12
  ./robot-simulator/src/lib.rs                             94           80            0           14
  ./wordy/src/lib.rs                                       94           78            5           11
@@ -1050,8 +1062,8 @@ Here are all solutions ordered by lines of code. Use this a proxy for how comple
  ./dot-dsl/src/graph/graph_items/attrs.rs                 35           29            0            6
  ./sublist/src/lib.rs                                     32           29            0            3
  ./dot-dsl/src/graph.rs                                   35           28            0            7
- ./queen-attack/src/lib.rs                                35           28            1            6
  ./roman-numerals/src/lib.rs                              32           28            0            4
+ ./queen-attack/src/lib.rs                                35           28            1            6
  ./anagram/src/lib.rs                                     32           27            0            5
  ./protein-translation/src/lib.rs                         29           27            0            2
  ./clock/src/lib.rs                                       32           25            0            7
@@ -1088,10 +1100,10 @@ Here are all solutions ordered by lines of code. Use this a proxy for how comple
  ./raindrops/src/lib.rs                                   14           13            0            1
  ./reverse-string/src/lib.rs                              20           13            4            3
  ./sieve/src/lib.rs                                       17           12            2            3
- ./accumulate/src/lib.rs                                  10           10            0            0
  ./say/src/constants.rs                                   12           10            0            2
  ./armstrong-numbers/src/lib.rs                           11           10            0            1
  ./sum-of-multiples/src/lib.rs                            11           10            0            1
+ ./accumulate/src/lib.rs                                  10           10            0            0
  ./grains/src/lib.rs                                      10            9            0            1
  ./difference-of-squares/src/lib.rs                       17            9            5            3
  ./hamming/src/lib.rs                                     12            8            2            2
@@ -1106,7 +1118,7 @@ Here are all solutions ordered by lines of code. Use this a proxy for how comple
  ./hello-world/src/lib.rs                                  4            3            1            0
  ./dot-dsl/src/lib.rs                                      1            1            0            0
 ====================================================================================================
- Total                                       90         4262         3281          408          573
+ Total                                       91         4365         3363          408          594
 ====================================================================================================
 ```
 
